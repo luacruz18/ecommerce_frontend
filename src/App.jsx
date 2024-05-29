@@ -1,33 +1,30 @@
-import { useState } from 'preact/hooks'
-import preactLogo from './assets/preact.svg'
-import viteLogo from '/vite.svg'
-import './app.css'
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import Home from './components/Home';
+import Products from './components/Products';
+import Category from './components/Category';
+import Cart from './components/Cart';
+import Login from './components/Login';
+import Register from './components/Register';
+import About from './components/About';
 
-export function App() {
-  const [count, setCount] = useState(0)
 
+function App() {
   return (
-    <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} class="logo" alt="Vite logo" />
-        </a>
-        <a href="https://preactjs.com" target="_blank">
-          <img src={preactLogo} class="logo preact" alt="Preact logo" />
-        </a>
+    <Router>
+     
+      <div className="container mx-auto p-4">
+        <Switch>
+          <Route path="/" exact component={Home} />
+          <Route path="/products/:id" component={Products} />
+          <Route path="/category/:id" component={Category} />
+          <Route path="/cart" component={Cart} />
+          <Route path="/login" component={Login} />
+          <Route path="/register" component={Register} />
+          <Route path="/about" component={About} />
+        </Switch>
       </div>
-      <h1>Vite + Preact</h1>
-      <div class="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/app.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p class="read-the-docs">
-        Click on the Vite and Preact logos to learn more
-      </p>
-    </>
-  )
+    </Router>
+  );
 }
+
+export default App;
