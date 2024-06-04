@@ -7,7 +7,7 @@ class Navbar extends React.Component {
      
         <div className="navbar">
             <div className="navbar-logo">
-          <img src="src\img\Logo_Web.png" alt="Logo" className="logo" />
+          <img src="public\img\Logo_Web.png" alt="Logo" className="logo" />
           <input type="text" placeholder="Buscar" className="search-bar" />
           </div>
           <div className="navbar-nav">

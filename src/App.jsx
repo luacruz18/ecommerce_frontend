@@ -1,6 +1,6 @@
 import React from "react";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-
+import 'bootstrap/dist/css/bootstrap.min.css';
 import Home from "./pages/Home";
 import Products from "./pages/Products";
 import Category from "./pages/Category";
