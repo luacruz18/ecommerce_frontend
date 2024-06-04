@@ -2,11 +2,11 @@ body {
   margin: 0;
 }
 
-.navbar {
+#navbar {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 10px 20px;
+  padding: 12px;
   background-color: #0a0a0a;
   color: white;
 }
@@ -30,9 +30,33 @@ body {
 
 .search-bar {
     margin-left: 50px;
-  padding: 10px;
+  padding: 6px;
   width: 400px;
   border-radius: 5px;
   border: none;
   outline: none;
+}
+
+.menu{
+  margin-left: 10px;
+  
+}
+
+.person-fill{
+ font-size: 20px;
+}
+
+#dropdown-basic{
+  background-color: transparent;
+  color: #E93D3A;
+  border: none;
+  margin-right: 20px
+}
+
+.dropdown-toggle::after {
+  display:none !important; 
+}
+
+.dropdown-item:hover {
+  background-color: grey !important; 
 }
