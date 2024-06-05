@@ -5,30 +5,30 @@ const IndividualIntervalsExample = () => {
   return (
     <div className= "main-container">
     <Carousel>
-      <Carousel.Item interval={1000}>
+      <Carousel.Item interval={1100}>
         <img className="img" src={import.meta.env.VITE_IMG_URL + "uno.jpg"} alt="" />
         <Carousel.Caption>
-          <h3>First slide label</h3>
-          <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+             {/* aca iria los botones y eso */}
         </Carousel.Caption>
       </Carousel.Item>
-      <Carousel.Item interval={500}>
+      <Carousel.Item interval={1100}>
         <img className="img" src={import.meta.env.VITE_IMG_URL + "uno.jpg"} alt="" />
         <Carousel.Caption>
-          <h3>Second slide label</h3>
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+        {/* aca iria los botones y eso */}
         </Carousel.Caption>
       </Carousel.Item>
-      <Carousel.Item>
+      <Carousel.Item interval={1100}>
         <img className="img" src={import.meta.env.VITE_IMG_URL + "uno.jpg"} alt="" />
         <Carousel.Caption>
-          <h3>Third slide label</h3>
-          <p>
-            Praesent commodo cursus magna, vel scelerisque nisl consectetur.
-          </p>
+           {/* aca iria los botones y eso */}
         </Carousel.Caption>
       </Carousel.Item>
-    
+      <Carousel.Item interval={1100}>
+        <img className="img" src={import.meta.env.VITE_IMG_URL + "uno.jpg"} alt="" />
+        <Carousel.Caption>
+        {/* aca iria los botones y eso */}
+        </Carousel.Caption>
+      </Carousel.Item>
     </Carousel>
     </div>
   );
