@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from 'react';
-import { Carousel, Row, Col } from 'react-bootstrap';
-import 'bootstrap/dist/css/bootstrap.min.css';
+import { Carousel } from 'react-bootstrap';
+import 'bootstrap/dist/css/bootstrap.min.css'; 
 
-const CarouselWithCards = () => {
+const CarouselWithControls = () => {
   const [productos, setProductos] = useState([]);
+  const [index, setIndex] = useState(0);
 
   useEffect(() => {
     fetch('http://localhost:3000/products')
@@ -12,39 +13,42 @@ const CarouselWithCards = () => {
       .catch(error => console.error('Error fetching data:', error));
   }, []);
 
+  const chunkArray = (arr, chunkSize) => {
+    const chunkedArray = [];
+    for (let i = 0; i < arr.length; i += chunkSize) {
+      chunkedArray.push(arr.slice(i, i + chunkSize));
+    }
+    return chunkedArray;
+  };
+
+  const chunkedProducts = chunkArray(productos, 5); // Agrupar los productos en bloques de 4
+
+  const handleSelect = (selectedIndex, e) => {
+    setIndex(selectedIndex);
+  };
+
   return (
-    <Carousel indicators={false}>
-      <Carousel.Item>
-        <Row>
-          {productos.slice(0, 5).map(producto => (
-            <Col key={producto.id} xs={12} sm={6} md={4} lg={3} xl={2}>
-              <div className="card">
-                <img src={producto.imgUrl} className="card-img-top" alt={producto.name} />
-                <div className="card-body">
-                  <h5 className="card-title">{producto.name}</h5>
+    <div id='explore-container'>
+      <Carousel activeIndex={index} onSelect={handleSelect} interval={null} pause={false} indicators={false}>
+        {chunkedProducts.map((chunk, index) => (
+          <Carousel.Item key={index}>
+            <div className="row justify-content-center">
+              {chunk.map((producto, index) => (
+                <div key={index} className="col-xs-6 col-sm-6 col-md-3 col-lg-2">
+                  <div className="card product-card">
+                    <div className="img-wrapper"><img src={producto.img} className="card-img-top" alt={producto.name} /></div>
+                    <div className="card-body">
+                      <h5 className="card-title">{producto.name}</h5>
+                    </div>
+                  </div>
                 </div>
-              </div>
-            </Col>
-          ))}
-        </Row>
-      </Carousel.Item>
-      <Carousel.Item>
-        <Row>
-          {productos.slice(5, 10).map(producto => (
-            <Col key={producto.id} xs={12} sm={6} md={4} lg={3} xl={2}>
-              <div className="card">
-                <img src={producto.imgUrl} className="card-img-top" alt={producto.name} />
-                <div className="card-body">
-                  <h5 className="card-title">{producto.name}</h5>
-                </div>
-              </div>
-            </Col>
-          ))}
-        </Row>
-      </Carousel.Item>
-      {/* Agrega más Carousel.Items según sea necesario */}
-    </Carousel>
+              ))}
+            </div>
+          </Carousel.Item>
+        ))}
+      </Carousel>
+    </div>
   );
 };
 
-export default CarouselWithCards;
+export default CarouselWithControls;

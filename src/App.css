@@ -75,7 +75,7 @@ body {
     overflow: hidden;
   }
   
-  .carousel-item {
+  .main-carousel-item {
     height: 500px;
   }
   
@@ -96,3 +96,13 @@ body {
   height: 5px; 
   border-radius: 5px; 
 }
+
+#explore-container{
+  max-height: 100%;
+}
+
+.product-card{
+  height: 100%;
+  overflow-wrap: break-word;
+}
+

@@ -9,7 +9,9 @@ const Home = () => {
     <div>
       <Navbar />
       <IndividualIntervalsExample />
+      <h3 className='d-flex justify-content-center mt-3'>EXPLORA NUESTROS PRODUCTOS</h3>
       <CarouselWithCards />
+      <h3>hola</h3>
       
     </div>
   );
