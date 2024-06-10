@@ -70,7 +70,10 @@ body {
     object-fit: cover;
   }
   
-
+  .main-container .carousel {
+    max-height: 650px; 
+    overflow: hidden;
+  }
   
   .main-carousel-item {
     height: 500px;
