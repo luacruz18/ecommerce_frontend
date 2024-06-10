@@ -8,7 +8,6 @@ const Navbar = () => {
     <div className="navbar" id="navbar">
       <div className="navbar-logo">
         <img src={import.meta.env.VITE_IMG_URL + "Logo_Web.png"}  alt="Logo" className="logo" />
-        <input type="text" placeholder="Buscar" className="search-bar" />
       </div>
       <div className="navbar-nav">
         <Dropdown>
