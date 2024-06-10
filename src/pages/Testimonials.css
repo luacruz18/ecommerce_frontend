@@ -1,4 +1,3 @@
-/* Testimonials.css */
 .testimonials-container {
   position: relative;
   width: 100%;
@@ -6,15 +5,27 @@
   margin: 0;
 }
 
+.background-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+}
+
 .testimonials-text {
   position: absolute;
-  top: 15%;
+  top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
   color: white;
-  padding: 10px;
-  border-radius: 5px;
   text-align: center;
-  font-family: "montserrat";
 }
 
+.testimonials-text h1 {
+  font-family: "Montserrat", sans-serif;
+  font-size: 2em;
+  margin-bottom: 20px;
+}
