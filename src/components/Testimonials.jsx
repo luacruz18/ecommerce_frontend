@@ -1,5 +1,7 @@
 import React from "react";
 import "../pages/Testimonials.css";
+import { Splide, SplideSlide } from "@splidejs/react-splide";
+import "@splidejs/splide/dist/css/splide.min.css";
 
 export default function Testimonials() {
   return (
@@ -11,7 +13,19 @@ export default function Testimonials() {
       />
       <div className="testimonials-text">
         <h1>Testimonios</h1>
-        <p></p>
+        <div>
+          <Splide
+            options={{
+              type: "loop",
+              perPage: 3,
+              autoplay: true,
+            }}
+          >
+            <SplideSlide>
+              <h3>Hola</h3>
+            </SplideSlide>
+          </Splide>
+        </div>
       </div>
     </div>
   );
