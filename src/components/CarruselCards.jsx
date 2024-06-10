@@ -15,12 +15,8 @@ const CarouselWithControls = () => {
   }, []);
 
   return (
-    <div style={{ width: "100%", height: "80vh", position: "relative" }}>
-    <img
-      src="public\img\fondotestimonios.jpg"
-      alt="testimonios"
-      style={{ width: "100%", height: "100%", objectFit: "cover" }}
-    />
+    <div style={{ width: "100%", position: "relative" }}>
+   
     <div className="testimonials-text">
       <h1>EXPLORA NUESTROS PRODUCTOS</h1>
       <div>
