@@ -2,12 +2,12 @@ body {
   margin: 0;
 }
 
-#navbar {
+.navbar {
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 12px;
-  background-color: #0a0a0a;
+  background-color: #0a0a0a !important;
   color: white;
 }
 
@@ -30,8 +30,6 @@ body {
 
 .search-bar {
   margin-left: 50px;
-  padding: 6px;
-  margin-left: 50px;
   padding: 10px;
   width: 400px;
   border-radius: 5px;
@@ -45,13 +43,22 @@ body {
 
 .person-fill {
   font-size: 20px;
+  margin-left: 20px;
+  margin-right: 10px;
+  cursor: pointer;
+}
+.cart-icon {
+  font-size: 20px;
+  margin-left: 20px;
+  margin-right: 10px;
+  cursor: pointer;
 }
 
 #dropdown-basic {
   background-color: transparent;
   color: #e93d3a;
   border: none;
-  margin-right: 20px;
+  margin-right: 40px;
 }
 
 .dropdown-toggle::after {
@@ -100,17 +107,7 @@ body {
   max-height: 100%;
 }
 
-.card-products {
-  width: 200px;
-  height: 200px;
-}
-
-h3 {
-  font-family: Montserrat;
-  font-weight: 800;
-}
-
-.testimonials{
-  background-image: url("/img/Fondotestimonios.jpg");
-  padding-bottom: 200px;
+.product-card {
+  height: 100%;
+  overflow-wrap: break-word;
 }
