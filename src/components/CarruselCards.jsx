@@ -16,24 +16,28 @@ const CarouselWithControls = () => {
 
   return (
     <div style={{ width: "100%", position: "relative" }}>
-   
-    <div className="testimonials-text">
-      <h1>EXPLORA NUESTROS PRODUCTOS</h1>
-      <div>
-        <Splide
-          options={{
-            type: "loop",
-            perPage: 3,
-            autoplay: true,
-          }}
-        >
-          <SplideSlide>
-            <h3>Hola</h3>
-          </SplideSlide>
-        </Splide>
+      <div className="testimonials-text">
+        <h1>EXPLORA NUESTROS PRODUCTOS</h1>
+        <div>
+          <Splide
+            options={{
+              type: "loop",
+              perPage: 6,
+              autoplay: true,
+            }}
+          >
+            {products.map((product) => (
+              <SplideSlide key={product.id}>
+                <div>
+                  <img src={product.image} alt={product.name} />
+                  <h3>{product.name}</h3>
+                </div>
+              </SplideSlide>
+            ))}
+          </Splide>
+        </div>
       </div>
     </div>
-  </div>
   );
 };
 

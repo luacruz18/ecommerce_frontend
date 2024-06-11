@@ -15,7 +15,7 @@ export default function Testimonials() {
         <Splide
           options={{
             type: "loop",
-            perPage: 4,
+            perPage: 3,
             autoplay: true,
           }}
         >
