@@ -43,6 +43,9 @@ body {
 
 .person-fill {
   font-size: 20px;
+  margin-left: 20px;
+  margin-right: 10px;
+  cursor: pointer;
 }
 .cart-icon {
   font-size: 20px;
