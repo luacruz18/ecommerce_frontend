@@ -13,10 +13,10 @@ const Home = () => {
       <IndividualIntervalsExample />
       <h3 className="text-center mt-3">EXPLORA NUESTROS PRODUCTOS</h3>
       <ProductCarousel />
-      <Collage />
+      {/* <Collage /> */}
       <Testimonials />
       <Footer />
-   
+
     </div>
   );
 };

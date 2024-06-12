@@ -118,7 +118,9 @@ font-family: 'Montserrat', sans-serif;
 }
 
 .testimonials{
-  background-image: url("public\img\fondotestimonios.jpg");
+  background-image: url("/img/fondotestimonios.jpg");
+  background-size: cover; 
+  background-position: center;
   padding-bottom: 200px;
 }
 body {
