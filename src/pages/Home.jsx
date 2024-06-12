@@ -1,8 +1,8 @@
 import React from "react";
 import Navbar from "../components/Navbar";
-import CarouselWithCards from "../components/CarruselCards";
 import IndividualIntervalsExample from "../components/Carousel";
 import Footer from "../components/Footer";
+import ProductCarousel from "../components/ProductCarousel";
 import Testimonials from "../components/Testimonials";
 
 const Home = () => {
@@ -10,9 +10,11 @@ const Home = () => {
     <div>
       <Navbar />
       <IndividualIntervalsExample />
-      <CarouselWithCards />
+      <h3 className="text-center mt-3">EXPLORA NUESTROS PRODUCTOS</h3>
+      <ProductCarousel />
       <Testimonials />
       <Footer />
+   
     </div>
   );
 };

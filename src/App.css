@@ -2,12 +2,12 @@ body {
   margin: 0;
 }
 
-#navbar {
+.navbar {
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 12px;
-  background-color: #0a0a0a;
+  background-color: #0a0a0a !important;
   color: white;
 }
 
@@ -29,8 +29,6 @@ body {
 }
 
 .search-bar {
-    margin-left: 50px;
-  padding: 6px;
   margin-left: 50px;
   padding: 10px;
   width: 400px;
@@ -39,70 +37,87 @@ body {
   outline: none;
 }
 
-.menu{
+.menu {
   margin-left: 10px;
-  
 }
 
-.person-fill{
- font-size: 20px;
+.person-fill {
+  font-size: 20px;
+  margin-left: 20px;
+  margin-right: 10px;
+  cursor: pointer;
+}
+.cart-icon {
+  font-size: 20px;
+  margin-left: 20px;
+  margin-right: 10px;
+  cursor: pointer;
 }
 
-#dropdown-basic{
+#dropdown-basic {
   background-color: transparent;
-  color: #E93D3A;
+  color: #e93d3a;
   border: none;
-  margin-right: 20px
+  margin-right: 40px;
 }
 
 .dropdown-toggle::after {
-  display:none !important; 
+  display: none !important;
 }
 
 .dropdown-item:hover {
-  background-color: grey !important; 
+  background-color: grey !important;
 }
 
-  .img {
-    width: 100%;
-    height: auto; 
-    max-height: 650px;
-    object-fit: cover;
-  }
-  
-  .main-container .carousel {
-    max-height: 650px; 
-    overflow: hidden;
-  }
-  
-  .main-carousel-item {
-    height: 500px;
-  }
-  
-  .carousel-item img {
-    height: 100%;
-  }
+.img {
+  width: 100%;
+  height: auto;
+  max-height: 650px;
+  object-fit: cover;
+}
+
+.main-container .carousel {
+  max-height: 650px;
+  overflow: hidden;
+}
+
+.main-carousel-item {
+  height: 500px;
+}
+
+.carousel-item img {
+  height: 100%;
+}
 
 .carousel-indicators [data-bs-target] {
-  background-color: rgb(32, 30, 30); 
-  width: 100px; 
+  background-color: rgb(32, 30, 30);
+  width: 100px;
   height: 5px;
-  border-radius: 5px; 
+  border-radius: 5px;
 }
 
 .carousel-indicators .active {
-  background-color:#E93D3A ; 
-  width: 100px; 
-  height: 5px; 
-  border-radius: 5px; 
+  background-color: #e93d3a;
+  width: 100px;
+  height: 5px;
+  border-radius: 5px;
 }
 
-#explore-container{
+#explore-container {
   max-height: 100%;
 }
 
-.product-card{
+.product-card {
   height: 100%;
   overflow-wrap: break-word;
 }
 
+h3{
+font-family: 'Montserrat', sans-serif; 
+  font-weight: 800;
+}
+
+.testimonials{
+  background-image: url("img/Fondotestimonios.jpg");
+  padding-bottom: 200px;
+}
