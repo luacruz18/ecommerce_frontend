@@ -6,23 +6,30 @@
 
 .nav-footer,
 .icons-footer,
-.second-nav-footer {
+.second-nav-footer,
+.globe-nav {
   list-style: none;
   padding: 0;
   margin: 0;
   display: flex;
-  justify-content: center;
+}
+
+.nav-footer-container {
+  display: flex;
+  justify-content: flex-start;
 }
 
 .nav-footer li,
 .icons-footer li,
-.second-nav-footer li {
+.second-nav-footer li,
+.globe-nav li {
   margin-right: 20px;
 }
 
 .nav-footer li:last-child,
 .icons-footer li:last-child,
-.second-nav-footer li:last-child {
+.second-nav-footer li:last-child,
+.globe-nav li:last-child {
   margin-right: 0;
 }
 
@@ -40,4 +47,28 @@
 .text-muted {
   font-size: 12px;
   margin-top: 10px;
+}
+
+.icons-footer {
+  justify-content: flex-end;
+}
+
+.icons-footer li {
+  margin-left: 20px; 
+}
+
+.icons-footer li:first-child {
+  margin-left: 0; 
+}
+
+.second-nav-footer {
+  justify-content: flex-end;
+  margin-left: auto;
+}
+
+.globe-nav {
+  justify-content: flex-start;
+  position: relative;
+  top: 10px;
+  margin-top: 20px;
 }

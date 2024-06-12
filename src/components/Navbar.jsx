@@ -7,13 +7,18 @@ import "../App.css";
 
 const CustomNavbar = () => {
   return (
-    <Navbar expand="lg" className="navbar">
+    <Navbar expand="lg" className="navbar" fixed="top">
       <Navbar.Brand href="#home" className="navbar-logo">
-        <img src={"../img/Logo_Web.png"} alt="logo" className="logo" />
+        <img
+          src={"../img/Logo_Web.png"}
+          alt="logo"
+          className="logo"
+          style={{ maxHeight: "50px" }} 
+        />
       </Navbar.Brand>
       <Navbar.Toggle aria-controls="basic-navbar-nav" className="menu" />
-      <Navbar.Collapse id="basic-navbar-nav" className="navbar-nav">
-        <Nav className="mr-auto">
+      <Navbar.Collapse id="basic-navbar-nav" className="navbar-nav justify-content-end">
+        <Nav>
           <Nav.Link href="#features">Features</Nav.Link>
           <Nav.Link href="#pricing">Pricing</Nav.Link>
           <NavDropdown title="Menú" id="dropdown-basic" className="dropdown">
@@ -25,8 +30,6 @@ const CustomNavbar = () => {
               Sobre nosotros
             </NavDropdown.Item>
           </NavDropdown>
-        </Nav>
-        <Nav>
           <BsCart className="cart-icon" />
           <BsPersonFill className="person-fill" />
         </Nav>
@@ -36,3 +39,4 @@ const CustomNavbar = () => {
 };
 
 export default CustomNavbar;
+
