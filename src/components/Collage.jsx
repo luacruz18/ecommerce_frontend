@@ -11,7 +11,7 @@ const Collage = () => {
         <div className="overlay">
           <h2>OFERTAS ESPECIALES</h2>
           <p>Consulte las mejores ofertas de la semana en nuestros dispositivos más potentes</p>
-          <button>COMPRAR AHORA</button>
+          
         </div>
       </div>
       <div className="collage-item small-form-designs">
@@ -25,9 +25,9 @@ const Collage = () => {
       <div className="collage-item only-corsair">
         <img className="background-img" src={import.meta.env.VITE_IMG_URL + "collage3.jpg"} alt="Solo en Corsair" />
         <div className="overlay">
-          <h2>SOLO EN CORSAIR</h2>
+          <h2>SOLO EN ZONA GAMER</h2>
           <p>Lo mejor, solo aquí.</p>
-          <button>COMPRAR AHORA</button>
+    
         </div>
       </div>
     </div>
