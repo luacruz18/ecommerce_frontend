@@ -22,23 +22,19 @@ body {
   align-items: center;
   color: #e93d3a;
 }
+.product-nav,
+.about-us-nav {
+  margin-left: auto;
+  color: white;
+}
+.product-nav:hover,
+.about-us-nav:hover {
+  color: #e93d3a;
+}
 
 .logo {
   margin-left: 30px;
   width: 200px;
-}
-
-.search-bar {
-  margin-left: 50px;
-  padding: 10px;
-  width: 400px;
-  border-radius: 5px;
-  border: none;
-  outline: none;
-}
-
-.menu {
-  margin-left: 10px;
 }
 
 .person-fill {
@@ -52,21 +48,6 @@ body {
   margin-left: 20px;
   margin-right: 10px;
   cursor: pointer;
-}
-
-#dropdown-basic {
-  background-color: transparent;
-  color: #e93d3a;
-  border: none;
-  margin-right: 40px;
-}
-
-.dropdown-toggle::after {
-  display: none !important;
-}
-
-.dropdown-item:hover {
-  background-color: grey !important;
 }
 
 .img {
@@ -112,14 +93,14 @@ body {
   overflow-wrap: break-word;
 }
 
-h3{
-font-family: 'Montserrat', sans-serif; 
+h3 {
+  font-family: "Montserrat", sans-serif;
   font-weight: 800;
 }
 
-.testimonials{
+.testimonials {
   background-image: url("/img/fondotestimonios.jpg");
-  background-size: cover; 
+  background-size: cover;
   background-position: center;
   padding-bottom: 200px;
 }
