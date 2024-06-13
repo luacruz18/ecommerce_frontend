@@ -10,7 +10,7 @@ function Footer() {
             <div className="nav-footer-container">
               <ul className="nav-footer">
                 <li>
-                  <a href="#">Pagina principal</a>
+                  <a href="#">Página principal</a>
                 </li>
                 <li>
                   <a href="#">Sobre nosotros</a>
@@ -62,10 +62,10 @@ function Footer() {
             <div className="second-nav-footer">
               <ul className="nav-footer">
                 <li>
-                  <a href="#">Politica de privacidad</a>
+                  <a href="#">Política de privacidad</a>
                 </li>
                 <li>
-                  <a href="#">Terminos de uso</a>
+                  <a href="#">Términos de uso</a>
                 </li>
                 <li>
                   <a href="#">Sobre nosotros</a>
