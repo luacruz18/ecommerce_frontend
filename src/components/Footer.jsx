@@ -10,19 +10,19 @@ function Footer() {
             <div className="nav-footer-container">
               <ul className="nav-footer">
                 <li>
-                  <a href="#">About</a>
+                  <a href="#">Pagina principal</a>
                 </li>
                 <li>
-                  <a href="#">Home</a>
+                  <a href="#">Sobre nosotros</a>
                 </li>
                 <li>
-                  <a href="#">Newsroom</a>
+                  <a href="#">Novedades</a>
                 </li>
                 <li>
-                  <a href="#">Accessibility</a>
+                  <a href="#">Contacto</a>
                 </li>
                 <li>
-                  <a href="#">Help</a>
+                  <a href="#">Ayuda</a>
                 </li>
               </ul>
             </div>
@@ -69,9 +69,6 @@ function Footer() {
                 </li>
                 <li>
                   <a href="#">Sobre nosotros</a>
-                </li>
-                <li>
-                  <a href="#">Sobre nuestro proyecto</a>
                 </li>
               </ul>
             </div>
