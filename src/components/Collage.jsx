@@ -27,9 +27,7 @@ const Collage = () => {
         <div className="overlay">
           <h2>DISEÑOS DE PEQUEÑO FORMATO</h2>
           <p>
-            Diseñe un nuevo y potente PC Mini-ITX con los nuevos chasis Airflow
-            2000D, junto con los ventiladores AF120 RGB SLIM y la fuente de
-            alimentación SF-L Series.
+            Diseñe un nuevo y potente PC
           </p>
           <button className="comprarbutton">COMPRAR AHORA</button>
         </div>
@@ -42,7 +40,7 @@ const Collage = () => {
         />
         <div className="overlay">
           <h2>SOLO EN ZONA GAMER</h2>
-          <p>Lo mejor, solo aquí.</p>
+          <p>Descubre la excelencia, los mejores productos y ofertas, solo aquí</p>
         </div>
       </div>
     </div>
