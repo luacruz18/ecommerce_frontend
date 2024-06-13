@@ -1,5 +1,5 @@
 .footer {
-  background-color: #333;
+  background-color: black;
   color: #fff;
   padding: 20px;
 }
@@ -23,7 +23,7 @@
 .icons-footer li,
 .second-nav-footer li,
 .globe-nav li {
-  margin-right: 20px;
+  margin-right: 18px;
 }
 
 .nav-footer li:last-child,
@@ -37,11 +37,13 @@
 .second-nav-footer li a {
   color: #fff;
   text-decoration: none;
+  font-size: 18px;
 }
 
 .nav-footer li a:hover,
-.second-nav-footer li a:hover {
-  color: #ccc;
+.second-nav-footer li a:hover,
+.icons-footer li:hover i {
+  color: #e93d3a; /* Cambia el color al pasar el mouse por encima */
 }
 
 .text-muted {
@@ -49,16 +51,16 @@
   margin-top: 10px;
 }
 
+.icons-footer li i {
+  font-size: 18px;
+}
+
 .icons-footer {
   justify-content: flex-end;
 }
 
-.icons-footer li {
-  margin-left: 20px; 
-}
-
 .icons-footer li:first-child {
-  margin-left: 0; 
+  margin-left: 0;
 }
 
 .second-nav-footer {
@@ -71,4 +73,8 @@
   position: relative;
   top: 10px;
   margin-top: 20px;
+}
+
+.icon-div i:hover {
+  color: #e93d3a;
 }
