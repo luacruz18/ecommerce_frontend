@@ -1,9 +1,16 @@
-import { CardGroup, Card } from 'react-bootstrap';
-import "../App.css";
+import React from 'react';
+import Card from 'react-bootstrap/Card';
+import CardGroup from 'react-bootstrap/CardGroup';
+
 
 function Testimonials() {
   return (
     <div className='testimonials'>
+      <img 
+        className="background-img" 
+        src={import.meta.env.VITE_IMG_URL + "fondotestimonios.jpg"} 
+        alt="Background" 
+      />
       <div className='container'>
         <h3 className='text-light mb-5 pt-5'>TESTIMONIOS</h3>
         <CardGroup className="row">
