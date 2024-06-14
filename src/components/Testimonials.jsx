@@ -16,11 +16,11 @@ function Testimonials() {
         <CardGroup className="row">
           <div className="col-sm-12 col-md-4 mb-4">
             <Card>
-              <Card.Img variant="top" src="holder.js/100px180" />
+              <Card.Img variant="top" src="public/img/LucasFernández.jpg" />
               <Card.Body>
-                <Card.Title>Card Title</Card.Title>
+                <Card.Title> Lucas Fernández</Card.Title>
                 <Card.Text>
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                  <p>La Alienware Aurora R13 es una excelente opción para los gamers que buscan lo mejor en términos de rendimiento y diseño, con características avanzadas que aseguran una experiencia de juego inmersiva y fluida.</p>
                 </Card.Text>
               </Card.Body>
             </Card>
@@ -29,9 +29,9 @@ function Testimonials() {
             <Card>
               <Card.Img variant="top" src="holder.js/100px180" />
               <Card.Body>
-                <Card.Title>Card Title</Card.Title>
+                <Card.Title>Sofía López</Card.Title>
                 <Card.Text>
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                 <p>Compré este mouse óptico retráctil para mis viajes, y puedo decir que es una gran adquisición. Es súper ligero y compacto, lo cual es perfecto para llevar en el bolso de mi portátil. </p>
                 </Card.Text>
               </Card.Body>
             </Card>
@@ -40,9 +40,9 @@ function Testimonials() {
             <Card>
               <Card.Img variant="top" src="holder.js/100px180" />
               <Card.Body>
-                <Card.Title>Card Title</Card.Title>
+                <Card.Title>Alejandro Navarro.</Card.Title>
                 <Card.Text>
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                <p>¡Hola a todos! Quiero compartir mi experiencia con la silla gamer ROM. ¡Es simplemente increíble! Desde que la tengo, mis sesiones de juego han dado un salto de comodidad y rendimiento.</p>
                 </Card.Text>
               </Card.Body>
             </Card>
