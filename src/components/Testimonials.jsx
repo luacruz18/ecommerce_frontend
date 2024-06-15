@@ -55,7 +55,11 @@ function Testimonials() {
               </Card.Body>
             </Card>
           </div>
+<<<<<<< Updated upstream
           <div className=" col-sm-12 col-md-4 mb-4 flex-center">
+=======
+          <div className=" col-sm-12 col-md-4 mb-4">
+>>>>>>> Stashed changes
             <Card className="cardstestimonials">
               <Card.Img
                 className="cards-img"
