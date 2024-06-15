@@ -51,7 +51,7 @@
   .nav-footer li a:hover,
   .second-nav-footer li a:hover,
   .icons-footer li:hover i {
-    color: #e93d3a; /* Cambia el color al pasar el mouse por encima */
+    color: #e93d3a; 
   }
 
   .text-muted {
