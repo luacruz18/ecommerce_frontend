@@ -5,7 +5,8 @@ import Footer from "../components/Footer";
 import ProductCarousel from "../components/ProductCarousel";
 import Testimonials from "../components/Testimonials";
 import Collage from "../components/Collage";
-//Hola santi
+
+
 const Home = () => {
   return (
     <div>
