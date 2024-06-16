@@ -25,7 +25,7 @@ const Collage = () => {
           alt="Diseños de Pequeño Formato"
         />
         <div className="overlay">
-          <h2>DISEÑOS DE PEQUEÑO FORMATO</h2>
+          <h2>DISEÑOS ÚNICOS</h2>
           <p>
             Diseñe un nuevo y potente PC
           </p>

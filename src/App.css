@@ -2,6 +2,10 @@ body {
   margin: 0;
 }
 
+body {
+  margin: 0;
+}
+
 .navbar {
   display: flex;
   justify-content: space-between;
@@ -22,11 +26,12 @@ body {
   align-items: center;
   color: #e93d3a;
 }
+
 .product-nav,
 .about-us-nav {
-  margin-left: auto;
   color: white;
 }
+
 .product-nav:hover,
 .about-us-nav:hover {
   color: #e93d3a;
@@ -37,18 +42,65 @@ body {
   width: 200px;
 }
 
-.person-fill {
-  font-size: 20px;
-  margin-left: 20px;
-  margin-right: 10px;
-  cursor: pointer;
-}
+.person-fill,
 .cart-icon {
   font-size: 20px;
   margin-left: 20px;
   margin-right: 10px;
   cursor: pointer;
 }
+
+@media (max-width: 992px) {
+  .navbar {
+    flex-wrap: wrap;
+  }
+
+  .navbar-logo {
+    margin-bottom: 10px;
+  }
+
+  .navbar-nav {
+    flex-direction: column;
+  }
+
+  .product-nav,
+  .about-us-nav {
+    margin-left: 0;
+    margin-right: 20px;
+  }
+}
+
+@media (max-width: 768px) {
+  .logo {
+    width: 150px;
+  }
+
+  .person-fill,
+  .cart-icon {
+    font-size: 18px;
+    margin-left: 10px;
+    margin-right: 5px;
+  }
+}
+
+@media (max-width: 576px) {
+  .logo {
+    width: 100px;
+  }
+
+  .product-nav,
+  .about-us-nav {
+    font-size: 14px;
+  }
+
+  .person-fill,
+  .cart-icon {
+    font-size: 16px;
+    margin-left: 5px;
+    margin-right: 5px;
+  }
+}
+
 
 .img {
   width: 100%;
@@ -84,6 +136,66 @@ body {
   border-radius: 5px;
 }
 
+@media (max-width: 1200px) {
+  .main-carousel-item {
+    height: 600px;
+  }
+
+  .img {
+    max-height: 600px;
+  }
+}
+
+@media (max-width: 992px) {
+  .main-carousel-item {
+    height: 500px;
+  }
+
+  .img {
+    max-height: 500px;
+  }
+}
+
+@media (max-width: 768px) {
+  .main-carousel-item {
+    height: 400px;
+  }
+
+  .img {
+    max-height: 400px;
+  }
+}
+
+@media (max-width: 576px) {
+  .main-carousel-item {
+    height: 300px;
+  }
+
+  .img {
+    max-height: 300px;
+  }
+}
+
+@media (max-width: 480px) {
+  .main-carousel-item {
+    height: 200px;
+  }
+
+  .img {
+    max-height: 200px;
+  }
+
+  .carousel-indicators [data-bs-target] {
+    width: 50px;
+    height: 3px;
+  }
+
+  .carousel-indicators .active {
+    width: 50px;
+    height: 3px;
+  }
+}
+
 #explore-container {
   max-height: 100%;
 }
@@ -98,11 +210,7 @@ h3 {
   font-weight: 800;
 }
 
-.testimonials {
-  position: relative;
-  padding-bottom: 200px;
-  color: white;
-}
+
 
 .background-img {
   position: absolute;
@@ -185,21 +293,88 @@ body {
   margin-top: 10px;
   padding: 10px 20px;
   background: rgb(233, 61, 58);
-  background: radial-gradient(
-    circle,
-    rgba(233, 61, 58, 1) 0%,
-    rgba(60, 60, 60, 1) 100%
-  );
+  background: radial-gradient(circle, rgba(233, 61, 58, 1) 0%, rgba(60, 60, 60, 1) 100%);
   border: none;
   cursor: pointer;
   font-size: 1rem;
   font-weight: 500;
 }
 
+@media (max-width: 992px) {
+  .collage {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .collage-item {
+    height: 250px;
+  }
+
+  .overlay h2 {
+    font-size: 1.2rem;
+  }
+
+  .overlay p {
+    font-size: 18px;
+  }
+
+  .overlay button {
+    font-size: 0.9rem;
+    padding: 8px 16px;
+  }
+}
+
+@media (max-width: 768px) {
+  .collage {
+    grid-template-columns: 1fr;
+  }
+
+  .collage-item {
+    height: 200px;
+  }
+
+  .overlay h2 {
+    font-size: 1rem;
+  }
+
+  .overlay p {
+    font-size: 16px;
+  }
+
+  .overlay button {
+    font-size: 0.8rem;
+    padding: 6px 12px;
+  }
+}
+
+@media (max-width: 576px) {
+  .collage {
+    gap: 5px;
+    margin: 10px;
+  }
+
+  .collage-item {
+    height: 150px;
+  }
+
+  .overlay h2 {
+    font-size: 0.8rem;
+  }
+
+  .overlay p {
+    font-size: 14px;
+  }
+
+  .overlay button {
+    font-size: 0.7rem;
+    padding: 4px 8px;
+  }
+}
+
 .cards-img {
   width: 40%;
   padding: 30px;
 }
+
 .cardstestimonials {
   background: rgba(255, 255, 255, 0.28);
   border-radius: 16px;
@@ -210,4 +385,12 @@ body {
   -webkit-box-shadow: 25px 11px 50px 0px rgba(0, 0, 0, 0.57);
   -moz-box-shadow: 25px 11px 50px 0px rgba(0, 0, 0, 0.57);
   box-shadow: 25px 11px 50px 0px rgba(0, 0, 0, 0.57);
+}
+.testimonials {
+  position: relative;
+  padding-bottom: 300px;
+  color: white;
+}
+.background-img {
+  width: 100%;
 }

@@ -9,20 +9,15 @@ const CustomNavbar = () => {
     <Navbar expand="lg" className="navbar" fixed="top">
       <Navbar.Brand href="#home" className="navbar-logo">
         <img
-          src={"../img/Logo_Web.png"}
+          src={import.meta.env.VITE_IMG_URL + "Logo_Web.png"}
           alt="logo"
           className="logo"
           style={{ maxHeight: "50px" }}
         />
       </Navbar.Brand>
       <Navbar.Toggle aria-controls="basic-navbar-nav" className="menu" />
-      <Navbar.Collapse
-        id="basic-navbar-nav"
-        className="navbar-nav justify-content-end"
-      >
+      <Navbar.Collapse id="basic-navbar-nav" className="navbar-nav justify-content-end">
         <Nav>
-          <Nav.Link href="#features">Features</Nav.Link>
-          <Nav.Link href="#pricing">Pricing</Nav.Link>
           <Nav.Link href="#product" className="product-nav">
             Productos
           </Nav.Link>
