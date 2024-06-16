@@ -5,7 +5,7 @@ const IndividualIntervalsExample = () => {
   return (
     <div className="main-container">
       <Carousel>
-        <Carousel.Item className="main-carousel-item" interval={1100}>
+        <Carousel.Item className="main-carousel-item" interval={6000}>
           <img
             className="img"
             src={import.meta.env.VITE_IMG_URL + "Primer_Carrusel (1).jpg"}
@@ -18,7 +18,7 @@ const IndividualIntervalsExample = () => {
         <Carousel.Item className="main-carousel-item" interval={1100}>
           <img
             className="img"
-            src={import.meta.env.VITE_IMG_URL + "Segundo_Imágen_Carrusel.jpg"}
+            src={import.meta.env.VITE_IMG_URL + "SegundaImágenCarrusel.jpg"}
             alt=""
           />
           <Carousel.Caption>
