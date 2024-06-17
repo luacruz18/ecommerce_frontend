@@ -11,13 +11,17 @@ import About from "./pages/About";
 
 function App() {
   const router = createBrowserRouter([
-    {
-      path: "/",
-      element: <Home />,
-    },
+     {
+       path: "/",
+       element: <Home />,
+     },
     {
       path: "/productos",
       element: <Products />,
+    },
+    {
+      path: "/sobrenosotros",
+      element: <About />,
     },
   ]);
 
