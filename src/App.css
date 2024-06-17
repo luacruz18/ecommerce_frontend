@@ -2,10 +2,6 @@ body {
   margin: 0;
 }
 
-body {
-  margin: 0;
-}
-
 .navbar {
   display: flex;
   justify-content: space-between;
@@ -228,9 +224,6 @@ h3 {
   z-index: 1;
 }
 
-body {
-  margin: 0;
-}
 
 .collage {
   display: grid;
@@ -301,75 +294,7 @@ body {
   font-weight: 500;
 }
 
-@media (max-width: 992px) {
-  .collage {
-    grid-template-columns: 1fr 1fr;
-  }
 
-  .collage-item {
-    height: 250px;
-  }
-
-  .overlay h2 {
-    font-size: 1.2rem;
-  }
-
-  .overlay p {
-    font-size: 18px;
-  }
-
-  .overlay button {
-    font-size: 0.9rem;
-    padding: 8px 16px;
-  }
-}
-
-@media (max-width: 768px) {
-  .collage {
-    grid-template-columns: 1fr;
-  }
-
-  .collage-item {
-    height: 200px;
-  }
-
-  .overlay h2 {
-    font-size: 1rem;
-  }
-
-  .overlay p {
-    font-size: 16px;
-  }
-
-  .overlay button {
-    font-size: 0.8rem;
-    padding: 6px 12px;
-  }
-}
-
-@media (max-width: 576px) {
-  .collage {
-    gap: 5px;
-    margin: 10px;
-  }
-
-  .collage-item {
-    height: 150px;
-  }
-
-  .overlay h2 {
-    font-size: 0.8rem;
-  }
-
-  .overlay p {
-    font-size: 14px;
-  }
-
-  .overlay button {
-    font-size: 0.7rem;
-    padding: 4px 8px;
-  }
-}
 
 .cards-img {
   width: 40%;
@@ -394,4 +319,8 @@ body {
 }
 .background-img {
   width: 100%;
+}
+
+.product-content{
+  margin-top: 125px;
 }

@@ -15,7 +15,9 @@ function ProductCarousel() {
           throw new Error("Network response was not ok");
         }
         const data = await response.json();
-        setProducts(data);
+        // Limitando a los primeros 12 productos
+        const first12Products = data.slice(0, 12);
+        setProducts(first12Products);
       } catch (error) {
         console.error("Error fetching data:", error);
       }
@@ -60,7 +62,8 @@ function ProductCarousel() {
   };
 
   return (
-    <div className="slider-container m-5">
+    <div className="">
+    <div className="slider-container m-5 ">
       <Slider {...settings}>
         {products.map((product) => (
           <div key={product.id}>
@@ -68,6 +71,7 @@ function ProductCarousel() {
           </div>
         ))}
       </Slider>
+      </div>
     </div>
   );
 }

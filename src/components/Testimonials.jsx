@@ -4,13 +4,14 @@ import "../App.css";
 
 function Testimonials() {
   return (
-    <div className="testimonials-container container">
+    <div className="testimonials-container">
       <img
         className="background-img"
         src={import.meta.env.VITE_IMG_URL + "fondotestimonios.jpg"}
         alt="Ofertas Especiales"
       />
       <h3 className="text-center mb-5 pt-5">TESTIMONIOS</h3>
+      <div className="container">
       <CardGroup className="row">
         <div className="col-sm-12 col-md-4 mb-4">
           <Card className="cardstestimonials">
@@ -60,6 +61,7 @@ function Testimonials() {
           </Card>
         </div>
       </CardGroup>
+      </div>
     </div>
   );
 }

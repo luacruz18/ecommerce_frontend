@@ -6,7 +6,7 @@ import ProductCarousel from "../components/ProductCarousel";
 
 const Home = () => {
   return (
-    <div>
+    <div className="product-content">
       <Navbar />
       <Product />
       <div className="container mt-5">

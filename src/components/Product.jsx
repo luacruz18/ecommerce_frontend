@@ -1,74 +1,97 @@
-import "../App.css";
-import React, { useState, useEffect } from "react";
+import React, { useState } from 'react';
+import { Grid, Typography, Button, Select, MenuItem } from '@mui/material';
 
-const Product = () => {
-  const [selectedPrice, setSelectedPrice] = useState(10);
-  const [selectedQty, setSelectedQty] = useState(1);
-  const [totalPrice, setTotalPrice] = useState(selectedPrice * selectedQty);
-  const [installmentPlan, setInstallmentPlan] = useState("1");
-  const [showInstallmentMenu, setShowInstallmentMenu] = useState(false);
-
-  const handleQtyChange = (e) => {
-    setSelectedQty(parseInt(e.target.value, 10));
+const ProductDetail = () => {
+  const [selectedImage, setSelectedImage] = useState(0);
+  const [selectedCuotas, setSelectedCuotas] = useState(1);
+  const [selectedQty, setSelectedQty] = useState(1); 
+  const product = {
+    name: 'Nombre del Producto',
+    price: 999.99,
+    images: [
+      '/img/CORSAIRH100i.png',
+      '/img/RogStrix.png',
+      '/img/ssd970EVO.webp',
+      '/img/Rm850x.png',
+      '/img/Razerblackwidow.png',
+    ],
   };
 
-  const handleInstallmentChange = (e) => {
-    setInstallmentPlan(e);
-    setShowInstallmentMenu(false); // Cierra el menú después de seleccionar una opción
+  const handleChangeImage = (index) => {
+    setSelectedImage(index);
   };
 
-  useEffect(() => {
-    setTotalPrice(selectedPrice * selectedQty);
-  }, [selectedPrice, selectedQty]);
-
-  const toggleInstallmentMenu = () => {
-    setShowInstallmentMenu(!showInstallmentMenu);
+  const handleChangeQty = (event) => {
+    setSelectedQty(event.target.value); 
   };
 
   return (
-    <div className="product-page">
-      <div className="product-image-container">
-        <img src="image1.jpg" alt="Product Image" />
-      </div>
-      <div className="product-details">
-        <h1>Product Name</h1>
-        <p>Price: ${selectedPrice}</p>
-        <label htmlFor="qty-select">Quantity:</label>
-        <select id="qty-select" value={selectedQty} onChange={handleQtyChange}>
-          <option value="1">1</option>
-          <option value="2">2</option>
-          <option value="3">3</option>
-          <option value="4">4</option>
-          <option value="5">5</option>
-        </select>
-        <p>Total Price: ${totalPrice}</p>
-        <div className="custom-dropdown">
-          <span onClick={toggleInstallmentMenu} className="text-link">
-            Planes de Cuotas
-          </span>
-          {showInstallmentMenu && (
-            <div className="dropdown-menu">
-              <div className="dropdown-item" onClick={() => handleInstallmentChange("1")}>
-                1 cuota sin interés
-              </div>
-              <div className="dropdown-item" onClick={() => handleInstallmentChange("3")}>
-                3 cuotas sin interés
-              </div>
-              <div className="dropdown-item" onClick={() => handleInstallmentChange("6")}>
-                6 cuotas sin interés
-              </div>
-              <div className="dropdown-item" onClick={() => handleInstallmentChange("12")}>
-                12 cuotas sin interés
-              </div>
-            </div>
-          )}
-        </div>
-        <div className="add-to-cart">
-          <button className="btn mt-3">AÑADIR AL CARRITO</button>
-        </div>
-      </div>
+    <div className='container'>
+      <Grid container spacing={2}>
+        <Grid item xs={12} md={6} style={{ display: 'flex', justifyContent: 'center' }}>
+          <img src={product.images[selectedImage]} alt="Product" style={{ maxWidth: '100%', maxHeight: '500px', objectFit: 'contain' }} />
+        </Grid>
+        <Grid item xs={12} md={6}>
+          <Typography variant="h5" gutterBottom>
+            {product.name}
+          </Typography>
+          <Typography variant="h6" gutterBottom>
+            Price: ${product.price}
+          </Typography>
+      
+          <Typography variant="body2" gutterBottom style={{ marginTop: '1rem' }}>
+            Cantidad:
+            <Select value={selectedQty} fullWidth onChange={handleChangeQty}>
+            <MenuItem value={1}>1</MenuItem>
+            <MenuItem value={3}>2</MenuItem>
+            <MenuItem value={6}>3</MenuItem>
+            <MenuItem value={12}>4</MenuItem>
+          </Select>
+          </Typography>
+          <div style={{ marginTop: '1rem' }}>
+            {product.images.map((image, index) => (
+              <img
+                key={index}
+                src={image}
+                alt={`Product Thumbnail ${index}`}
+                style={{
+                  width: '50px',
+                  height: '50px',
+                  marginRight: '0.5rem',
+                  cursor: 'pointer',
+                  border: index === selectedImage ? '2px solid blue' : 'none',
+                }}
+                onClick={() => handleChangeImage(index)}
+              />
+            ))}
+          </div>
+          <div style={{ marginTop: '1rem' }}>
+            <Button
+              variant="contained"
+              style={{
+                backgroundColor: '#e93d3a',
+                color: 'white',
+                width: '100%',
+              }}
+            >
+              Comprar
+            </Button>
+            <Button
+              variant="contained"
+              style={{
+                backgroundColor: '#e93d3a',
+                color: 'white',
+                width: '100%',
+                marginTop: '10px',
+              }}
+            >
+              Agregar al carrito
+            </Button>
+          </div>
+        </Grid>
+      </Grid>
     </div>
   );
 };
 
-export default Product;
+export default ProductDetail;
