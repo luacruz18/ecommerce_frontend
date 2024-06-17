@@ -6,6 +6,7 @@ function Footer() {
     <footer className="footer">
       <div className="container">
         <div className="row">
+          {/* Primera columna para los elementos principales */}
           <div className="col-md-6 col-sm-6 col-xs-12">
             <div className="nav-footer-container">
               <ul className="nav-footer">
@@ -27,6 +28,7 @@ function Footer() {
               </ul>
             </div>
           </div>
+          {/* Segunda columna para los íconos */}
           <div className="col-md-6 col-sm-6 col-xs-12">
             <ul className="icons-footer">
               <li>
@@ -39,7 +41,7 @@ function Footer() {
                 <i className="bi bi-youtube"></i>
               </li>
               <li>
-                <i className="bi bi-instagram" />
+                <i className="bi bi-instagram"></i>
               </li>
               <li>
                 <i className="bi bi-tiktok"></i>
@@ -47,17 +49,21 @@ function Footer() {
             </ul>
           </div>
         </div>
+        {/* Línea divisoria */}
         <div className="row">
           <div className="col-md-12 text-center">
             <hr className="my-4" />
           </div>
         </div>
+        {/* Segunda fila de elementos */}
         <div className="row">
+          {/* Primera columna */}
           <div className="col-md-6 col-sm-6 col-xs-12">
             <div className="icon-div">
               <i className="bi bi-globe"></i>
             </div>
           </div>
+          {/* Segunda columna */}
           <div className="col-md-6 col-sm-6 col-xs-12">
             <div className="second-nav-footer">
               <ul className="nav-footer">
