@@ -98,7 +98,6 @@ body {
   }
 }
 
-
 .img {
   width: 100%;
   height: auto;
@@ -207,8 +206,6 @@ h3 {
   font-weight: 800;
 }
 
-
-
 .background-img {
   position: absolute;
   top: 0;
@@ -223,7 +220,6 @@ h3 {
   position: relative;
   z-index: 1;
 }
-
 
 .collage {
   display: grid;
@@ -287,14 +283,16 @@ h3 {
   margin-top: 10px;
   padding: 10px 20px;
   background: rgb(233, 61, 58);
-  background: radial-gradient(circle, rgba(233, 61, 58, 1) 0%, rgba(60, 60, 60, 1) 100%);
+  background: radial-gradient(
+    circle,
+    rgba(233, 61, 58, 1) 0%,
+    rgba(60, 60, 60, 1) 100%
+  );
   border: none;
   cursor: pointer;
   font-size: 1rem;
   font-weight: 500;
 }
-
-
 
 .cards-img {
   width: 40%;
@@ -321,6 +319,6 @@ h3 {
   width: 100%;
 }
 
-.product-content{
+.product-content {
   margin-top: 125px;
 }
