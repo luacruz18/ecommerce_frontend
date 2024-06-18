@@ -38,8 +38,8 @@ function Testimonials() {
             <Card className="cardstestimonials h-100">
               <Card.Img
                 className="cards-img"
-                src={import.meta.env.VITE_IMG_URL + "IsabellaMartínez.jpg"}
-                alt="Isabella Martínez"
+                src={import.meta.env.VITE_IMG_URL + "AndreaRodriguez.jpg"}
+                alt=""
               />
               <Card.Body>
                 <Card.Title className="text-testi black-text">
@@ -58,17 +58,17 @@ function Testimonials() {
             <Card className="cardstestimonials h-100">
               <Card.Img
                 className="cards-img"
-                src={import.meta.env.VITE_IMG_URL + "SofiaGomez.jpg"}
+                src={import.meta.env.VITE_IMG_URL + "AlejandroNavarro.jpg"}
                 alt="Sofía Gómez"
               />
               <Card.Body>
                 <Card.Title className="text-testi black-text">
-                  Sofía Gómez
+                  Alejandro Navarro
                 </Card.Title>
                 <Card.Text className="text-testi black-text">
-                  La Alienware X17 es una máquina impresionante. Su diseño delgado
-                  y elegante no compromete su potencia, brindando un desempeño
-                  sobresaliente en juegos y aplicaciones pesadas.
+                  La Alienware X17 es una máquina impresionante. Su diseño
+                  delgado y elegante no compromete su potencia, brindando un
+                  desempeño sobresaliente en juegos y aplicaciones pesadas.
                 </Card.Text>
               </Card.Body>
             </Card>
