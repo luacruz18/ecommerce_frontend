@@ -327,6 +327,7 @@ h3 {
 .product-content {
   margin-top: 125px;
 }
+<<<<<<< Updated upstream
 .black-text {
   color: black !important;
 }
@@ -334,3 +335,9 @@ h3 {
 .cardstestimonials .black-text {
   color: black !important;
 }
+=======
+
+.product-list{
+  margin-top: 125px;
+}
+>>>>>>> Stashed changes
