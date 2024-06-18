@@ -78,7 +78,7 @@ const Team = () => {
       <div className="responsive-container-block bigContainer">
         <div className="responsive-container-block Container">
           <div className="responsive-container-block leftSide">
-            <p className="text-blk heading">Conoce nuestro equipo</p>
+            <p className="text-blk heading">Sobre nosotros</p>
             <p className="text-blk subHeading">
               Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
               eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
