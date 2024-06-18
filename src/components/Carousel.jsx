@@ -11,9 +11,7 @@ const IndividualIntervalsExample = () => {
             src={import.meta.env.VITE_IMG_URL + "Primer_Carrusel (1).jpg"}
             alt=""
           />
-          <Carousel.Caption>
-            {/* aca iria los botones y eso */}
-          </Carousel.Caption>
+         
         </Carousel.Item>
         <Carousel.Item className="main-carousel-item" interval={1100}>
           <img
@@ -21,9 +19,7 @@ const IndividualIntervalsExample = () => {
             src={import.meta.env.VITE_IMG_URL + "SegundaImágenCarrusel.jpg"}
             alt=""
           />
-          <Carousel.Caption>
-            {/* aca iria los botones y eso */}
-          </Carousel.Caption>
+         
         </Carousel.Item>
         <Carousel.Item className="main-carousel-item" interval={1100}>
           <img
@@ -31,9 +27,8 @@ const IndividualIntervalsExample = () => {
             src={import.meta.env.VITE_IMG_URL + "Tercer_Imágen_Carrusel.jpg"}
             alt=""
           />
-          <Carousel.Caption>
-            {/* aca iria los botones y eso */}
-          </Carousel.Caption>
+          
+        
         </Carousel.Item>
         <Carousel.Item className="main-carousel-item" interval={1100}>
           <img
@@ -43,9 +38,7 @@ const IndividualIntervalsExample = () => {
             }
             alt=""
           />
-          <Carousel.Caption>
-            {/* aca iria los botones y eso */}
-          </Carousel.Caption>
+         
         </Carousel.Item>
       </Carousel>
     </div>
