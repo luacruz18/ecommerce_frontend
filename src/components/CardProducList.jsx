@@ -44,7 +44,7 @@ function CardProductList({ product }) {
           style={{
             backgroundColor: "#e93d3a",
             color: "white",
-            width: "100%",
+            width: "75%",
           }}
           onClick={handleAddToCart}
         >
