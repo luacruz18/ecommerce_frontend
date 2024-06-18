@@ -299,7 +299,7 @@ h3 {
   padding: 30px;
 }
 
-.cardstestimonials {
+.cardstestimonials.card {
   background: rgba(255, 255, 255, 0.28);
   border-radius: 16px;
   box-shadow: 0 4px 30px rgba(9, 9, 8, 0.1);
@@ -310,6 +310,11 @@ h3 {
   -moz-box-shadow: 25px 11px 50px 0px rgba(0, 0, 0, 0.57);
   box-shadow: 25px 11px 50px 0px rgba(0, 0, 0, 0.57);
 }
+
+.cardstestimonials{
+color: black;
+}
+
 .testimonials-container {
   position: relative;
   padding-bottom: 300px;
