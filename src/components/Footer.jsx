@@ -1,88 +1,73 @@
 import React from "react";
-import "../Footer.css";
+import "../Footer.css"; 
 
-function Footer() {
-  return (
-    <footer className="footer">
-      <div className="container">
-        <div className="row">
-          {/* Primera columna para los elementos principales */}
-          <div className="col-md-6 col-sm-6 col-xs-12">
-            <div className="nav-footer-container">
-              <ul className="nav-footer">
-                <li>
-                  <a href="#">Página principal</a>
-                </li>
-                <li>
-                  <a href="#">Sobre nosotros</a>
-                </li>
-                <li>
-                  <a href="#">Novedades</a>
-                </li>
-                <li>
-                  <a href="#">Contacto</a>
-                </li>
-                <li>
-                  <a href="#">Ayuda</a>
-                </li>
-              </ul>
-            </div>
-          </div>
-          {/* Segunda columna para los íconos */}
-          <div className="col-md-6 col-sm-6 col-xs-12">
-            <ul className="icons-footer">
-              <li>
-                <i className="bi bi-facebook"></i>
-              </li>
-              <li>
-                <i className="bi bi-twitter-x"></i>
-              </li>
-              <li>
-                <i className="bi bi-youtube"></i>
-              </li>
-              <li>
-                <i className="bi bi-instagram"></i>
-              </li>
-              <li>
-                <i className="bi bi-tiktok"></i>
-              </li>
-            </ul>
+const Footer = () => (
+  <footer className="page-footer font-small pt-4 text-light ">
+    <div className=" text-center text-md-left">
+      <div className="row m-0">
+        <div className="col-md-4 mt-md-0 mt-3 d-flex flex-column align-items-center align-md-start">
+          <h5 className="text-uppercase">¡Gracias por Visitarnos!</h5>
+          <div className="icons-footer d-flex justify-content-center">
+            <i className="bi bi-facebook icon "> </i>
+            <i className="bi bi-twitter-x icon "></i>
+            <i className="bi bi-youtube icon "></i>
+            <i className="bi bi-instagram icon "></i>
+            <i className="bi bi-tiktok icon"></i>
           </div>
         </div>
-        {/* Línea divisoria */}
-        <div className="row">
-          <div className="col-md-12 text-center">
-            <hr className="my-4" />
-          </div>
+
+        <hr className="clearfix w-100 d-md-none pb-0" />
+
+        <div className="col-md-4 mb-md-0 mb-3">
+          <ul className="list-unstyled">
+            <li>
+              <a href="#!" className="footer-link">
+                Pagina principal
+              </a>
+            </li>
+            <li>
+              <a href="#!" className="footer-link">
+                Novedades
+              </a>
+            </li>
+            <li>
+              <a href="#!" className="footer-link">
+                Contacto
+              </a>
+            </li>
+            <li>
+              <a href="#!" className="footer-link">
+                Ayuda
+              </a>
+            </li>
+          </ul>
         </div>
-        {/* Segunda fila de elementos */}
-        <div className="row">
-          {/* Primera columna */}
-          <div className="col-md-6 col-sm-6 col-xs-12">
-            <div className="icon-div">
-              <i className="bi bi-globe"></i>
-            </div>
-          </div>
-          {/* Segunda columna */}
-          <div className="col-md-6 col-sm-6 col-xs-12">
-            <div className="second-nav-footer">
-              <ul className="nav-footer">
-                <li>
-                  <a href="#">Política de privacidad</a>
-                </li>
-                <li>
-                  <a href="#">Términos de uso</a>
-                </li>
-                <li>
-                  <a href="#">Sobre nosotros</a>
-                </li>
-              </ul>
-            </div>
-          </div>
+
+        <div className="col-md-4 mb-md-0 mb-3">
+          <ul className="list-unstyled">
+            <li>
+              <a href="#!" className="footer-link">
+                Política de Privacidad
+              </a>
+            </li>
+            <li>
+              <a href="#!" className="footer-link">
+                Términos y Condiciones
+              </a>
+            </li>
+            <li>
+              <a href="#!" className="footer-link">
+                Sobre Nosotros
+              </a>
+            </li>
+          </ul>
         </div>
       </div>
-    </footer>
-  );
-}
+    </div>
+    <div className="footer-copyright text-center py-3">
+      <p className="mb-0">© 2024 Copyright ZonaGamer</p>
+    </div>
+  </footer>
+);
 
 export default Footer;
