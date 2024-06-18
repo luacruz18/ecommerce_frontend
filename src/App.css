@@ -311,8 +311,8 @@ h3 {
   box-shadow: 25px 11px 50px 0px rgba(0, 0, 0, 0.57);
 }
 
-.cardstestimonials{
-color: black;
+.cardstestimonials {
+  color: black;
 }
 
 .testimonials-container {
@@ -326,4 +326,11 @@ color: black;
 
 .product-content {
   margin-top: 125px;
+}
+.black-text {
+  color: black !important;
+}
+
+.cardstestimonials .black-text {
+  color: black !important;
 }
