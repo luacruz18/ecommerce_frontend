@@ -1,13 +1,33 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import Slider from "react-slick";
+import { FiChevronRight, FiChevronLeft } from "react-icons/fi"; 
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import CardProduct from "../components/CardProduct";
+import "../App.css";
+
+const NextArrow = (props) => {
+  const { className, onClick } = props;
+  return (
+    <div className={className} onClick={onClick}>
+      <FiChevronRight size={30} color="grey" />
+    </div>
+  );
+};
+
+const PrevArrow = (props) => {
+  const { className, onClick } = props;
+  return (
+    <div className={className} onClick={onClick}>
+      <FiChevronLeft size={30} color="grey" />
+    </div>
+  );
+};
 
 function ProductCarousel() {
-  const [products, setProducts] = useState([]);
+  const [products, setProducts] = React.useState([]);
 
-  useEffect(() => {
+  React.useEffect(() => {
     const fetchData = async () => {
       try {
         const response = await fetch("http://localhost:3000/products");
@@ -15,7 +35,6 @@ function ProductCarousel() {
           throw new Error("Network response was not ok");
         }
         const data = await response.json();
-        // Limitando a los primeros 12 productos
         const first12Products = data.slice(0, 12);
         setProducts(first12Products);
       } catch (error) {
@@ -33,6 +52,8 @@ function ProductCarousel() {
     slidesToShow: 4,
     slidesToScroll: 4,
     initialSlide: 0,
+    nextArrow: <NextArrow />,
+    prevArrow: <PrevArrow />,
     responsive: [
       {
         breakpoint: 1024,
@@ -62,15 +83,15 @@ function ProductCarousel() {
   };
 
   return (
-    <div className="">
-    <div className="slider-container m-5 ">
-      <Slider {...settings}>
-        {products.map((product) => (
-          <div key={product.id}>
-            <CardProduct product={product} />
-          </div>
-        ))}
-      </Slider>
+    <div className="m-5">
+      <div className="slider-container">
+        <Slider {...settings}>
+          {products.map((product) => (
+            <div key={product.id}>
+              <CardProduct product={product} />
+            </div>
+          ))}
+        </Slider>
       </div>
     </div>
   );
