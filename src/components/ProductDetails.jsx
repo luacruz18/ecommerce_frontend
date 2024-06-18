@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Grid, Typography, Button, Select, MenuItem } from '@mui/material';
 
-const ProductDetail = () => {
+const ProductDetails = () => {
   const [selectedImage, setSelectedImage] = useState(0);
   const [selectedCuotas, setSelectedCuotas] = useState(1);
   const [selectedQty, setSelectedQty] = useState(1); 
@@ -36,12 +36,12 @@ const ProductDetail = () => {
             {product.name}
           </Typography>
           <Typography variant="h6" gutterBottom>
-            Price: ${product.price}
+            Precio: ${product.price}
           </Typography>
       
           <Typography variant="body2" gutterBottom style={{ marginTop: '1rem' }}>
             Cantidad:
-            <Select value={selectedQty} fullWidth onChange={handleChangeQty}>
+            <Select value={selectedQty} onChange={handleChangeQty}>
             <MenuItem value={1}>1</MenuItem>
             <MenuItem value={3}>2</MenuItem>
             <MenuItem value={6}>3</MenuItem>
@@ -94,4 +94,4 @@ const ProductDetail = () => {
   );
 };
 
-export default ProductDetail;
+export default ProductDetails;

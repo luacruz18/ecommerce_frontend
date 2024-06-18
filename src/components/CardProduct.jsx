@@ -8,7 +8,7 @@ function CardProduct({ product }) {
 
   return (
     <div>
-      <div className="card border-0" style={{ width: "18rem" }}>
+      <div className=" border-0" style={{ width: "18rem" }}>
         <img
           className="card-img-top"
           src={import.meta.env.VITE_IMG_URL + product.pic}
