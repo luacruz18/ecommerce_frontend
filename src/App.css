@@ -322,8 +322,3 @@ h3 {
 .product-content {
   margin-top: 125px;
 }
-
-.slick-prev:before,
-.slick-next:before {
-  color: yellow;
-}
