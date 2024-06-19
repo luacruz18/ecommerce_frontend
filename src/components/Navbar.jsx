@@ -17,7 +17,10 @@ const CustomNavbar = () => {
         />
       </Navbar.Brand>
       <Navbar.Toggle aria-controls="basic-navbar-nav" className="menu" />
-      <Navbar.Collapse id="basic-navbar-nav" className="navbar-nav justify-content-end">
+      <Navbar.Collapse
+        id="basic-navbar-nav"
+        className="navbar-nav justify-content-end"
+      >
         <Nav>
           <Nav.Link as={Link} to="/productos" className="product-nav">
             Productos
