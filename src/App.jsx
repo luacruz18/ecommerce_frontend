@@ -28,6 +28,10 @@ function App() {
       path: "/listaproductos",
       element: <ProductList />,
     },
+    {
+      path: "/productos/:id",
+      element: <Products />,
+    },
   ]);
 
   return <RouterProvider router={router} />;
