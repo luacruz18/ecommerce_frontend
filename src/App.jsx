@@ -1,6 +1,6 @@
 import React from "react";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import "bootstrap/dist/css/bootstrap.min.css";
+import 'bootstrap/dist/css/bootstrap.min.css';
 import Home from "./pages/Home";
 import Products from "./pages/ProductsDetails";
 import Category from "./pages/Category";
@@ -12,10 +12,10 @@ import ProductList from "./pages/ProductsList";
 
 function App() {
   const router = createBrowserRouter([
-    {
-      path: "/",
-      element: <Home />,
-    },
+     {
+       path: "/",
+       element: <Home />,
+     },
     {
       path: "/productos",
       element: <Products />,
@@ -32,8 +32,6 @@ function App() {
       path: "/productos/:id",
       element: <Products />,
     },
-
-    { path: "/iniciarsesion", element: <Login /> },
   ]);
 
   return <RouterProvider router={router} />;
