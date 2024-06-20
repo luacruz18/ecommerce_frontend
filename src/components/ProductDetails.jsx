@@ -4,7 +4,7 @@ import { useParams } from "react-router-dom";
 import { fetchProducts } from "../Hooks/api";
 
 const ProductDetails = () => {
-  const { id } = useParams(); // Obtener el id del producto desde los parámetros de la ruta dinámica
+  const { id } = useParams();
   const [product, setProduct] = useState(null);
   const [selectedImage, setSelectedImage] = useState(0);
   const [selectedQty, setSelectedQty] = useState(1);
@@ -15,7 +15,7 @@ const ProductDetails = () => {
         const products = await fetchProducts();
         const selectedProduct = products.find(
           (prod) => prod.id === parseInt(id)
-        ); // Asumiendo que productId es un número entero
+        ); 
         if (selectedProduct) {
           setProduct(selectedProduct);
         } else {

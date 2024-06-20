@@ -4,8 +4,8 @@ import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
-import CardProductList from "../components/CardProducList"; // Asegúrate de importar correctamente
-import { fetchProducts } from "../Hooks/api"; // Asegúrate de importar correctamente
+import CardProductList from "../components/CardProducList"; 
+import { fetchProducts } from "../Hooks/api"; 
 import { Container, Row, Col } from "react-bootstrap";
 import Breadcrumb from "../components/Breadcrumb";
 
