@@ -51,7 +51,7 @@ const Team = () => {
     },
     {
       name: "Santiago Cozzi",
-      role: "Desarrolador Full-Stack",
+      role: "Desarrollador Full-Stack",
       facebook: "https://facebook.com/janesmith",
       twitter: "https://twitter.com/janesmith",
       linkedin: "https://linkedin.com/in/janesmith",
@@ -65,7 +65,7 @@ const Team = () => {
     },
     {
       name: "Micaela Reyes",
-      role: "Desarrolador Full-Stack",
+      role: "Desarrollador Full-Stack",
       facebook: "https://facebook.com/chrislee",
       twitter: "https://twitter.com/chrislee",
       linkedin: "https://linkedin.com/in/chrislee",
