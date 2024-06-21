@@ -1,21 +1,33 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Grid, Typography, Button, Select, MenuItem } from "@mui/material";
+import { useParams } from "react-router-dom";
+import { fetchProducts } from "../Hooks/api";
 
-const ProductDetail = () => {
+const ProductDetails = () => {
+  const { id } = useParams();
+  const [product, setProduct] = useState(null);
   const [selectedImage, setSelectedImage] = useState(0);
-  const [selectedCuotas, setSelectedCuotas] = useState(1);
   const [selectedQty, setSelectedQty] = useState(1);
-  const product = {
-    name: "Nombre del Producto",
-    price: 999.99,
-    images: [
-      "/img/CORSAIRH100i.png",
-      "/img/RogStrix.png",
-      "/img/ssd970EVO.webp",
-      "/img/Rm850x.png",
-      "/img/Razerblackwidow.png",
-    ],
-  };
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const products = await fetchProducts();
+        const selectedProduct = products.find(
+          (prod) => prod.id === parseInt(id)
+        ); 
+        if (selectedProduct) {
+          setProduct(selectedProduct);
+        } else {
+          console.error(`Product with id ${id} not found`);
+        }
+      } catch (error) {
+        console.error("Error fetching product:", error);
+      }
+    };
+
+    fetchData();
+  }, [id]);
 
   const handleChangeImage = (index) => {
     setSelectedImage(index);
@@ -24,6 +36,10 @@ const ProductDetail = () => {
   const handleChangeQty = (event) => {
     setSelectedQty(event.target.value);
   };
+
+  if (!product) {
+    return <div>Loading...</div>;
+  }
 
   return (
     <div className="container">
@@ -49,7 +65,7 @@ const ProductDetail = () => {
             {product.name}
           </Typography>
           <Typography variant="h6" gutterBottom>
-            Price: ${product.price}
+            Precio: ${product.price}
           </Typography>
 
           <Typography
@@ -58,7 +74,7 @@ const ProductDetail = () => {
             style={{ marginTop: "1rem" }}
           >
             Cantidad:
-            <Select value={selectedQty} fullWidth onChange={handleChangeQty}>
+            <Select value={selectedQty} onChange={handleChangeQty}>
               <MenuItem value={1}>1</MenuItem>
               <MenuItem value={3}>2</MenuItem>
               <MenuItem value={6}>3</MenuItem>
@@ -76,7 +92,8 @@ const ProductDetail = () => {
                   height: "50px",
                   marginRight: "0.5rem",
                   cursor: "pointer",
-                  border: index === selectedImage ? "2px solid blue" : "none",
+                  border:
+                    index === selectedImage ? "2px solid blue" : "none",
                 }}
                 onClick={() => handleChangeImage(index)}
               />
@@ -111,4 +128,4 @@ const ProductDetail = () => {
   );
 };
 
-export default ProductDetail;
+export default ProductDetails;

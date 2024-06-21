@@ -10,57 +10,70 @@ function Testimonials() {
         src={import.meta.env.VITE_IMG_URL + "fondotestimonios.jpg"}
         alt="Testimonios"
       />
-      <h3 className="text-center mb-5 pt-5">TESTIMONIOS</h3>
+      <h3 className="text-center mb-5 pt-5 black-text">TESTIMONIOS</h3>
       <div className="container">
-      <CardGroup className="row">
-        <div className="col-sm-12 col-md-4 mb-4">
-          <Card className="cardstestimonials">
-            <Card.Img
-              className="cards-img"
-              src={import.meta.env.VITE_IMG_URL + "LucasFernández.jpg"}
-              alt="Lucas Fernández"
-            />
-            <Card.Body>
-              <Card.Title>Lucas Fernández</Card.Title>
-              <Card.Text>
-                La Alienware Aurora R13 es una excelente opción para los gamers que buscan lo mejor en términos de rendimiento y diseño, con características avanzadas que aseguran una experiencia de juego inmersiva y fluida.
-              </Card.Text>
-            </Card.Body>
-          </Card>
-        </div>
+        <CardGroup className="row">
+          <div className="col-sm-12 col-md-4 mb-4">
+            <Card className="cardstestimonials h-100">
+              <Card.Img
+                className="cards-img"
+                src={import.meta.env.VITE_IMG_URL + "LucasFernández.jpg"}
+                alt="Lucas Fernández"
+              />
+              <Card.Body>
+                <Card.Title className="text-testi black-text">
+                  Lucas Fernández
+                </Card.Title>
+                <Card.Text className="text-testi black-text">
+                  La Alienware Aurora R13 es una excelente opción para los
+                  gamers que buscan lo mejor en términos de rendimiento y
+                  diseño, con características avanzadas que aseguran una
+                  experiencia de juego inmersiva y fluida.
+                </Card.Text>
+              </Card.Body>
+            </Card>
+          </div>
 
-        <div className="col-sm-12 col-md-4 mb-4">
-          <Card className="cardstestimonials">
-            <Card.Img
-              className="cards-img"
-              src={import.meta.env.VITE_IMG_URL + "AndreaRodriguez.jpg"}
-              alt="Andrea Rodríguez"
-            />
-            <Card.Body>
-              <Card.Title>Andrea Rodríguez</Card.Title>
-              <Card.Text>
-                Compré este mouse óptico retráctil para mis viajes, y puedo decir que es una gran adquisición. Es súper ligero y compacto, lo cual es perfecto para llevar en el bolso de mi portátil. ¡El cable retráctil es un salvavidas!
-              </Card.Text>
-            </Card.Body>
-          </Card>
-        </div>
+          <div className="col-sm-12 col-md-4 mb-4">
+            <Card className="cardstestimonials h-100">
+              <Card.Img
+                className="cards-img"
+                src={import.meta.env.VITE_IMG_URL + "AndreaRodriguez.jpg"}
+                alt=""
+              />
+              <Card.Body>
+                <Card.Title className="text-testi black-text">
+                  Isabella Martínez
+                </Card.Title>
+                <Card.Text className="text-testi black-text">
+                  Mi experiencia con la Alienware m15 R7 ha sido fantástica. Su
+                  rendimiento y capacidad de respuesta son impresionantes,
+                  permitiéndome jugar mis títulos favoritos sin problemas.
+                </Card.Text>
+              </Card.Body>
+            </Card>
+          </div>
 
-        <div className="col-sm-12 col-md-4 mb-4">
-          <Card className="cardstestimonials">
-            <Card.Img
-              className="cards-img"
-              src={import.meta.env.VITE_IMG_URL + "AlejandroNavarro.jpg"}
-              alt="Alejandro Navarro"
-            />
-            <Card.Body>
-              <Card.Title>Alejandro Navarro</Card.Title>
-              <Card.Text>
-                Quiero compartir mi experiencia con la silla gamer ROM. ¡Es simplemente increíble! Desde que la tengo, mis sesiones de juego han dado un salto de comodidad y rendimiento. 
-              </Card.Text>
-            </Card.Body>
-          </Card>
-        </div>
-      </CardGroup>
+          <div className="col-sm-12 col-md-4 mb-4">
+            <Card className="cardstestimonials h-100">
+              <Card.Img
+                className="cards-img"
+                src={import.meta.env.VITE_IMG_URL + "AlejandroNavarro.jpg"}
+                alt="Sofía Gómez"
+              />
+              <Card.Body>
+                <Card.Title className="text-testi black-text">
+                  Alejandro Navarro
+                </Card.Title>
+                <Card.Text className="text-testi black-text">
+                  La Alienware X17 es una máquina impresionante. Su diseño
+                  delgado y elegante no compromete su potencia, brindando un
+                  desempeño sobresaliente en juegos y aplicaciones pesadas.
+                </Card.Text>
+              </Card.Body>
+            </Card>
+          </div>
+        </CardGroup>
       </div>
     </div>
   );

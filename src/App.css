@@ -225,7 +225,7 @@ h3 {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 10px;
-  margin: 20px;
+  margin-bottom: 20px;
 }
 
 .collage-item {
@@ -299,7 +299,7 @@ h3 {
   padding: 30px;
 }
 
-.cardstestimonials {
+.cardstestimonials.card {
   background: rgba(255, 255, 255, 0.28);
   border-radius: 16px;
   box-shadow: 0 4px 30px rgba(9, 9, 8, 0.1);
@@ -310,19 +310,39 @@ h3 {
   -moz-box-shadow: 25px 11px 50px 0px rgba(0, 0, 0, 0.57);
   box-shadow: 25px 11px 50px 0px rgba(0, 0, 0, 0.57);
 }
+
+.cardstestimonials {
+  color: black;
+}
+
 .testimonials-container {
   position: relative;
-  padding-bottom: 300px;
+  padding-bottom: 100px;
   color: white;
 }
 .background-img {
   width: 100%;
 }
 
-.product-content {
+.black-text {
+  color: white !important;
+}
+
+.cardstestimonials .black-text {
+  color: black !important;
+  text-align: left;
+}
+
+.product-list {
   margin-top: 125px;
 }
 .banner-img {
   margin-top: 70px;
   max-width: 100%;
+}
+
+.product-li {
+  border-bottom: solid 0.5px rgb(178, 178, 178);
+  padding-bottom: 10px;
+  padding-top: 10px;
 }

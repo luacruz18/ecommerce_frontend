@@ -7,7 +7,7 @@ import "../App.css";
 
 const CustomNavbar = () => {
   return (
-    <Navbar expand="lg" className="navbar" fixed="top">
+    <Navbar expand="lg" className="navbar" >
       <Navbar.Brand as={Link} to="/" className="navbar-logo">
         <img
           src={import.meta.env.VITE_IMG_URL + "Logo_Web.png"}
@@ -17,9 +17,12 @@ const CustomNavbar = () => {
         />
       </Navbar.Brand>
       <Navbar.Toggle aria-controls="basic-navbar-nav" className="menu" />
-      <Navbar.Collapse id="basic-navbar-nav" className="navbar-nav justify-content-end">
+      <Navbar.Collapse
+        id="basic-navbar-nav"
+        className="navbar-nav justify-content-end"
+      >
         <Nav>
-          <Nav.Link as={Link} to="/productos" className="product-nav">
+          <Nav.Link as={Link} to="/listaproductos" className="product-nav">
             Productos
           </Nav.Link>
           <Nav.Link as={Link} to="/sobrenosotros" className="about-us-nav">
