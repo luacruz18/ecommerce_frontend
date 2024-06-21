@@ -8,7 +8,7 @@ function Testimonials() {
       <img
         className="background-img"
         src={import.meta.env.VITE_IMG_URL + "fondotestimonios.jpg"}
-        alt="Ofertas Especiales"
+        alt="Testimonios"
       />
       <h3 className="text-center mb-5 pt-5">TESTIMONIOS</h3>
       <div className="container">

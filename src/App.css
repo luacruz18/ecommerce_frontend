@@ -322,3 +322,7 @@ h3 {
 .product-content {
   margin-top: 125px;
 }
+.banner-img {
+  margin-top: 70px;
+  max-width: 100%;
+}
