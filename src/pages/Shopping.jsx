@@ -2,9 +2,7 @@ import React from "react";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import "../App.css";
-import Col from "react-bootstrap/Col";
-import Form from "react-bootstrap/Form";
-import Row from "react-bootstrap/Row";
+import Formulario from "../components/Formulario";
 
 const Shopping = () => {
   return (
@@ -17,7 +15,7 @@ const Shopping = () => {
           alt="BannerEnvio"
         />
       </div>
-
+      <Formulario></Formulario>
       <Footer />
     </div>
   );
