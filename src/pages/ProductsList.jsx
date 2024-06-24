@@ -1,9 +1,13 @@
+// ProductList.jsx
+
 import React, { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
-import CardProductList from "../components//CardProducList.jsx";
-import { fetchProducts } from "../Hooks/api.jsx";
+import CardProductList from "../components/CardProducList"; 
+import { fetchProducts } from "../Hooks/api"; 
 import { Container, Row, Col } from "react-bootstrap";
+import Breadcrumb from "../components/Breadcrumb";
 
 const ProductList = () => {
   const [products, setProducts] = useState([]);
@@ -24,43 +28,63 @@ const ProductList = () => {
   return (
     <div>
       <Navbar />
-      <div className="product-list">
+      <img
+        className="w-100 d-none d-md-block"
+        src="/img/Bannerenvío.jpg"
+        alt=""
+      />
+      <div className="product-list container">
+        <Breadcrumb />
         <Row className="m-0">
           <nav className="col-md-2 d-none d-md-block sidebar">
             <div className="sidebar-sticky">
+              <h4>CATEGORÍAS</h4>
+              <hr />
               <ul className="nav flex-column">
-                <li className="nav-item">
+                <li className="nav-item product-li">
                   <a className="nav-link active" href="#">
-                    Sidebar Item 1
+                    Hardware{" "}
                   </a>
                 </li>
-                <li className="nav-item">
+                <li className="nav-item product-li">
                   <a className="nav-link" href="#">
-                    Sidebar Item 2
+                    Periféricos{" "}
                   </a>
                 </li>
-                <li className="nav-item">
+                <li className="nav-item product-li">
                   <a className="nav-link" href="#">
-                    Sidebar Item 3
+                    Monitores{" "}
                   </a>
                 </li>
-                <li className="nav-item">
+                <li className="nav-item product-li">
                   <a className="nav-link" href="#">
-                    Sidebar Item 4
+                    Equipos Armados{" "}
+                  </a>
+                </li>
+                <li className="nav-item product-li">
+                  <a className="nav-link" href="#">
+                    Laptops{" "}
                   </a>
                 </li>
               </ul>
             </div>
           </nav>
           <Col md={10} className="ml-sm-auto px-4">
-          <div className="container">
-            <Row>
-              {products.map((product) => (
-                <Col key={product.id} xs={12} sm={6} md={6} lg={3} className="mb-4">
-                  <CardProductList product={product} />
-                </Col>
-              ))}
-            </Row>
+            <div className="container">
+              <Row>
+                {products.map((product) => (
+                  <Col
+                    key={product.id}
+                    xs={12}
+                    sm={6}
+                    md={6}
+                    lg={3}
+                    className="mb-4"
+                  >
+                    <CardProductList product={product} />
+                  </Col>
+                ))}
+              </Row>
             </div>
           </Col>
         </Row>

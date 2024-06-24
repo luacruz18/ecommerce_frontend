@@ -2,14 +2,16 @@ import React from "react";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import ProductDetails from "../components/ProductDetails";
-import ProductCarousel from "../components/ProductCarousel";  
+import ProductCarousel from "../components/ProductCarousel";
+import Breadcrumbs from "../components/Breadcrumb";  
 
 const Product = () => {
   return (
     <div className="product-content">
       <Navbar />
+      <Breadcrumbs />
       <ProductDetails />
-      <div className="container mt-5">
+      <div className="container">
         <h3 className="product-description-title text-center">DESCRIPCIÓN</h3>
         <p className="product-description">
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam et
