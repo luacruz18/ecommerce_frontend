@@ -9,6 +9,7 @@ import Login from "./pages/Login";
 import Register from "./pages/Register";
 import About from "./pages/About";
 import ProductList from "./pages/ProductsList";
+import Dashboard from "./pages/Dashboard";
 
 function App() {
   const router = createBrowserRouter([
@@ -27,6 +28,7 @@ function App() {
     { path: "/listaproductos", element: <ProductList /> },
 
     { path: "/iniciarsesion", element: <Login /> },
+    { path: "/administrador", element: <Dashboard /> },
   ]);
 
   return <RouterProvider router={router} />;

@@ -3,7 +3,7 @@ import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import Slider from "react-slick";
 import { FaFacebook, FaTwitter, FaLinkedin } from "react-icons/fa";
-import "../About.css";
+import "../styles/About.css";
 
 const Team = () => {
   var settings = {

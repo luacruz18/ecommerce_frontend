@@ -1,6 +1,6 @@
 import React from "react";
 import { Button } from "@mui/material";
-import "../App.css";
+import "../styles/App.css";
 
 function CardProductList({ product }) {
   if (!product) {

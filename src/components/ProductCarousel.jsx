@@ -4,7 +4,7 @@ import { FiChevronRight, FiChevronLeft } from "react-icons/fi";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import CardProduct from "../components/CardProduct";
-import "../App.css";
+import "../styles/App.css";
 
 const NextArrow = (props) => {
   const { className, onClick } = props;

@@ -1,6 +1,6 @@
 import React from "react";
 import { Card, CardGroup } from "react-bootstrap";
-import "../App.css";
+import "../styles/App.css";
 
 function Testimonials() {
   return (

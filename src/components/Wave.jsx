@@ -1,5 +1,5 @@
 import React from "react";
-import "../Wave.css";
+import "../Styles/Wave.css";
 
 const Wave = () => {
   return <div className="wave"></div>;

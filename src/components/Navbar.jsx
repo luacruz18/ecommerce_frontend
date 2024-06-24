@@ -3,7 +3,7 @@ import Navbar from "react-bootstrap/Navbar";
 import Nav from "react-bootstrap/Nav";
 import { BsPersonFill, BsCart } from "react-icons/bs";
 import { Link } from "react-router-dom";
-import "../App.css";
+import "../styles/App.css";
 
 const CustomNavbar = () => {
   return (
