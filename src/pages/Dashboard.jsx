@@ -1,95 +1,65 @@
-import React from "react";
-import Navbar from "../components/Navbar";
-import Footer from "../components/Footer";
-import "react-tabulator/lib/styles.css";
-import { ReactTabulator } from "react-tabulator";
+
+import React from 'react';
+import '../styles/Dashboard.css'; 
+import Navbar from '../components/Navbar';
+import Footer from '../components/Footer';
+import { ReactTabulator } from 'react-tabulator';
+import ChartComponent from '../components/Chart'; 
+import SalesChart from '../components/SalesChart'; 
+import TopProducts from '../components/TopProducts'; 
+import Notifications from '../components/Notifications'; 
 
 const Dashboard = () => {
   const columns = [
-    { title: "Número de orden", field: "name", width: 200, editor: "input" },
-    {
-      title: "Producto",
-      field: "location",
-      width: 130,
-      editor: "list",
-      editorParams: {
-        autocomplete: "true",
-        allowEmpty: true,
-        listOnEmpty: true,
-        valuesLookup: true,
-      },
+    { title: 'Número de orden', field: 'name', width: 200, editor: 'input' },
+    { title: 'ID', field: 'location', width: 130, editor: 'list', editorParams: {
+        autocomplete: 'true', allowEmpty: true, listOnEmpty: true, valuesLookup: true
+      }
     },
-    {
-      title: "Estado",
-      field: "progress",
-      sorter: "number",
-      hozAlign: "left",
-      formatter: "progress",
-      width: 140,
-      editor: "input",
-    },
-    {
-      title: "Stock",
-      field: "progress",
-      sorter: "number",
-      hozAlign: "left",
-      formatter: "progress",
-      width: 140,
-      editor: "input",
-    },
-    {
-      title: "ID",
-      field: "progress",
-      sorter: "number",
-      hozAlign: "left",
-      formatter: "progress",
-      width: 140,
-      editor: "input",
-    },
-    {
-      title: "Rating",
-      field: "rating",
-      formatter: "star",
-      hozAlign: "center",
-      width: 150,
-      editor: true,
-    },
+    { title: 'Producto', field: 'progress', sorter: 'number', hozAlign: 'left', formatter: 'progress', width: 140, editor: 'input' },
+    { title: 'Estado', field: 'progress', sorter: 'number', hozAlign: 'left', formatter: 'progress' },
+    { title: 'Stock', field: 'stock', sorter: 'number', hozAlign: 'left', formatter: 'number' }
   ];
 
   const data = [
-    { id: 1, name: "Oli Bob", age: "12", col: "red", dob: "14/06/1992" },
-    { id: 2, name: "Mary May", age: "1", col: "blue", dob: "14/05/1982" },
-    {
-      id: 3,
-      name: "Christine Lobowski",
-      age: "42",
-      col: "green",
-      dob: "22/05/1982",
-    },
-    {
-      id: 4,
-      name: "Brendon Philips",
-      age: "125",
-      col: "orange",
-      dob: "01/08/1980",
-    },
-    {
-      id: 5,
-      name: "Margret Marmajuke",
-      age: "16",
-      col: "yellow",
-      dob: "31/01/1999",
-    },
+    { id: 1, name: 'Oli Bob', location: 'New York', progress: 42, gender: 'male', rating: 7, col: 'red', dob: '14/04/1984' },
+    { id: 2, name: 'Mary May', location: 'Boston', progress: 11, gender: 'female', rating: 4, col: 'blue', dob: '21/05/1982' },
+    { id: 3, name: 'Christine Lobowski', location: 'Los Angeles', progress: 61, gender: 'female', rating: 6, col: 'green', dob: '07/03/1984' },
+    { id: 4, name: 'Brendon Philips', location: 'Miami', progress: 23, gender: 'male', rating: 8, col: 'orange', dob: '22/02/1984' },
+    { id: 5, name: 'Margret Marmajuke', location: 'Chicago', progress: 42, gender: 'female', rating: 10, col: 'yellow', dob: '03/12/1984' }
   ];
 
   return (
-    <>
+    <div>
       <Navbar />
-      <div style={{ padding: "20px" }}>
-        <ReactTabulator columns={columns} data={data} layout="fitData" />
+      <div className="dashboard-container">
+        <h1>Dashboard</h1>
+        <div className="stats">
+          <div className="stat-item">
+            <h2>150</h2>
+            <p>Nuevas órdenes</p>
+          </div>
+          <div className="stat-item">
+            <h2>53%</h2>
+            <p>Bounce Rate</p>
+          </div>
+          <div className="stat-item">
+            <h2>44</h2>
+            <p>User Registrations</p>
+          </div>
+          <div className="stat-item">
+            <h2>65</h2>
+            <p>Unique Visitors</p>
+          </div>
+        </div>
+        <ReactTabulator data={data} columns={columns} layout="fitData" />
+        <ChartComponent /> 
+        <SalesChart /> 
+        <TopProducts /> 
+        <Notifications /> 
       </div>
       <Footer />
-    </>
+    </div>
   );
 };
 
