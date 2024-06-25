@@ -15,7 +15,7 @@ const ProductDetails = () => {
         const products = await fetchProducts();
         const selectedProduct = products.find(
           (prod) => prod.id === parseInt(id)
-        ); 
+        );
         if (selectedProduct) {
           setProduct(selectedProduct);
         } else {
@@ -41,6 +41,11 @@ const ProductDetails = () => {
     return <div>Loading...</div>;
   }
 
+  if (!Array.isArray(product.pic)) {
+    console.error(`Product pictures for product id ${id} is not an array`);
+    return <div>Error: Product pictures are not available.</div>;
+  }
+
   return (
     <div className="container">
       <Grid container spacing={2}>
@@ -51,7 +56,7 @@ const ProductDetails = () => {
           style={{ display: "flex", justifyContent: "center" }}
         >
           <img
-            src={product.images[selectedImage]}
+            src={import.meta.env.VITE_IMG_URL + product.pic[selectedImage]}
             alt="Product"
             style={{
               maxWidth: "100%",
@@ -82,18 +87,17 @@ const ProductDetails = () => {
             </Select>
           </Typography>
           <div style={{ marginTop: "1rem" }}>
-            {product.images.map((image, index) => (
+            {product.pic.map((pic, index) => (
               <img
                 key={index}
-                src={image}
+                src={pic}
                 alt={`Product Thumbnail ${index}`}
                 style={{
                   width: "50px",
                   height: "50px",
                   marginRight: "0.5rem",
                   cursor: "pointer",
-                  border:
-                    index === selectedImage ? "2px solid blue" : "none",
+                  border: index === selectedImage ? "2px solid blue" : "none",
                 }}
                 onClick={() => handleChangeImage(index)}
               />
