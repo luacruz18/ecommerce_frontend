@@ -1,34 +1,29 @@
 import React from "react";
-import "../styles/App.css";
-import { Button } from '@mui/material';
-import { Link } from 'react-router-dom';
-
+import { Button } from "@mui/material";
+import { Link } from "react-router-dom";
 
 function CardProductList({ product }) {
-  if (!product) {
-    return null;
-  }
 
   const truncateText = (text, maxLength) => {
     if (text.length > maxLength) {
-      return text.substring(0, maxLength - 3) + '...';
+      return text.substring(0, maxLength - 3) + "...";
     } else {
       return text;
     }
   };
 
   return (
-    <div className="border-0" style={{ width: '100%' }}>
-      <Link to={`/productos/${product.id}`} style={{ textDecoration: 'none' }}>
-        <div style={{ overflow: 'hidden', height: '18rem' }}>
+    <div className="border-0" style={{ width: "100%" }}>
+      <Link to={`/productos/${product.id}`} style={{ textDecoration: "none" }}>
+        <div style={{ overflow: "hidden", height: "18rem" }}>
           <img
             className="card-img-top"
             src={import.meta.env.VITE_IMG_URL + product.pic}
             alt={product.name}
             style={{
-              width: '100%',
-              height: '100%',
-              objectFit: 'contain',
+              width: "100%",
+              height: "100%",
+              objectFit: "contain",
             }}
           />
         </div>
@@ -36,9 +31,9 @@ function CardProductList({ product }) {
           <h5
             className="card-title"
             style={{
-              whiteSpace: 'nowrap',
-              overflow: 'hidden',
-              textOverflow: 'ellipsis',
+              whiteSpace: "nowrap",
+              overflow: "hidden",
+              textOverflow: "ellipsis",
             }}
           >
             {truncateText(product.name, 20)}
@@ -47,9 +42,9 @@ function CardProductList({ product }) {
           <Button
             variant="contained"
             style={{
-              backgroundColor: '#e93d3a',
-              color: 'white',
-              width: '75%',
+              backgroundColor: "#e93d3a",
+              color: "white",
+              width: "75%",
             }}
           >
             Ver Detalles
