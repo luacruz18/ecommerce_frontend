@@ -205,6 +205,9 @@ h3 {
   font-family: "Montserrat", sans-serif;
   font-weight: 800;
 }
+.p {
+  font-family: "Montserrat", sans-serif;
+}
 
 .background-img {
   position: absolute;
@@ -344,4 +347,25 @@ h3 {
   border-bottom: solid 0.5px rgb(178, 178, 178);
   padding-bottom: 10px;
   padding-top: 10px;
+}
+
+.button-envio {
+  background-color: #e93d3a;
+  padding-bottom: 10px;
+  padding-top: 10px;
+  font-family: "Montserrat";
+}
+.p {
+  font-family: "Montserrat";
+}
+
+.form-container {
+  background-color: white;
+  width: 60%;
+  justify-content: flex-end;
+}
+.datos-card {
+  background-color: #e93d3a;
+  font-family: "Montserrat";
+  color: white;
 }
