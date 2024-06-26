@@ -1,134 +1,199 @@
 import React from "react";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
-import Slider from "react-slick";
-import { FaFacebook, FaTwitter, FaLinkedin } from "react-icons/fa";
+import { FaInstagram, FaTwitter, FaFacebook, FaLinkedin } from "react-icons/fa";
 import "../styles/About.css";
 
-const Team = () => {
-  var settings = {
-    dots: true,
-    infinite: false,
-    speed: 500,
-    slidesToShow: 1,
-    slidesToScroll: 1,
-    initialSlide: 0,
-    responsive: [
-      {
-        breakpoint: 1024,
-        settings: {
-          slidesToShow: 1,
-          slidesToScroll: 1,
-          infinite: true,
-          dots: true,
-        },
-      },
-      {
-        breakpoint: 600,
-        settings: {
-          slidesToShow: 1,
-          slidesToScroll: 1,
-          initialSlide: 1,
-        },
-      },
-      {
-        breakpoint: 480,
-        settings: {
-          slidesToShow: 1,
-          slidesToScroll: 1,
-        },
-      },
-    ],
-  };
-
-  const teamMembers = [
-    {
-      name: "Sofia Salaberry",
-      role: "Desarrollador Full-Stack",
-      facebook: "https://facebook.com/johndoe",
-      twitter: "https://twitter.com/johndoe",
-      linkedin: "https://linkedin.com/in/johndoe",
-    },
-    {
-      name: "Santiago Cozzi",
-      role: "Desarrolador Full-Stack",
-      facebook: "https://facebook.com/janesmith",
-      twitter: "https://twitter.com/janesmith",
-      linkedin: "https://linkedin.com/in/janesmith",
-    },
-    {
-      name: "Luana Cruz",
-      role: "Desarrollador Full-Stack",
-      facebook: "https://facebook.com/samjohnson",
-      twitter: "https://twitter.com/samjohnson",
-      linkedin: "https://linkedin.com/in/samjohnson",
-    },
-    {
-      name: "Micaela Reyes",
-      role: "Desarrolador Full-Stack",
-      facebook: "https://facebook.com/chrislee",
-      twitter: "https://twitter.com/chrislee",
-      linkedin: "https://linkedin.com/in/chrislee",
-    },
-  ];
-
+function About() {
   return (
     <div>
       <Navbar />
-      <div className="responsive-container-block bigContainer">
-        <div className="responsive-container-block Container">
-          <div className="responsive-container-block leftSide">
-            <p className="text-blk heading">Sobre nosotros</p>
-            <p className="text-blk subHeading">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-              eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-              enim ad minim veniam, quis nostrud exercitation ullamco laboris
-              nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
-              reprehenderit in voluptate velit esse cillum dolore eu fugiat
-              nulla pariatur. Excepteur sint occaecat cupidatat non proident,
-              sunt in culpa qui officia deserunt mollit anim id est laborum.
+      <div className="container-lg mt-4">
+        <h1>Sobre nosotros</h1>
+        <div className="row">
+          <hr />
+          <div className="col-lg-6">
+            <div className="card text-center rounded-0 p-1">
+              <img
+                src="\img\collage3 c6.jpg"
+                className="card-img rounded-0"
+                width="300px"
+                alt="..."
+              />
+            </div>
+          </div>
+          <div className="col-lg-6 ps-4">
+            <h2>Zona Gamer</h2>
+            <p>
+              En Zona Gamer nos dedicamos apasionadamente a proporcionar a
+              nuestros clientes los mejores productos diseñados especialmente
+              para satisfacer las necesidades de los gamers más exigentes. Desde
+              equipos de última generación hasta accesorios que mejoran tu
+              experiencia de juego, nuestra misión es asegurarnos de que
+              encuentres exactamente lo que necesitas para llevar tu juego al
+              siguiente nivel.
             </p>
           </div>
-          <div className="responsive-container-block rightSide">
-            <div className="slider-container">
-              <Slider {...settings}>
-                {teamMembers.map((member, index) => (
-                  <div key={index} className="card">
-                    <h3>{member.name}</h3>
-                    <p>{member.role}</p>
-                    <div className="social-icons">
-                      <a
-                        href={member.facebook}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                      >
-                        <FaFacebook />
-                      </a>
-                      <a
-                        href={member.twitter}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                      >
-                        <FaTwitter />
-                      </a>
-                      <a
-                        href={member.linkedin}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                      >
-                        <FaLinkedin />
-                      </a>
-                    </div>
-                  </div>
-                ))}
-              </Slider>
+        </div>
+
+        <div className="row">
+          <h2 className="mt-5">Nuestro Equipo</h2>
+          <hr />
+          <div className="row row-cols-1 row-cols-lg-4 g-4 px-0 mt-0 mb-5 team-cards">
+            <div className="col">
+              <div className="card h-100">
+                <img
+                  src="\img\AndreaRodriguez.jpg"
+                  className="card-img-top"
+                  alt="Micaela Reyes"
+                />
+                <div className="card-body text-center">
+                  <h5 className="card-title">Micaela Reyes</h5>
+                  <h6 className="card-subtitle text-secondary my-1s">
+                    Co-founder
+                  </h6>
+                  <p className="card-text">
+                    Take a look about our team’s commitment to provide everyone
+                    on our global platform with the technology that can help
+                    them move ahead.
+                  </p>
+                </div>
+                <div className="card-footer d-flex justify-content-center">
+                  <ul className="list-inline">
+                    <li className="list-inline-item">
+                      <FaInstagram />
+                    </li>
+                    <li className="list-inline-item">
+                      <FaTwitter />
+                    </li>
+                    <li className="list-inline-item">
+                      <FaFacebook />
+                    </li>
+                    <li className="list-inline-item">
+                      <FaLinkedin />
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            <div className="col">
+              <div className="card h-100">
+                <img
+                  src="\img\AlejandroNavarro.jpg"
+                  className="card-img-top"
+                  alt="Santiago Cozzi"
+                />
+                <div className="card-body text-center">
+                  <h5 className="card-title">Santiago Cozzi</h5>
+                  <h6 className="card-subtitle text-secondary my-1s">
+                    Co-founder
+                  </h6>
+                  <p className="card-text">
+                    Take a look about our team’s commitment to provide everyone
+                    on our global platform with the technology that can help
+                    them move ahead.
+                  </p>
+                </div>
+                <div className="card-footer d-flex justify-content-center">
+                  <ul className="list-inline">
+                    <li className="list-inline-item">
+                      <FaInstagram />
+                    </li>
+                    <li className="list-inline-item">
+                      <FaTwitter />
+                    </li>
+                    <li className="list-inline-item">
+                      <FaFacebook />
+                    </li>
+                    <li className="list-inline-item">
+                      <FaLinkedin />
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            <div className="col">
+              <div className="card h-100">
+                <img
+                  src="\img\AndreaRodriguez.jpg"
+                  className="card-img-top"
+                  alt="Luana Cruz"
+                />
+                <div className="card-body text-center">
+                  <h5 className="card-title">Luana Cruz</h5>
+                  <h6 className="card-subtitle text-secondary my-1s">
+                    Co-founder
+                  </h6>
+                  <p className="card-text">
+                    Take a look about our team’s commitment to provide everyone
+                    on our global platform with the technology that can help
+                    them move ahead.
+                  </p>
+                </div>
+                <div className="card-footer d-flex justify-content-center">
+                  <ul className="list-inline">
+                    <li className="list-inline-item">
+                      <FaInstagram />
+                    </li>
+                    <li className="list-inline-item">
+                      <FaTwitter />
+                    </li>
+                    <li className="list-inline-item">
+                      <FaFacebook />
+                    </li>
+                    <li className="list-inline-item">
+                      <FaLinkedin />
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            <div className="col">
+              <div className="card h-100">
+                <img
+                  src="\img\AndreaRodriguez.jpg"
+                  className="card-img-top"
+                  alt="Sofia Salaberry"
+                />
+                <div className="card-body text-center">
+                  <h5 className="card-title">Sofia Salaberry</h5>
+                  <h6 className="card-subtitle text-secondary my-1s">
+                    Co-founder
+                  </h6>
+                  <p className="card-text">
+                    Take a look about our team’s commitment to provide everyone
+                    on our global platform with the technology that can help
+                    them move ahead.
+                  </p>
+                </div>
+                <div className="card-footer d-flex justify-content-center">
+                  <ul className="list-inline">
+                    <li className="list-inline-item">
+                      <FaInstagram />
+                    </li>
+                    <li className="list-inline-item">
+                      <FaTwitter />
+                    </li>
+                    <li className="list-inline-item">
+                      <FaFacebook />
+                    </li>
+                    <li className="list-inline-item">
+                      <FaLinkedin />
+                    </li>
+                  </ul>
+                </div>
+              </div>
             </div>
           </div>
         </div>
       </div>
+
       <Footer />
     </div>
   );
-};
+}
 
-export default Team;
+export default About;
