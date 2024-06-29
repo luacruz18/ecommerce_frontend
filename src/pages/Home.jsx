@@ -17,6 +17,7 @@ const Home = () => {
       <Collage /> 
       <Testimonials />
       <Footer />
+      
 
     </div>
   );
