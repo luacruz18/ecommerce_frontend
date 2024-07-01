@@ -1,8 +1,11 @@
 import React from "react";
 import { Button } from "@mui/material";
 import { Link } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { addItem } from "../redux/cartSlice"; 
 
 function CardProductList({ product }) {
+  const dispatch = useDispatch();
 
   const truncateText = (text, maxLength) => {
     if (text.length > maxLength) {
@@ -12,9 +15,17 @@ function CardProductList({ product }) {
     }
   };
 
+  const handleAddToCart = () => {
+    dispatch(addItem(product)); 
+  };
+
   return (
     <div className="border-0" style={{ width: "100%" }}>
-      <Link to={`/productos/${product.id}`} style={{ textDecoration: "none" }}>
+      <div>
+      <Link
+        to={`/productos/${product.id}`}
+        style={{ textDecoration: "none" }}
+      >
         <div style={{ overflow: "hidden", height: "18rem" }}>
           <img
             className="card-img-top"
@@ -39,19 +50,23 @@ function CardProductList({ product }) {
             {truncateText(product.name, 20)}
           </h5>
           <p className="card-text">${product.price}</p>
+          </div>
+          </Link>
+          </div>
           <Button
             variant="contained"
             style={{
               backgroundColor: "#e93d3a",
               color: "white",
-              width: "75%",
+              width: "100%",
             }}
+            onClick={handleAddToCart} 
           >
-            Ver Detalles
+            Agregar al carrito
           </Button>
         </div>
-      </Link>
-    </div>
+      
+ 
   );
 }
 

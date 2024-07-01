@@ -2,20 +2,25 @@ import React, { useState, useEffect } from "react";
 import { Grid, Typography, Button, Select, MenuItem } from "@mui/material";
 import { useParams } from "react-router-dom";
 import { fetchProducts } from "../Hooks/api";
+import { Link } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { addItem } from "../redux/cartSlice";
 
 const ProductDetails = () => {
+  const dispatch = useDispatch();
   const { id } = useParams();
   const [product, setProduct] = useState(null);
-  const [selectedImage, setSelectedImage] = useState(0);
-  const [selectedQty, setSelectedQty] = useState(1);
+  const [selectedQty, setSelectedQty] = useState(1); // estado para la cantidad q se selecciona
 
   useEffect(() => {
     const fetchData = async () => {
       try {
         const products = await fetchProducts();
+        console.log("Fetched products:", products);
         const selectedProduct = products.find(
           (prod) => prod.id === parseInt(id)
         );
+        console.log("Selected product:", selectedProduct);
         if (selectedProduct) {
           setProduct(selectedProduct);
         } else {
@@ -25,13 +30,9 @@ const ProductDetails = () => {
         console.error("Error fetching product:", error);
       }
     };
-
+  
     fetchData();
   }, [id]);
-
-  const handleChangeImage = (index) => {
-    setSelectedImage(index);
-  };
 
   const handleChangeQty = (event) => {
     setSelectedQty(event.target.value);
@@ -41,10 +42,15 @@ const ProductDetails = () => {
     return <div>Loading...</div>;
   }
 
-  if (!Array.isArray(product.pic)) {
-    console.error(`Product pictures for product id ${id} is not an array`);
-    return <div>Error: Product pictures are not available.</div>;
+  if (typeof product.pic !== "string") {
+    console.error(`Product picture for product id ${id} is not a string`);
+    return <div>Error: Product picture is not available.</div>;
   }
+
+  const handleAddToCart = () => {
+    // agrega el producto al carrito con la cantidad que seleccioné
+    dispatch(addItem({ ...product, quantity: selectedQty }));
+  };
 
   return (
     <div className="container">
@@ -56,7 +62,7 @@ const ProductDetails = () => {
           style={{ display: "flex", justifyContent: "center" }}
         >
           <img
-            src={import.meta.env.VITE_IMG_URL + product.pic[selectedImage]}
+            src={import.meta.env.VITE_IMG_URL + product.pic}
             alt="Product"
             style={{
               maxWidth: "100%",
@@ -81,28 +87,11 @@ const ProductDetails = () => {
             Cantidad:
             <Select value={selectedQty} onChange={handleChangeQty}>
               <MenuItem value={1}>1</MenuItem>
-              <MenuItem value={3}>2</MenuItem>
-              <MenuItem value={6}>3</MenuItem>
-              <MenuItem value={12}>4</MenuItem>
+              <MenuItem value={2}>2</MenuItem>
+              <MenuItem value={3}>3</MenuItem>
+              <MenuItem value={4}>4</MenuItem>
             </Select>
           </Typography>
-          <div style={{ marginTop: "1rem" }}>
-            {product.pic.map((pic, index) => (
-              <img
-                key={index}
-                src={pic}
-                alt={`Product Thumbnail ${index}`}
-                style={{
-                  width: "50px",
-                  height: "50px",
-                  marginRight: "0.5rem",
-                  cursor: "pointer",
-                  border: index === selectedImage ? "2px solid blue" : "none",
-                }}
-                onClick={() => handleChangeImage(index)}
-              />
-            ))}
-          </div>
           <div style={{ marginTop: "1rem" }}>
             <Button
               variant="contained"
@@ -120,8 +109,9 @@ const ProductDetails = () => {
                 backgroundColor: "#e93d3a",
                 color: "white",
                 width: "100%",
-                marginTop: "10px",
+                marginTop: "8px",
               }}
+              onClick={handleAddToCart}
             >
               Agregar al carrito
             </Button>
