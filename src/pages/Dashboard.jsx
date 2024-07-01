@@ -1,5 +1,5 @@
-import React from "react";
-import "../styles/Dashboard.css";
+import React, { useState, useEffect } from "react";
+import { useSelector, useDispatch } from "react-redux";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import { ReactTabulator } from "react-tabulator";
@@ -7,97 +7,107 @@ import ChartComponent from "../components/Chart";
 import SalesChart from "../components/SalesChart";
 import TopProducts from "../components/TopProducts";
 import Notifications from "../components/Notifications";
+import {
+  fetchProducts,
+  updateProduct,
+  addProduct,
+  deleteProduct,
+} from "../Hooks/api";
+import "../styles/Dashboard.css";
 
 const Dashboard = () => {
-  const columns = [
-    { title: "Número de orden", field: "name", width: 200, editor: "input" },
-    {
-      title: "ID",
-      field: "location",
-      width: 130,
-      editor: "list",
-      editorParams: {
-        autocomplete: "true",
-        allowEmpty: true,
-        listOnEmpty: true,
-        valuesLookup: true,
-      },
-    },
-    {
-      title: "Producto",
-      field: "progress",
-      sorter: "number",
-      hozAlign: "left",
-      formatter: "progress",
-      width: 140,
-      editor: "input",
-    },
-    {
-      title: "Estado",
-      field: "progress",
-      sorter: "number",
-      hozAlign: "left",
-      formatter: "progress",
-    },
-    {
-      title: "Stock",
-      field: "stock",
-      sorter: "number",
-      hozAlign: "left",
-      formatter: "number",
-    },
-  ];
+  const dispatch = useDispatch();
+  const user = useSelector((state) => state.user);
+  const token = user?.token;
 
-  const data = [
+  const [database, setDatabase] = useState([]);
+  const [updatedRows, setUpdatedRows] = useState([]);
+  const [newProduct, setNewProduct] = useState({
+    name: "",
+    price: "",
+    stock: "",
+    description: "",
+  });
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const productsData = await fetchProducts();
+        setDatabase(productsData);
+      } catch (error) {
+        console.error("Error fetching products:", error);
+      }
+    };
+
+    fetchData();
+  }, []);
+
+  const handleCellEdited = (cell) => {
+    const updatedRow = cell.getRow().getData();
+    setUpdatedRows((prev) => {
+      const updatedIndex = prev.findIndex((row) => row.id === updatedRow.id);
+      if (updatedIndex >= 0) {
+        const updatedRowsCopy = [...prev];
+        updatedRowsCopy[updatedIndex] = updatedRow;
+        return updatedRowsCopy;
+      } else {
+        return [...prev, updatedRow];
+      }
+    });
+  };
+
+  const handleUpdateProducts = async () => {
+    try {
+      for (const row of updatedRows) {
+        await updateProduct(row.id, row, token); 
+      }
+      alert("Productos actualizados correctamente");
+    } catch (error) {
+      console.error("Error updating products:", error);
+      alert("Hubo un error al actualizar los productos");
+    }
+  };
+
+  const handleAddProduct = async () => {
+    try {
+      const addedProduct = await addProduct(newProduct, token);
+      setDatabase((prev) => [...prev, addedProduct]);
+      setNewProduct({ name: "", price: "", stock: "", description: "" });
+      alert("Producto agregado correctamente");
+    } catch (error) {
+      console.error("Error adding product:", error);
+      alert("Hubo un error al agregar el producto");
+    }
+  };
+
+  const handleDeleteProduct = async (id) => {
+    try {
+      await deleteProduct(id, token); 
+      setDatabase((prev) => prev.filter((product) => product.id !== id));
+      alert("Producto eliminado correctamente");
+    } catch (error) {
+      console.error("Error deleting product:", error);
+      alert("Hubo un error al eliminar el producto");
+    }
+  };
+
+  const columns = [
+    { title: "ID", field: "id", width: 150, editor: false },
+    { title: "Producto", field: "name", width: 150, editor: "input" },
+    { title: "Precio", field: "price", width: 150, editor: "input" },
+    { title: "Stock", field: "stock", width: 150, editor: "input" },
+    { title: "Description", field: "description", editor: "input" },
     {
-      id: 1,
-      name: "Oli Bob",
-      location: "New York",
-      progress: 42,
-      gender: "male",
-      rating: 7,
-      col: "red",
-      dob: "14/04/1984",
-    },
-    {
-      id: 2,
-      name: "Mary May",
-      location: "Boston",
-      progress: 11,
-      gender: "female",
-      rating: 4,
-      col: "blue",
-      dob: "21/05/1982",
-    },
-    {
-      id: 3,
-      name: "Christine Lobowski",
-      location: "Los Angeles",
-      progress: 61,
-      gender: "female",
-      rating: 6,
-      col: "green",
-      dob: "07/03/1984",
-    },
-    {
-      id: 4,
-      name: "Brendon Philips",
-      location: "Miami",
-      progress: 23,
-      gender: "male",
-      rating: 8,
-      col: "orange",
-      dob: "22/02/1984",
-    },
-    {
-      id: 5,
-      name: "Margret Marmajuke",
-      location: "Chicago",
-      progress: 42,
-      gender: "female",
-      rating: 10,
-      col: "yellow",
-      dob: "03/12/1984",
+      title: "Acciones",
+      field: "actions",
+      width: 100,
+      formatter: (cell, formatterParams, onRendered) => {
+        return `<button class="delete-button">Eliminar</button>`;
+      },
+      cellClick: (e, cell) => {
+        const row = cell.getRow().getData();
+        handleDeleteProduct(row.id);
+      },
     },
   ];
 
@@ -124,7 +134,48 @@ const Dashboard = () => {
             <p>Unique Visitors</p>
           </div>
         </div>
-        <ReactTabulator data={data} columns={columns} layout="fitData" />
+        <ReactTabulator
+          data={database}
+          columns={columns}
+          events={{ cellEdited: handleCellEdited }}
+        />
+        <button onClick={handleUpdateProducts}>Actualizar Productos</button>
+        <div>
+          <h3>Agregar Nuevo Producto</h3>
+          <input
+            type="text"
+            placeholder="Nombre"
+            value={newProduct.name}
+            onChange={(e) =>
+              setNewProduct({ ...newProduct, name: e.target.value })
+            }
+          />
+          <input
+            type="text"
+            placeholder="Precio"
+            value={newProduct.price}
+            onChange={(e) =>
+              setNewProduct({ ...newProduct, price: e.target.value })
+            }
+          />
+          <input
+            type="text"
+            placeholder="Stock"
+            value={newProduct.stock}
+            onChange={(e) =>
+              setNewProduct({ ...newProduct, stock: e.target.value })
+            }
+          />
+          <input
+            type="text"
+            placeholder="Descripción"
+            value={newProduct.description}
+            onChange={(e) =>
+              setNewProduct({ ...newProduct, description: e.target.value })
+            }
+          />
+          <button onClick={handleAddProduct}>Agregar Producto</button>
+        </div>
         <div className="chart-container">
           <div style={{ flex: 1 }}>
             <ChartComponent />

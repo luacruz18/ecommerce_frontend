@@ -31,7 +31,7 @@ const CustomNavbar = () => {
           <Nav.Link as={Link} to="/carrito" className="cart-icon">
             <BsCart />
           </Nav.Link>
-          <Nav.Link as={Link} to="/login" className="person-fill">
+          <Nav.Link as={Link} to="/iniciarsesion" className="person-fill">
             <BsPersonFill />
           </Nav.Link>
         </Nav>

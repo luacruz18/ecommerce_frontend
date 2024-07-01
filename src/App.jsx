@@ -1,5 +1,7 @@
 import React from "react";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import { Provider } from "react-redux";
+import store from "./redux/store";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Home from "./pages/Home";
 import Products from "./pages/ProductsDetails";
@@ -11,6 +13,7 @@ import Category from "./pages/Category";
 import Register from "./pages/Register";
 import Cart from "./pages/Cart";
 import Login from "./pages/Login";
+import Register from "./pages/Register";
 
 function App() {
   const router = createBrowserRouter([
@@ -31,9 +34,8 @@ function App() {
       element: <Shopping />,
     },
     { path: "/listaproductos", element: <ProductList /> },
-
     { path: "/iniciarsesion", element: <Login /> },
-    { path: "/administrador", element: <Dashboard /> },
+    { path: "/administrador/dashboard", element: <Dashboard /> },
     {
       path: "/productos/:id",
       element: <Products />,
@@ -48,7 +50,11 @@ function App() {
     },
   ]);
 
-  return <RouterProvider router={router} />;
+  return (
+    <Provider store={store}>
+      <RouterProvider router={router} />
+    </Provider>
+  );
 }
 
 export default App;
