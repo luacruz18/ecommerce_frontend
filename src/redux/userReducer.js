@@ -3,16 +3,11 @@ import { createSlice } from "@reduxjs/toolkit";
 const userSlice = createSlice({
   name: "user",
   initialState: null,
-  //   initialState: {
-  //     id: 4594894,
-  //     firstname: "Luana",
-  //     token: "fdgjmiogjeiogjreigjteriojgrihgojtrihor.gfrjeigjeriotger.erter56g",
-  //   },
   reducers: {
     addUser(state, action) {
       return action.payload;
     },
-    removeUser(state, action) {
+    removeUser(state) {
       return null;
     },
   },
