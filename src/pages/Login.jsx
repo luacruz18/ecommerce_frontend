@@ -1,6 +1,9 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { Button } from "react-bootstrap";
+import { FaInstagram, FaTwitter, FaFacebook, FaLinkedin } from "react-icons/fa";
+import Navbar from "../components/Navbar";
+import Footer from "../components/Footer";
 import "../styles/Login.css";
 
 const Login = () => {
@@ -33,42 +36,62 @@ const Login = () => {
   };
 
   return (
-    <div className="mainContainer">
-      <div className="vid">
+    <div className="loginContainer">
+      <Navbar />
+      <div className="videoContainer">
         <video loop autoPlay muted>
           <source src="\img\LoginVideo_Medium.mp4" type="video/mp4" />
         </video>
       </div>
-      <div className="titleContainer">
-        <div>Login</div>
-        <br />
+      <div className="formContainer">
+        <div className="loginTitle">Ingresar</div>
         <div className="inputContainer">
           <input
             value={email}
-            placeholder="Enter your email here"
+            placeholder="Correo electrónico"
             onChange={(ev) => setEmail(ev.target.value)}
             className="inputBox"
           />
           <label className="errorLabel">{emailError}</label>
         </div>
-        <br />
         <div className="inputContainer">
           <input
             value={password}
-            placeholder="Enter your password here"
+            placeholder="Ingresar contraseña"
             onChange={(ev) => setPassword(ev.target.value)}
             className="inputBox"
             type="password"
           />
           <label className="errorLabel">{passwordError}</label>
         </div>
-        <br />
+
         <div className="inputContainer">
-          <Button variant="primary" onClick={onButtonClick}>
-            Log in
+          <Button
+            variant="primary"
+            onClick={onButtonClick}
+            className="loginButton"
+          >
+            Ingresar
           </Button>
+          <div className="socialIcons">
+            <ul className="list-inline">
+              <li className="list-inline-item">
+                <FaInstagram />
+              </li>
+              <li className="list-inline-item">
+                <FaTwitter />
+              </li>
+              <li className="list-inline-item">
+                <FaFacebook />
+              </li>
+              <li className="list-inline-item">
+                <FaLinkedin />
+              </li>
+            </ul>
+          </div>
         </div>
       </div>
+      <Footer className="footer" />
     </div>
   );
 };

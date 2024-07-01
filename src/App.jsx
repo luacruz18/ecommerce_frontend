@@ -10,7 +10,6 @@ import Shopping from "./pages/Shopping";
 import ProductList from "./pages/ProductsList";
 import Dashboard from "./pages/Dashboard";
 import Category from "./pages/Category";
-import Register from "./pages/Register";
 import Cart from "./pages/Cart";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
