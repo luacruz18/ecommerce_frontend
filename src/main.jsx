@@ -5,11 +5,11 @@ import "bootstrap/dist/css/bootstrap.min.css";
 
 import { configureStore } from "@reduxjs/toolkit";
 import { Provider } from "react-redux";
-import userReducer from "./redux/userReducer";
+import cartReducer from "./redux/cartSlice";
 
 const store = configureStore({
   reducer: {
-    user: userReducer,
+    cart: cartReducer,
   },
 });
 
@@ -18,5 +18,5 @@ ReactDOM.createRoot(document.getElementById("root")).render(
     <Provider store={store}>
       <App />
     </Provider>
-  </React.StrictMode>
+  </React.StrictMode>,
 );

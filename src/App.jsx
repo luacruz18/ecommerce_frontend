@@ -8,9 +8,10 @@ import Shopping from "./pages/Shopping";
 import ProductList from "./pages/ProductsList";
 import Dashboard from "./pages/Dashboard";
 import Category from "./pages/Category";
-import Cart from "./pages/Cart";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
+import Cart from "./pages/Cart";
+
 function App() {
   const router = createBrowserRouter([
     {
@@ -36,6 +37,10 @@ function App() {
     {
       path: "/productos/:id",
       element: <Products />,
+    },
+    {
+      path: "/carrito",
+      element: <Cart />,
     },
   ]);
 

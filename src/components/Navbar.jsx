@@ -28,7 +28,7 @@ const CustomNavbar = () => {
           <Nav.Link as={Link} to="/sobrenosotros" className="about-us-nav">
             Sobre nosotros
           </Nav.Link>
-          <Nav.Link as={Link} to="/shopping" className="cart-icon">
+          <Nav.Link as={Link} to="/carrito" className="cart-icon">
             <BsCart />
           </Nav.Link>
           <Nav.Link as={Link} to="/login" className="person-fill">
