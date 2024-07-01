@@ -6,12 +6,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import { configureStore } from "@reduxjs/toolkit";
 import { Provider } from "react-redux";
 import cartReducer from "./redux/cartSlice";
-
-const store = configureStore({
-  reducer: {
-    cart: cartReducer,
-  },
-});
+import store from "./redux/store";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>

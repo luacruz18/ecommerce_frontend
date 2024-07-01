@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
+import { fetchProducts, addProduct, updateProduct, deleteProduct } from "../Hooks/api";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import { ReactTabulator } from "react-tabulator";
@@ -7,13 +8,9 @@ import ChartComponent from "../components/Chart";
 import SalesChart from "../components/SalesChart";
 import TopProducts from "../components/TopProducts";
 import Notifications from "../components/Notifications";
-import {
-  fetchProducts,
-  updateProduct,
-  addProduct,
-  deleteProduct,
-} from "../Hooks/api";
 import "../styles/Dashboard.css";
+
+const BASE_URL = "http://localhost:3000"; 
 
 const Dashboard = () => {
   const dispatch = useDispatch();
@@ -40,7 +37,7 @@ const Dashboard = () => {
     };
 
     fetchData();
-  }, []);
+  }, []); 
 
   const handleCellEdited = (cell) => {
     const updatedRow = cell.getRow().getData();
@@ -59,7 +56,7 @@ const Dashboard = () => {
   const handleUpdateProducts = async () => {
     try {
       for (const row of updatedRows) {
-        await updateProduct(row.id, row, token); 
+        await updateProduct(row.id, row, token);
       }
       alert("Productos actualizados correctamente");
     } catch (error) {
@@ -82,7 +79,7 @@ const Dashboard = () => {
 
   const handleDeleteProduct = async (id) => {
     try {
-      await deleteProduct(id, token); 
+      await deleteProduct(id, token);
       setDatabase((prev) => prev.filter((product) => product.id !== id));
       alert("Producto eliminado correctamente");
     } catch (error) {
@@ -191,5 +188,6 @@ const Dashboard = () => {
     </div>
   );
 };
+
 
 export default Dashboard;

@@ -1,5 +1,5 @@
 import React from "react";
-import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { Provider } from "react-redux";
 import store from "./redux/store";
 import "bootstrap/dist/css/bootstrap.min.css";
@@ -12,6 +12,7 @@ import Dashboard from "./pages/Dashboard";
 import Category from "./pages/Category";
 import Cart from "./pages/Cart";
 import Login from "./pages/Login";
+<<<<<<< Updated upstream
 import Adminlogin from "./pages/AdminLogin";
 
 function App() {
@@ -53,9 +54,29 @@ function App() {
     },
   ]);
 
+=======
+import LoginForm from "./pages/LoginForm";
+
+
+function App() {
+>>>>>>> Stashed changes
   return (
     <Provider store={store}>
-      <RouterProvider router={router} />
+      <Router>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/productos" element={<Products />} />
+          <Route path="/sobrenosotros" element={<About />} />
+          <Route path="/shopping" element={<Shopping />} />
+          <Route path="/listaproductos" element={<ProductList />} />
+          <Route path="/iniciarsesion" element={<Login />} />
+          <Route path="/dashboard" element={<Dashboard />} />
+          <Route path="/productos/:id" element={<Products />} />
+          <Route path="/carrito" element={<Cart />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/loginform" element={<LoginForm />} />
+        </Routes>
+      </Router>
     </Provider>
   );
 }
