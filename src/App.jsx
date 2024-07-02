@@ -12,54 +12,11 @@ import Dashboard from "./pages/Dashboard";
 import Category from "./pages/Category";
 import Cart from "./pages/Cart";
 import Login from "./pages/Login";
-<<<<<<< Updated upstream
 import Adminlogin from "./pages/AdminLogin";
-
-function App() {
-  const router = createBrowserRouter([
-    {
-      path: "/",
-      element: <Home />,
-    },
-    {
-      path: "/productos",
-      element: <Products />,
-    },
-    {
-      path: "/sobrenosotros",
-      element: <About />,
-    },
-    {
-      path: "/shopping",
-      element: <Shopping />,
-    },
-    { path: "/listaproductos", element: <ProductList /> },
-    { path: "/iniciarsesion", element: <Login /> },
-    { path: "/administrador/dashboard", element: <Dashboard /> },
-    {
-      path: "/administrador",
-      element: <Adminlogin />,
-    },
-    {
-      path: "/productos/:id",
-      element: <Products />,
-    },
-    {
-      path: "/carrito",
-      element: <Cart />,
-    },
-    {
-      path: "/login",
-      element: <Login />,
-    },
-  ]);
-
-=======
 import LoginForm from "./pages/LoginForm";
 
 
 function App() {
->>>>>>> Stashed changes
   return (
     <Provider store={store}>
       <Router>
