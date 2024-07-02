@@ -5,7 +5,9 @@
 
 .stats {
   display: flex;
+  flex-wrap: wrap;
   justify-content: space-between;
+  gap: 20px;
 }
 
 .stat-item {
@@ -14,9 +16,8 @@
   padding: 20px;
   text-align: center;
   border-radius: 10px;
-  margin-bottom: 10px;
   color: #f5f5f5;
-  margin-right: 5px;
+  min-width: 150px;
 }
 
 .red-button,
@@ -30,9 +31,7 @@
   font-size: 16px;
   margin: 4px 2px;
   cursor: pointer;
-
   transition-duration: 0.4s;
-
   width: 150px;
 }
 
@@ -45,51 +44,16 @@
 
 .chart-container {
   display: flex;
+  flex-wrap: wrap;
   justify-content: space-between;
+  gap: 20px;
   margin: 20px 0;
 }
 
-.top-products,
-.notifications {
-  margin: 20px 0;
-  background-color: #f5f5f5;
-  padding: 20px;
-}
-
-.top-products h2,
-.notifications h2 {
-  margin-bottom: 10px;
-}
-
-.top-products ul,
-.notifications ul {
-  list-style-type: none;
-  padding: 0;
-}
-
-.top-products li,
-.notifications li {
-  margin: 10px 0;
-  padding: 10px;
-  background-color: #ffffff;
-  border-radius: 5px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
-
-.top-products li {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.notifications li {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.notifications li span {
-  color: #888888;
+.chart-container > div {
+  flex: 1 1 45%; /* Ajusta el tamaño de las gráficas según sea necesario */
+  max-width: 100%;
+  height: 300px; /* Ajusta la altura según sea necesario */
 }
 
 .button-container {
@@ -98,16 +62,13 @@
   gap: 10px;
   flex-wrap: wrap;
 }
-.delete-button {
-  background-color: #e93d3a;
-  max-width: fit-content;
-  height: fit-content;
-  border-radius: 0%;
-  padding: 2px;
-  margin: 0%;
+
+.add-product-form {
+  margin-top: 20px;
 }
+
 .delete-button {
-  background-color: #111212; /* Color de fondo del botón */
+  background-color: #111212;
   color: white;
   border: none;
   padding: 10px 20px;
@@ -124,6 +85,89 @@
 }
 
 .delete-button:hover {
-  background-color: #e93d3a; /* Color de fondo al pasar el ratón por encima */
+  background-color: #e93d3a;
   color: white;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .stats {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .stat-item {
+    width: 100%;
+    max-width: 400px;
+  }
+
+  .chart-container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .chart-container > div {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .top-products,
+  .notifications {
+    width: 100%;
+  }
+
+  .tabulator-container {
+    width: 100%;
+    overflow-x: auto;
+  }
+}
+
+@media (max-width: 480px) {
+  .stat-item {
+    padding: 10px;
+    font-size: 14px;
+  }
+
+  .red-button,
+  .add-button {
+    width: 100px;
+    font-size: 14px;
+    padding: 8px;
+  }
+
+  .delete-button {
+    padding: 8px 16px;
+    font-size: 14px;
+  }
+}
+.content {
+  padding: 20px;
+}
+
+.main-content {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.tabulator-container {
+  width: 100%;
+  overflow-x: auto;
+}
+
+.button-container {
+  margin-top: 20px;
+}
+
+.add-product-form {
+  margin-top: 20px;
+}
+
+.charts {
+  display: flex;
+  gap: 20px;
+}
+
+.chart {
+  flex: 1;
 }
