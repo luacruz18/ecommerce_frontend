@@ -1,16 +1,20 @@
 import React, { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { fetchProducts, addProduct, updateProduct, deleteProduct } from "../Hooks/api";
+import {
+  fetchProducts,
+  addProduct,
+  updateProduct,
+  deleteProduct,
+} from "../Hooks/api";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import { ReactTabulator } from "react-tabulator";
 import ChartComponent from "../components/Chart";
 import SalesChart from "../components/SalesChart";
-import TopProducts from "../components/TopProducts";
-import Notifications from "../components/Notifications";
+
 import "../styles/Dashboard.css";
 
-const BASE_URL = "http://localhost:3000"; 
+const BASE_URL = "http://localhost:3000";
 
 const Dashboard = () => {
   const dispatch = useDispatch();
@@ -37,7 +41,7 @@ const Dashboard = () => {
     };
 
     fetchData();
-  }, []); 
+  }, []);
 
   const handleCellEdited = (cell) => {
     const updatedRow = cell.getRow().getData();
@@ -109,91 +113,74 @@ const Dashboard = () => {
   ];
 
   return (
-    <div>
+    <>
       <Navbar />
       <div className="dashboard-container">
-        <h1>Dashboard</h1>
-        <div className="stats">
-          <div className="stat-item">
-            <h2>150</h2>
-            <p>New Orders</p>
+        <div className="content">
+          <h1>Dashboard</h1>
+          <div className="tabulator-container">
+            <ReactTabulator
+              data={database}
+              columns={columns}
+              events={{ cellEdited: handleCellEdited }}
+            />
           </div>
-          <div className="stat-item">
-            <h2>53%</h2>
-            <p>Bounce Rate</p>
+          <div className="button-container">
+            <button className="red-button" onClick={handleUpdateProducts}>
+              Actualizar Productos
+            </button>
           </div>
-          <div className="stat-item">
-            <h2>44</h2>
-            <p>User Registrations</p>
-          </div>
-          <div className="stat-item">
-            <h2>65</h2>
-            <p>Unique Visitors</p>
+          <div className="add-product-form">
+            <h3>Agregar Nuevo Producto</h3>
+            <input
+              type="text"
+              placeholder="Nombre"
+              value={newProduct.name}
+              onChange={(e) =>
+                setNewProduct({ ...newProduct, name: e.target.value })
+              }
+            />
+            <input
+              type="text"
+              placeholder="Precio"
+              value={newProduct.price}
+              onChange={(e) =>
+                setNewProduct({ ...newProduct, price: e.target.value })
+              }
+            />
+            <input
+              type="text"
+              placeholder="Stock"
+              value={newProduct.stock}
+              onChange={(e) =>
+                setNewProduct({ ...newProduct, stock: e.target.value })
+              }
+            />
+            <input
+              type="text"
+              placeholder="Descripción"
+              value={newProduct.description}
+              onChange={(e) =>
+                setNewProduct({ ...newProduct, description: e.target.value })
+              }
+            />
+            <button className="add-button" onClick={handleAddProduct}>
+              Agregar Producto
+            </button>
           </div>
         </div>
-        <ReactTabulator
-          data={database}
-          columns={columns}
-          events={{ cellEdited: handleCellEdited }}
-        />
-        <div className="button-container">
-          <button className="red-button" onClick={handleUpdateProducts}>
-            Actualizar Productos
-          </button>
-        </div>
-        <div>
-          <h3>Agregar Nuevo Producto</h3>
-          <input
-            type="text"
-            placeholder="Nombre"
-            value={newProduct.name}
-            onChange={(e) =>
-              setNewProduct({ ...newProduct, name: e.target.value })
-            }
-          />
-          <input
-            type="text"
-            placeholder="Precio"
-            value={newProduct.price}
-            onChange={(e) =>
-              setNewProduct({ ...newProduct, price: e.target.value })
-            }
-          />
-          <input
-            type="text"
-            placeholder="Stock"
-            value={newProduct.stock}
-            onChange={(e) =>
-              setNewProduct({ ...newProduct, stock: e.target.value })
-            }
-          />
-          <input
-            type="text"
-            placeholder="Descripción"
-            value={newProduct.description}
-            onChange={(e) =>
-              setNewProduct({ ...newProduct, description: e.target.value })
-            }
-          />
-          <button className="add-button" onClick={handleAddProduct}>
-            Agregar Producto
-          </button>
-        </div>
-        <div className="chart-container">
-          <div style={{ flex: 1 }}>
+        <div className="charts">
+          <div className="chart">
             <ChartComponent />
           </div>
-          <div style={{ flex: 1 }}>
+          <div className="chart">
             <SalesChart />
           </div>
         </div>
-        <TopProducts />
-        <Notifications />
       </div>
       <Footer />
-    </div>
+    </>
   );
 };
-
 
 export default Dashboard;
