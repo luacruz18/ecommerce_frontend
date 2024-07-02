@@ -59,7 +59,7 @@ const Dashboard = () => {
   const handleUpdateProducts = async () => {
     try {
       for (const row of updatedRows) {
-        await updateProduct(row.id, row, token); 
+        await updateProduct(row.id, row, token);
       }
       alert("Productos actualizados correctamente");
     } catch (error) {
@@ -82,7 +82,7 @@ const Dashboard = () => {
 
   const handleDeleteProduct = async (id) => {
     try {
-      await deleteProduct(id, token); 
+      await deleteProduct(id, token);
       setDatabase((prev) => prev.filter((product) => product.id !== id));
       alert("Producto eliminado correctamente");
     } catch (error) {
@@ -139,7 +139,11 @@ const Dashboard = () => {
           columns={columns}
           events={{ cellEdited: handleCellEdited }}
         />
-        <button onClick={handleUpdateProducts}>Actualizar Productos</button>
+        <div className="button-container">
+          <button className="red-button" onClick={handleUpdateProducts}>
+            Actualizar Productos
+          </button>
+        </div>
         <div>
           <h3>Agregar Nuevo Producto</h3>
           <input
@@ -174,7 +178,9 @@ const Dashboard = () => {
               setNewProduct({ ...newProduct, description: e.target.value })
             }
           />
-          <button onClick={handleAddProduct}>Agregar Producto</button>
+          <button className="add-button" onClick={handleAddProduct}>
+            Agregar Producto
+          </button>
         </div>
         <div className="chart-container">
           <div style={{ flex: 1 }}>

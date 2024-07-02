@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "../styles/AdminLogin.css";
 
-const Adminlogin = ({ handleLogin }) => {
+const AdminLogin = ({ handleLogin }) => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
@@ -29,6 +29,7 @@ const Adminlogin = ({ handleLogin }) => {
             value={username}
             onChange={(e) => setUsername(e.target.value)}
             className="inputBox"
+            placeholder="Enter your email here"
           />
         </div>
         <div className="inputBoxContainer">
@@ -38,15 +39,21 @@ const Adminlogin = ({ handleLogin }) => {
             value={password}
             onChange={(e) => setPassword(e.target.value)}
             className="inputBox"
+            placeholder="Enter your password here"
           />
         </div>
         {error && <p className="errorLabel">{error}</p>}
         <div className="buttonContainer">
-          <button type="submit">Login</button>
+          <button type="submit">Log in</button>
         </div>
       </form>
+      <div className="vid">
+        <video autoPlay muted loop>
+          <source src="\img\LoginVideo_Medium.mp4" type="video/mp4" />
+        </video>
+      </div>
     </div>
   );
 };
 
-export default Adminlogin;
+export default AdminLogin;
