@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
+import { fetchProducts, addProduct, updateProduct, deleteProduct } from "../Hooks/api";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import { ReactTabulator } from "react-tabulator";
@@ -7,13 +8,9 @@ import ChartComponent from "../components/Chart";
 import SalesChart from "../components/SalesChart";
 import TopProducts from "../components/TopProducts";
 import Notifications from "../components/Notifications";
-import {
-  fetchProducts,
-  updateProduct,
-  addProduct,
-  deleteProduct,
-} from "../Hooks/api";
 import "../styles/Dashboard.css";
+
+const BASE_URL = "http://localhost:3000"; 
 
 const Dashboard = () => {
   const dispatch = useDispatch();
@@ -40,7 +37,7 @@ const Dashboard = () => {
     };
 
     fetchData();
-  }, []);
+  }, []); 
 
   const handleCellEdited = (cell) => {
     const updatedRow = cell.getRow().getData();
@@ -197,5 +194,6 @@ const Dashboard = () => {
     </div>
   );
 };
+
 
 export default Dashboard;
