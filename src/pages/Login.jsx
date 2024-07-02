@@ -40,7 +40,7 @@ const Login = () => {
       <Navbar />
       <div className="videoContainer">
         <video loop autoPlay muted>
-          <source src="\img\LoginVideo_Medium.mp4" type="video/mp4" />
+          <source src="\img\Login.mp4" type="video/mp4" />
         </video>
       </div>
       <div className="formContainer">
@@ -91,7 +91,7 @@ const Login = () => {
           </div>
         </div>
       </div>
-      <Footer className="footer" />
+      <Footer />
     </div>
   );
 };
