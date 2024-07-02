@@ -91,9 +91,10 @@ const Login = () => {
           </div>
         </div>
       </div>
-      <Footer className="footer" />
+      <Footer />
     </div>
   );
 };
 
 export default Login;
+
