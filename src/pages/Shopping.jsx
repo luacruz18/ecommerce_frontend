@@ -8,7 +8,7 @@ const Shopping = () => {
   return (
     <div className="shopping-content">
       <Navbar />
-      <div>
+      <div className="">
         <img
           className="banner-img"
           src={import.meta.env.VITE_IMG_URL + "Bannerenvío.jpg"}
