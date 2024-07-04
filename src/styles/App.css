@@ -271,11 +271,12 @@ h3 {
   padding-top: 10px;
 }
 
-.button-envio {
+.button {
   background-color: #e93d3a;
   padding-bottom: 10px;
   padding-top: 10px;
   font-family: "Montserrat";
+
 }
 .p {
   font-family: "Montserrat";
@@ -283,7 +284,7 @@ h3 {
 
 .form-container {
   background-color: white;
- 
+
   justify-content: flex-end;
 }
 .datos-card {
