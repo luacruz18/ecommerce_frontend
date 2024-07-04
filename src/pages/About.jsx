@@ -6,10 +6,10 @@ import "../styles/About.css";
 
 function About() {
   return (
-    <div>
+    <div className="background-container">
       <Navbar />
       <div className="container-lg mt-4">
-        <h1>Sobre nosotros</h1>
+        <h1>Sobre este proyecto</h1>
         <div className="row">
           <hr />
           <div className="col-lg-6">
