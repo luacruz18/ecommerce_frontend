@@ -78,3 +78,9 @@ export async function deleteProduct(productId, token) {
     throw error; 
   }
 }
+export const fetchUsers = async () => {
+  
+};
+export const fetchCategories = async () => {
+  
+};
