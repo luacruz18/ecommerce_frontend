@@ -49,6 +49,7 @@
 .inputContainer {
   width: 100%;
   margin-bottom: 20px;
+  position: relative;
 }
 
 .inputBox {
@@ -80,6 +81,43 @@
   margin-top: 5px;
 }
 
+.passwordExtras {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 10px;
+  margin-bottom: 20px;
+  width: 400px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.forgotPasswordLink {
+  color: white;
+  text-decoration: none;
+  cursor: pointer;
+  font-size: 14px;
+  margin-top: 5px;
+  margin-bottom: 10px;
+  text-align: left;
+}
+
+.rememberMe {
+  flex: 1;
+  text-align: right;
+}
+
+.form-check .form-check-input {
+  border-color: #e93d3a;
+  color: #e93d3a;
+}
+
+.form-check-label {
+  color: white;
+  font-size: 14px;
+  margin-bottom: 0;
+}
+
 .loginButton {
   height: 48px;
   width: 200px;
@@ -89,7 +127,8 @@
   color: black;
   border: 1px solid white;
   transition: background-color 0.3s, color 0.3s;
-  margin-top: 20px;
+  margin-top: 30px;
+  margin-bottom: 20px;
 }
 
 .loginButton:hover,
@@ -123,7 +162,6 @@
   transform: scale(1.2);
 }
 
-/* Footer */
 .footerContainer {
   width: 100%;
   max-width: 100%;
@@ -131,4 +169,15 @@
   color: white;
   text-align: center;
   padding: 20px 0;
+}
+
+.notMember {
+  font-size: 14px;
+  margin-bottom: 5px;
+}
+
+.orSignUp {
+  font-size: 14px;
+  margin-top: 20px;
+  margin-bottom: 10px;
 }
