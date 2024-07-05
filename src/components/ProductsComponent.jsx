@@ -7,12 +7,12 @@ import {
   deleteProduct,
 } from "../Hooks/api";
 import { ReactTabulator } from "react-tabulator";
-import Navbar from "../components/Navbar";
-import Footer from "../components/Footer";
+
 import ChartComponent from "../components/Chart";
 import SalesChart from "../components/SalesChart";
 
 import "../styles/Dashboard.css";
+
 const ProductsComponent = () => {
   const dispatch = useDispatch();
   const user = useSelector((state) => state.user);
@@ -111,6 +111,14 @@ const ProductsComponent = () => {
 
   return (
     <>
+      <div className="chart-section">
+        <div className="chart">
+          <SalesChart />
+        </div>
+        <div className="chart">
+          <ChartComponent />
+        </div>
+      </div>
       <div className="products-component-container">
         <div className="add-product-form">
           <h3>Agregar Nuevo Producto</h3>
@@ -150,6 +158,7 @@ const ProductsComponent = () => {
             Agregar Producto
           </button>
         </div>
+
         <div className="button-container">
           <button className="red-button" onClick={handleUpdateProducts}>
             Actualizar Productos
