@@ -104,7 +104,7 @@ const Login = () => {
           <p className="notMember">
             ¿No tienes usuario? <Link to="/register">Regístrate</Link>
           </p>
-          <p className="orSignUp">or ingresar con</p>
+          <p className="orSignUp">o ingresar con</p>
           <div className="socialIcons">
             <ul className="list-inline">
               <li className="list-inline-item">
