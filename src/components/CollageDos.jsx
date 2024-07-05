@@ -67,9 +67,9 @@ const CollageDos = () => {
               </div>
               <div
                 className="div6"
-                style={{ backgroundImage: `url(${getProductImageUrl(7)})` }}
+                style={{ backgroundImage: `url(${getProductImageUrl(10)})` }}
               >
-                <h3>{products[7] && products[7].name}</h3>
+                <h3>{products[10] && products[10].name}</h3>
               </div>
               <div
                 className="div7"
@@ -79,9 +79,9 @@ const CollageDos = () => {
               </div>
               <div
                 className="div8"
-                style={{ backgroundImage: `url(${getProductImageUrl(7)})` }}
+                style={{ backgroundImage: `url(${getProductImageUrl(30)})` }}
               >
-                <h3>{products[7] && products[7].name}</h3>
+                <h3>{products[30] && products[30].name}</h3>
               </div>
             </div>
           </div>
