@@ -1,11 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import {
-  fetchUsers,
-  addUSers,
-  updateUsers,
-  deleteUsers,
-} from "../Hooks/api";
+import { fetchUsers, addUser, updateUser, deleteUser } from "../Hooks/api";
 import { ReactTabulator } from "react-tabulator";
 import ChartComponent from "../components/Chart";
 import SalesChart from "../components/SalesChart";
@@ -19,7 +14,7 @@ const UsersComponent = () => {
 
   const [database, setDatabase] = useState([]);
   const [updatedRows, setUpdatedRows] = useState([]);
-  const [newProduct, setNewUser] = useState({
+  const [newUser, setNewUser] = useState({
     id: "",
     firstname: "",
     lastname: "",
@@ -30,10 +25,10 @@ const UsersComponent = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const productsData = await fetchProducts();
-        setDatabase(productsData);
+        const UsersData = await fetchUsers();
+        setDatabase(UsersData);
       } catch (error) {
-        console.error("Error fetching products:", error);
+        console.error("Error fetching users:", error);
       }
     };
 
@@ -54,47 +49,47 @@ const UsersComponent = () => {
     });
   };
 
-  const handleUpdateProducts = async () => {
+  const handleUpdateUsers = async () => {
     try {
       for (const row of updatedRows) {
-        await updateProduct(row.id, row, token);
+        await updateUser(row.id, row, token);
       }
-      alert("Productos actualizados correctamente");
+      alert("Usuarios actualizados correctamente");
     } catch (error) {
-      console.error("Error updating products:", error);
-      alert("Hubo un error al actualizar los productos");
+      console.error("Error updating Users:", error);
+      alert("Hubo un error al actualizar los usuarios");
     }
   };
 
-  const handleAddProduct = async () => {
+  const handleAddUser = async () => {
     try {
-      const addedProduct = await addProduct(newProduct, token);
-      setDatabase((prev) => [...prev, addedProduct]);
-      setNewProduct({ name: "", price: "", stock: "", description: "" });
-      alert("Producto agregado correctamente");
+      const addedUser = await addUser(newUser, token);
+      setDatabase((prev) => [...prev, addedUser]);
+      setNewUser({ name: "", price: "", stock: "", description: "" });
+      alert("Usero agregado correctamente");
     } catch (error) {
-      console.error("Error adding product:", error);
-      alert("Hubo un error al agregar el producto");
+      console.error("Error adding User:", error);
+      alert("Hubo un error al agregar el Usuario");
     }
   };
 
-  const handleDeleteProduct = async (id) => {
+  const handleDeleteUser = async (id) => {
     try {
-      await deleteProduct(id, token);
-      setDatabase((prev) => prev.filter((product) => product.id !== id));
-      alert("Producto eliminado correctamente");
+      await deleteUser(id, token);
+      setDatabase((prev) => prev.filter((User) => User.id !== id));
+      alert("User eliminado correctamente");
     } catch (error) {
-      console.error("Error deleting product:", error);
-      alert("Hubo un error al eliminar el producto");
+      console.error("Error deleting User:", error);
+      alert("Hubo un error al eliminar el usuario");
     }
   };
 
   const columns = [
     { title: "ID", field: "id", width: 150, editor: false },
-    { title: "Producto", field: "name", width: 150, editor: "input" },
-    { title: "Precio", field: "price", width: 150, editor: "input" },
-    { title: "Stock", field: "stock", width: 150, editor: "input" },
-    { title: "Descripción", field: "description", editor: "input" },
+    { title: "firstname", field: "name", width: 150, editor: "input" },
+    { title: "lastname", field: "price", width: 150, editor: "input" },
+    { title: "email", field: "stock", width: 150, editor: "input" },
+    { title: "address", field: "description", editor: "input" },
     {
       title: "Acciones",
       field: "actions",
@@ -104,7 +99,7 @@ const UsersComponent = () => {
       },
       cellClick: (e, cell) => {
         const row = cell.getRow().getData();
-        handleDeleteProduct(row.id);
+        handleDeleteUser(row.id);
       },
     },
   ];
@@ -119,49 +114,43 @@ const UsersComponent = () => {
           <ChartComponent />
         </div>
       </div>
-      <div className="products-component-container">
-        <div className="add-product-form">
-          <h3>Agregar Nuevo Producto</h3>
+      <div className="Product-component-container">
+        <div className="add-User-form">
+          <h3>Agregar Nuevo Usuario</h3>
           <input
             type="text"
             placeholder="Nombre"
-            value={newProduct.name}
-            onChange={(e) =>
-              setNewProduct({ ...newProduct, name: e.target.value })
-            }
+            value={newUser.name}
+            onChange={(e) => setNewUser({ ...newUser, name: e.target.value })}
           />
           <input
             type="text"
             placeholder="Precio"
-            value={newProduct.price}
-            onChange={(e) =>
-              setNewProduct({ ...newProduct, price: e.target.value })
-            }
+            value={newUser.price}
+            onChange={(e) => setNewUser({ ...newUser, price: e.target.value })}
           />
           <input
             type="text"
             placeholder="Stock"
-            value={newProduct.stock}
-            onChange={(e) =>
-              setNewProduct({ ...newProduct, stock: e.target.value })
-            }
+            value={newUser.stock}
+            onChange={(e) => setNewUser({ ...newUser, stock: e.target.value })}
           />
           <input
             type="text"
             placeholder="Descripción"
-            value={newProduct.description}
+            value={newUser.description}
             onChange={(e) =>
-              setNewProduct({ ...newProduct, description: e.target.value })
+              setNewUser({ ...newUser, description: e.target.value })
             }
           />
-          <button className="add-button" onClick={handleAddProduct}>
-            Agregar Producto
+          <button className="add-button" onClick={handleAddUser}>
+            Agregar Usero
           </button>
         </div>
 
         <div className="button-container">
-          <button className="red-button" onClick={handleUpdateProducts}>
-            Actualizar Productos
+          <button className="red-button" onClick={handleUpdateUsers}>
+            Actualizar Useros
           </button>
         </div>
         <div className="tabulator-container">

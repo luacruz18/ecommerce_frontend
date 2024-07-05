@@ -72,6 +72,7 @@ export async function deleteProduct(productId, token) {
     throw error;
   }
 }
+
 export async function fetchCategory() {
   try {
     const response = await fetch(`${BASE_URL}/categories`);
@@ -86,7 +87,7 @@ export async function fetchCategory() {
   }
 }
 
-export async function addedCategory(newProduct, token) {
+export async function addCategory(newCategory, token) {
   try {
     const response = await fetch(`${BASE_URL}/categories`, {
       method: "POST",
@@ -97,28 +98,12 @@ export async function addedCategory(newProduct, token) {
       body: JSON.stringify(newCategory),
     });
     if (!response.ok) {
-      throw new Error("Error adding product");
+      throw new Error("Error adding category");
     }
-    const addCategory = await response.json();
-    return addCategory;
+    const addedCategory = await response.json();
+    return addedCategory;
   } catch (error) {
     console.error("Error adding category:", error);
-    throw error;
-  }
-}
-export async function deleteCategory(productId, token) {
-  try {
-    const response = await fetch(`${BASE_URL}/categories/${categoryId}`, {
-      method: "DELETE",
-      headers: {
-        Authorization: `Bearer ${token}`,
-      },
-    });
-    if (!response.ok) {
-      throw new Error("Error deleting category");
-    }
-  } catch (error) {
-    console.error("Error deleting category:", error);
     throw error;
   }
 }
@@ -140,6 +125,96 @@ export async function updateCategory(categoryId, updatedCategory, token) {
     return updatedCategoryData;
   } catch (error) {
     console.error("Error updating category:", error);
+    throw error;
+  }
+}
+
+export async function deleteCategory(categoryId, token) {
+  try {
+    const response = await fetch(`${BASE_URL}/categories/${categoryId}`, {
+      method: "DELETE",
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    });
+    if (!response.ok) {
+      throw new Error("Error deleting category");
+    }
+  } catch (error) {
+    console.error("Error deleting category:", error);
+    throw error;
+  }
+}
+
+export async function fetchUsers() {
+  try {
+    const response = await fetch(`${BASE_URL}/users`);
+    if (!response.ok) {
+      throw new Error("Network response was not ok");
+    }
+    const data = await response.json();
+    return data;
+  } catch (error) {
+    console.error("Error fetching users:", error);
+    throw error;
+  }
+}
+
+export async function addUser(newUser, token) {
+  try {
+    const response = await fetch(`${BASE_URL}/users`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${token}`,
+      },
+      body: JSON.stringify(newUser),
+    });
+    if (!response.ok) {
+      throw new Error("Error adding user");
+    }
+    const addedUser = await response.json();
+    return addedUser;
+  } catch (error) {
+    console.error("Error adding user:", error);
+    throw error;
+  }
+}
+
+export async function updateUser(userId, updatedUser, token) {
+  try {
+    const response = await fetch(`${BASE_URL}/users/${userId}`, {
+      method: "PATCH",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${token}`,
+      },
+      body: JSON.stringify(updatedUser),
+    });
+    if (!response.ok) {
+      throw new Error("Error updating user");
+    }
+    const updatedUserData = await response.json();
+    return updatedUserData;
+  } catch (error) {
+    console.error("Error updating user:", error);
+    throw error;
+  }
+}
+
+export async function deleteUser(userId, token) {
+  try {
+    const response = await fetch(`${BASE_URL}/users/${userId}`, {
+      method: "DELETE",
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    });
+    if (!response.ok) {
+      throw new Error("Error deleting user");
+    }
+  } catch (error) {
+    console.error("Error deleting user:", error);
     throw error;
   }
 }
