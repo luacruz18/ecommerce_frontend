@@ -1,14 +1,16 @@
+// pages/Login.js
+
 import React, { useState } from "react";
 import { Button } from "react-bootstrap";
 import { FaInstagram, FaTwitter, FaFacebook, FaLinkedin } from "react-icons/fa";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import { useDispatch } from "react-redux";
-import { addUser } from "../redux/userReducer"; 
+import { addUser } from "../redux/userReducer";
 import { useSelector } from "react-redux";
 import { Navigate } from "react-router-dom";
 
-const Login = () => {
+const AdminLogin = () => {
   const dispatch = useDispatch();
   const auth = useSelector((state) => state.user);
   const [email, setEmail] = useState("");
@@ -104,4 +106,4 @@ const Login = () => {
   );
 };
 
-export default Login;
+export default AdminLogin;

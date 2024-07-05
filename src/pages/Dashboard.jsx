@@ -1,17 +1,19 @@
+// pages/Dashboard.js
+
 import React, { useState } from "react";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import UsersComponent from "../components/UsersComponent";
 import ProductsComponent from "../components/ProductsComponent";
 import CategoryComponent from "../components/CategoryComponent";
-
+import ProtectedRoute from "../components/ProtectedRoute";
 import "../styles/Dashboard.css";
 
 const Dashboard = () => {
   const [activeSection, setActiveSection] = useState("Productos");
 
   return (
-    <>
+    <ProtectedRoute>
       <Navbar />
       <div className="dashboard-container">
         <div className="sidebar">
@@ -43,7 +45,7 @@ const Dashboard = () => {
         </div>
       </div>
       <Footer />
-    </>
+    </ProtectedRoute>
   );
 };
 
