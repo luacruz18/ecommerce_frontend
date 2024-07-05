@@ -28,3 +28,15 @@ hr {
   margin-top: 1rem;
   margin-bottom: 1rem;
 }
+.iconos-container {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.iconos-container .icon {
+  font-size: 3rem;
+  margin: 10px;
+}
+.introduction-text {
+  font-size: 25px;
+}
