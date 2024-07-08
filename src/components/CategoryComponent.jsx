@@ -115,7 +115,7 @@ const CategoryComponent = () => {
         </div>
       </div>
       <div className="products-component-container">
-        <div className="add-product-form">
+        <div className="add-form">
           <h3>Agregar Nueva Categoría</h3>
           <input
             type="text"

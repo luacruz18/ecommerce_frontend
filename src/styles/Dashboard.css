@@ -134,8 +134,9 @@ html {
   flex-wrap: wrap;
 }
 
-.add-product-form {
+.add-form {
   margin-top: 20px;
+  padding-bottom: 20px;
 }
 
 .products-component-container {
@@ -145,4 +146,6 @@ html {
 .tabulator-container {
   width: 100%;
   overflow-x: auto;
+}
+.add-form {
 }

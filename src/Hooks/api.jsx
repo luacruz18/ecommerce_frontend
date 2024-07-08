@@ -24,13 +24,18 @@ export async function addProduct(newProduct, token) {
       },
       body: JSON.stringify(newProduct),
     });
+
+    const responseBody = await response.text();
+    console.log("Response status:", response.status);
+    console.log("Response body:", responseBody);
+
     if (!response.ok) {
-      throw new Error("Error adding product");
+      throw new Error("Error adding product: " + responseBody);
     }
-    const addedProduct = await response.json();
+    const addedProduct = JSON.parse(responseBody);
     return addedProduct;
   } catch (error) {
-    console.error("Error adding product:", error);
+    console.error("Error adding product:", error.message);
     throw error;
   }
 }

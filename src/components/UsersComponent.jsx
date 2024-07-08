@@ -115,7 +115,7 @@ const UsersComponent = () => {
         </div>
       </div>
       <div className="Product-component-container">
-        <div className="add-User-form">
+        <div className="add-form">
           <h3>Agregar Nuevo Usuario</h3>
           <input
             type="text"
@@ -144,13 +144,13 @@ const UsersComponent = () => {
             }
           />
           <button className="add-button" onClick={handleAddUser}>
-            Agregar Usero
+            Agregar usuario
           </button>
         </div>
 
         <div className="button-container">
           <button className="red-button" onClick={handleUpdateUsers}>
-            Actualizar Useros
+            Actualizar Usuarios
           </button>
         </div>
         <div className="tabulator-container">

@@ -24,6 +24,7 @@ const ProductsComponent = () => {
     name: "",
     price: "",
     stock: "",
+    category: "",
     description: "",
   });
 
@@ -68,12 +69,28 @@ const ProductsComponent = () => {
 
   const handleAddProduct = async () => {
     try {
+      if (
+        !newProduct.name ||
+        !newProduct.price ||
+        !newProduct.stock ||
+        !newProduct.category
+      ) {
+        alert("Por favor, complete todos los campos requeridos.");
+        return;
+      }
+
       const addedProduct = await addProduct(newProduct, token);
       setDatabase((prev) => [...prev, addedProduct]);
-      setNewProduct({ name: "", price: "", stock: "", description: "" });
+      setNewProduct({
+        name: "",
+        price: "",
+        stock: "",
+        category: "",
+        description: "",
+      });
       alert("Producto agregado correctamente");
     } catch (error) {
-      console.error("Error adding product:", error);
+      console.error("Error adding product:", error.message || error);
       alert("Hubo un error al agregar el producto");
     }
   };
@@ -144,6 +161,14 @@ const ProductsComponent = () => {
             value={newProduct.stock}
             onChange={(e) =>
               setNewProduct({ ...newProduct, stock: e.target.value })
+            }
+          />
+          <input
+            type="text"
+            placeholder="Categoría"
+            value={newProduct.category}
+            onChange={(e) =>
+              setNewProduct({ ...newProduct, category: e.target.value })
             }
           />
           <input
