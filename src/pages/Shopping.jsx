@@ -2,9 +2,7 @@ import React from "react";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import "../styles/App.css";
-import Formulario from "../components/Forms";
-import { Form } from "react-router-dom";
-import Forms from "../components/Forms";
+import Formulario from "../components/Formulario";
 
 const Shopping = () => {
   return (
@@ -17,7 +15,7 @@ const Shopping = () => {
           alt="BannerEnvio"
         />
       </div>
-      <Forms></Forms>
+      <Formulario></Formulario>
       <Footer />
     </div>
   );
