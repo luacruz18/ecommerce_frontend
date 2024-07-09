@@ -1,20 +1,12 @@
 import React, { useState, useEffect } from "react";
-import { useSelector, useDispatch } from "react-redux";
-import {
-  fetchProducts,
-  addProduct,
-  updateProduct,
-  deleteProduct,
-} from "../Hooks/api";
+import { useSelector } from "react-redux";
+import { fetchProducts, addProduct, updateProduct, deleteProduct } from "../Hooks/api";
 import { ReactTabulator } from "react-tabulator";
-
 import ChartComponent from "../components/Chart";
 import SalesChart from "../components/SalesChart";
-
 import "../styles/Dashboard.css";
 
 const ProductsComponent = () => {
-  const dispatch = useDispatch();
   const user = useSelector((state) => state.user);
   const token = user?.token;
 
@@ -22,10 +14,13 @@ const ProductsComponent = () => {
   const [updatedRows, setUpdatedRows] = useState([]);
   const [newProduct, setNewProduct] = useState({
     name: "",
+    description: "",
+    pic: "",
+    gallery: [],
     price: "",
     stock: "",
-    category: "",
-    description: "",
+    featured: "",
+    categoryId: "", 
   });
 
   useEffect(() => {
@@ -69,12 +64,8 @@ const ProductsComponent = () => {
 
   const handleAddProduct = async () => {
     try {
-      if (
-        !newProduct.name ||
-        !newProduct.price ||
-        !newProduct.stock ||
-        !newProduct.category
-      ) {
+     
+      if (!newProduct.name || !newProduct.price || !newProduct.stock || !newProduct.categoryId || !newProduct.pic || !newProduct.featured) {
         alert("Por favor, complete todos los campos requeridos.");
         return;
       }
@@ -83,10 +74,13 @@ const ProductsComponent = () => {
       setDatabase((prev) => [...prev, addedProduct]);
       setNewProduct({
         name: "",
+        description: "",
+        pic: "",
+        gallery: [],
         price: "",
         stock: "",
-        category: "",
-        description: "",
+        featured: "",
+        categoryId: "",  
       });
       alert("Producto agregado correctamente");
     } catch (error) {
@@ -109,9 +103,13 @@ const ProductsComponent = () => {
   const columns = [
     { title: "ID", field: "id", width: 150, editor: false },
     { title: "Producto", field: "name", width: 150, editor: "input" },
+    { title: "Descripción", field: "description", editor: "input" },
+    { title: "Imagen", field: "pic", editor: "input" },
+    { title: "Galería", field: "gallery", editor: "input" },
     { title: "Precio", field: "price", width: 150, editor: "input" },
     { title: "Stock", field: "stock", width: 150, editor: "input" },
-    { title: "Descripción", field: "description", editor: "input" },
+    { title: "Destacado", field: "featured", editor: "input" },
+    { title: "Categoría", field: "categoryId", width: 150, editor: "input" }, // Asegúrate de que la columna de categoría esté presente
     {
       title: "Acciones",
       field: "actions",
@@ -143,41 +141,49 @@ const ProductsComponent = () => {
             type="text"
             placeholder="Nombre"
             value={newProduct.name}
-            onChange={(e) =>
-              setNewProduct({ ...newProduct, name: e.target.value })
-            }
-          />
-          <input
-            type="text"
-            placeholder="Precio"
-            value={newProduct.price}
-            onChange={(e) =>
-              setNewProduct({ ...newProduct, price: e.target.value })
-            }
-          />
-          <input
-            type="text"
-            placeholder="Stock"
-            value={newProduct.stock}
-            onChange={(e) =>
-              setNewProduct({ ...newProduct, stock: e.target.value })
-            }
-          />
-          <input
-            type="text"
-            placeholder="Categoría"
-            value={newProduct.category}
-            onChange={(e) =>
-              setNewProduct({ ...newProduct, category: e.target.value })
-            }
+            onChange={(e) => setNewProduct({ ...newProduct, name: e.target.value })}
           />
           <input
             type="text"
             placeholder="Descripción"
             value={newProduct.description}
-            onChange={(e) =>
-              setNewProduct({ ...newProduct, description: e.target.value })
-            }
+            onChange={(e) => setNewProduct({ ...newProduct, description: e.target.value })}
+          />
+          <input
+            type="text"
+            placeholder="Imagen"
+            value={newProduct.pic}
+            onChange={(e) => setNewProduct({ ...newProduct, pic: e.target.value })}
+          />
+          <input
+            type="text"
+            placeholder="Galería (JSON)"
+            value={newProduct.gallery}
+            onChange={(e) => setNewProduct({ ...newProduct, gallery: e.target.value })}
+          />
+          <input
+            type="text"
+            placeholder="Precio"
+            value={newProduct.price}
+            onChange={(e) => setNewProduct({ ...newProduct, price: e.target.value })}
+          />
+          <input
+            type="text"
+            placeholder="Stock"
+            value={newProduct.stock}
+            onChange={(e) => setNewProduct({ ...newProduct, stock: e.target.value })}
+          />
+          <input
+            type="text"
+            placeholder="Destacado"
+            value={newProduct.featured}
+            onChange={(e) => setNewProduct({ ...newProduct, featured: e.target.value })}
+          />
+          <input
+            type="text"
+            placeholder="Categoría" 
+            value={newProduct.categoryId}
+            onChange={(e) => setNewProduct({ ...newProduct, categoryId: e.target.value })}
           />
           <button className="add-button" onClick={handleAddProduct}>
             Agregar Producto

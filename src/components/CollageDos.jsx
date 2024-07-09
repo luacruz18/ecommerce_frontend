@@ -25,63 +25,98 @@ const CollageDos = () => {
     return "";
   };
 
+  const h3Style = {
+    textShadow: "0 0 10px black",
+  };
+
+  const buyButtonStyle = {
+    backgroundColor: "transparent",
+    border: "none",
+    color: "#e93d3a",
+    textShadow: "0 0 10px black",
+    cursor: "pointer",
+    display: "flex",
+    alignItems: "center",
+    padding: "0px",
+  };
+
+  const iconStyle = {
+    marginLeft: "5px",
+  };
+
   return (
     <div>
       <div className="collage-2 pt-5">
         <div className="row m-0">
           <div className="col-6">
             <div className="parent text-light">
-              <div
-                className="div1"
-                style={{ backgroundImage: `url(${getProductImageUrl(0)})` }}
-              >
-                {products[0] && <h3>{products[0].name}</h3>}
+              <div className="div1 d-flex align-items-end" style={{ backgroundImage: `url(${getProductImageUrl(0)})` }}>
+                <div className="product-info p-2">
+                  <h3 style={h3Style}>{products[0] && products[0].name}</h3>
+                  <button className="btn" style={buyButtonStyle}>
+                    COMPRAR AHORA <i className="bi bi-chevron-right" style={iconStyle}></i>
+                  </button>
+                </div>
               </div>
-              <div
-                className="div2"
-                style={{ backgroundImage: `url(${getProductImageUrl(1)})` }}
-              >
-                <h3>{products[1] && products[1].name}</h3>
+              <div className="div2 d-flex align-items-end" style={{ backgroundImage: `url(${getProductImageUrl(1)})` }}>
+                <div className="product-info p-2">
+                  <h3 style={h3Style}>{products[1] && products[1].name}</h3>
+                  <button className="btn" style={buyButtonStyle}>
+                    COMPRAR AHORA <i className="bi bi-chevron-right" style={iconStyle}></i>
+                  </button>
+                </div>
               </div>
-              <div
-                className="div3"
-                style={{ backgroundImage: `url(${getProductImageUrl(2)})` }}
-              >
-                <h3>{products[2] && products[2].name}</h3>
+              <div className="div3 d-flex align-items-end" style={{ backgroundImage: `url(${getProductImageUrl(15)})` }}>
+                <div className="product-info p-2">
+                  <h3 style={h3Style}>{products[15] && products[15].name}</h3>
+                  <button className="btn" style={buyButtonStyle}>
+                    COMPRAR AHORA <i className="bi bi-chevron-right" style={iconStyle}></i>
+                  </button>
+                </div>
               </div>
-              <div
-                className="div4"
-                style={{ backgroundImage: `url(${getProductImageUrl(3)})` }}
-              >
-                <h3>{products[3] && products[3].name}</h3>
+              <div className="div4 d-flex align-items-end" style={{ backgroundImage: `url(${getProductImageUrl(13)})` }}>
+                <div className="product-info p-2">
+                  <h3 style={h3Style}>{products[13] && products[13].name}</h3>
+                  <button className="btn" style={buyButtonStyle}>
+                    COMPRAR AHORA <i className="bi bi-chevron-right" style={iconStyle}></i>
+                  </button>
+                </div>
               </div>
             </div>
           </div>
           <div className="col-6">
             <div className="parent-2 text-light">
-              <div
-                className="div5"
-                style={{ backgroundImage: `url(${getProductImageUrl(6)})` }}
-              >
-                <h3>{products[6] && products[6].name}</h3>
+              <div className="div5 d-flex align-items-end" style={{ backgroundImage: `url(${getProductImageUrl(6)})` }}>
+                <div className="product-info p-2">
+                  <h3 style={h3Style}>{products[6] && products[6].name}</h3>
+                  <button className="btn" style={buyButtonStyle}>
+                    COMPRAR AHORA <i className="bi bi-chevron-right" style={iconStyle}></i>
+                  </button>
+                </div>
               </div>
-              <div
-                className="div6"
-                style={{ backgroundImage: `url(${getProductImageUrl(10)})` }}
-              >
-                <h3>{products[10] && products[10].name}</h3>
+              <div className="div6 d-flex align-items-end" style={{ backgroundImage: `url(${getProductImageUrl(10)})` }}>
+                <div className="product-info p-2">
+                  <h3 style={h3Style}>{products[10] && products[10].name}</h3>
+                  <button className="btn" style={buyButtonStyle}>
+                    COMPRAR AHORA <i className="bi bi-chevron-right" style={iconStyle}></i>
+                  </button>
+                </div>
               </div>
-              <div
-                className="div7"
-                style={{ backgroundImage: `url(${getProductImageUrl(6)})` }}
-              >
-                <h3>{products[6] && products[6].name}</h3>
+              <div className="div7 d-flex align-items-end" style={{ backgroundImage: `url(${getProductImageUrl(21)})` }}>
+                <div className="product-info p-2">
+                  <h3 style={h3Style}>{products[21] && products[21].name}</h3>
+                  <button className="btn" style={buyButtonStyle}>
+                    COMPRAR AHORA <i className="bi bi-chevron-right" style={iconStyle}></i>
+                  </button>
+                </div>
               </div>
-              <div
-                className="div8"
-                style={{ backgroundImage: `url(${getProductImageUrl(30)})` }}
-              >
-                <h3>{products[30] && products[30].name}</h3>
+              <div className="div8 d-flex align-items-end" style={{ backgroundImage: `url(${getProductImageUrl(30)})` }}>
+                <div className="product-info p-2">
+                  <h3 style={h3Style}>{products[30] && products[30].name}</h3>
+                  <button className="btn" style={buyButtonStyle}>
+                    COMPRAR AHORA <i className="bi bi-chevron-right" style={iconStyle}></i>
+                  </button>
+                </div>
               </div>
             </div>
           </div>
