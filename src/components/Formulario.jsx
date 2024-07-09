@@ -1,166 +1,207 @@
-import Button from "react-bootstrap/Button";
-import Col from "react-bootstrap/Col";
-import Form from "react-bootstrap/Form";
-import Row from "react-bootstrap/Row";
-import Card from "react-bootstrap/Card";
-import Tarjeta from "react-bootstrap/Card";
+import React, { useState } from "react";
+import { Button, Col, Form, Row, Card, Container } from "react-bootstrap";
+import { useSelector, useDispatch } from "react-redux";
+import { removeItem, clearCart } from "../redux/cartSlice";
 
-function Formulario() {
+function Forms() {
+  const [billingToCompany, setBillingToCompany] = useState(false);
+  const handleBillingToCompanyChange = (e) => {
+    setBillingToCompany(e.target.checked);
+  };
+
+  const cartItems = useSelector((state) => state.cart.items);
+  const dispatch = useDispatch();
+
+  const handleRemoveFromCart = (itemId) => {
+    dispatch(removeItem(itemId));
+  };
+
+  const handleClearCart = () => {
+    dispatch(clearCart());
+  };
+
+  let subtotal = 0;
+  let tax = 0;
+  let total = 0;
+
+  if (cartItems.length > 0) {
+    subtotal = cartItems.reduce((total, item) => {
+      const itemPrice = item.price || 0; //  item.price es undefined asigna 0
+      const itemQuantity = item.quantity || 1; // item.quantity undefine asigna 1
+
+      return total + itemPrice * itemQuantity;
+    }, 0);
+
+    tax = 1.22 * subtotal;
+    total = subtotal + tax;
+  }
   return (
-    <div className="form-container-fluid mt-3 ">
-      <Row className="col-6 m-2">
-        <Form>
+    <Container>
+      <Row className="mt-3 pt-4">
+        <Col md={6}>
+          <Form>
+            <Card>
+              <Card.Header className="datos-card" as="h4">
+                Datos de Facturación
+              </Card.Header>
+              <Card.Body>
+                <Form.Group className="mb-3" controlId="Nombre">
+                  <Form.Label>Nombre</Form.Label>
+                  <Form.Control type="text" placeholder="Nombre" />
+                </Form.Group>
+
+                <Form.Group className="mb-3" controlId="Apellido">
+                  <Form.Label>Apellido</Form.Label>
+                  <Form.Control type="text" placeholder="Apellido" />
+                </Form.Group>
+
+                <Form.Group className="mb-3" controlId="Documento">
+                  <Form.Label>Documento</Form.Label>
+                  <Form.Select defaultValue="">
+                    <option value="" disabled>
+                      Seleccione un documento
+                    </option>
+                    <option value="Cedula">Cédula de Identidad</option>
+                    <option value="Pasaporte">Pasaporte</option>
+                  </Form.Select>
+                </Form.Group>
+
+                <Form.Group className="mb-3" controlId="NumerodeDoc">
+                  <Form.Label>Número de Documento</Form.Label>
+                  <Form.Control type="text" placeholder="Documento" />
+                </Form.Group>
+
+                <Form.Group className="mb-3" controlId="Contacto">
+                  <Form.Label>Contacto</Form.Label>
+                  <Form.Control type="text" placeholder="Contacto" />
+                </Form.Group>
+
+                <p>
+                  *El número de contacto lo solicitamos para poder comunicarnos
+                  ante cualquier duda o inconveniente*
+                </p>
+
+                <Form.Group className="mb-3" controlId="Departamento">
+                  <Form.Label>Departamento</Form.Label>
+                  <Form.Select defaultValue="">
+                    <option value="" disabled>
+                      Seleccione un departamento
+                    </option>
+                    <option>Artigas</option>
+                    <option>Canelones</option>
+                    <option>Cerro Largo</option>
+                    <option>Colonia</option>
+                    <option>Durazno</option>
+                    <option>Flores</option>
+                    <option>Florida</option>
+                    <option>Lavalleja</option>
+                    <option>Maldonado</option>
+                    <option>Montevideo</option>
+                    <option>Río Negro</option>
+                    <option>Rivera</option>
+                    <option>Rocha</option>
+                    <option>Paysandú</option>
+                    <option>Salto</option>
+                    <option>San José</option>
+                    <option>Soriano</option>
+                    <option>Treinta y Tres</option>
+                    <option>Tacuarembó</option>
+                  </Form.Select>
+                </Form.Group>
+
+                <Form.Group className="mb-3" controlId="CodigoPostal">
+                  <Form.Label>Código Postal</Form.Label>
+                  <Form.Control type="text" placeholder="Código Postal" />
+                </Form.Group>
+
+                <Form.Group className="mb-3" controlId="Apto">
+                  <Form.Label>Apto 01 / Casa</Form.Label>
+                  <Form.Control type="text" placeholder="Apto 01 / Casa" />
+                </Form.Group>
+
+                <Form.Group className="mb-3" controlId="Direccion">
+                  <Form.Label>Dirección</Form.Label>
+                  <Form.Control type="text" placeholder="Dirección" />
+                </Form.Group>
+
+                <Form.Group className="mb-3 mt-2" controlId="billingToCompany">
+                  <Form.Check
+                    type="checkbox"
+                    label="Sí, necesito facturar a nombre de una empresa."
+                    onChange={handleBillingToCompanyChange}
+                  />
+                </Form.Group>
+
+                {billingToCompany && (
+                  <Form.Group className="mb-3" controlId="RUT">
+                    <Form.Label>RUT</Form.Label>
+                    <Form.Control type="text" />
+                  </Form.Group>
+                )}
+
+                <Form.Group className="mb-3" controlId="ExtraInfo">
+                  <Form.Label>
+                    Detalla información extra de utilidad para entregar tu
+                    paquete.
+                  </Form.Label>
+                  <Form.Control as="textarea" rows={3} />
+                </Form.Group>
+              </Card.Body>
+            </Card>
+          </Form>
+        </Col>
+
+        <Col md={6}>
           <Card>
             <Card.Header className="datos-card" as="h4">
-              Datos de Facturación
+              Detalle del pedido
             </Card.Header>
-            <Row className="m-2">
-              <Form.Group as={Col} controlId="Nombre">
-                <Form.Label> </Form.Label>
-                <Form.Control type="text" placeholder="Nombre" />
-              </Form.Group>
+            <Card.Body>
+              <p>example.mail@gmail.com</p>
+              {cartItems.map((item) => (
+                <div key={item.id} className="card mb-3">
+                  <div className="row g-0">
+                    <div className="col-md-4">
+                      <img
+                        src={import.meta.env.VITE_IMG_URL + item.pic}
+                        className="img-fluid rounded-start"
+                        alt={item.name}
+                      />
+                    </div>
+                    <div className="col-md-8">
+                      <div className="card-body">
+                        <h5 className="card-title">{item.name}</h5>
+                        <p className="card-text">Precio: ${item.price}</p>
+                        {item.quantity > 1 && (
+                          <p className="card-text">Cantidad: {item.quantity}</p>
+                        )}
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              ))}
 
-              <Form.Group as={Col} controlId="Apellido">
-                <Form.Label></Form.Label>
-                <Form.Control type="text" placeholder="Apellido" />
-              </Form.Group>
-            </Row>
-            <Row className="mb-3 m-2">
-              <Form.Group as={Col} controlId="Documento">
-                <Form.Label></Form.Label>
-                <Form.Select defaultValue="Documento">
-                  <option>Cedula de Identidad</option>
-                  <option>Pasaporte</option>
-                </Form.Select>
-              </Form.Group>
-              <Form.Group as={Col} controlId="NumerodeDoc">
-                <Form.Label></Form.Label>
-                <Form.Control type="numbers" placeholder="Documento" />
-              </Form.Group>
-
-              <Form.Group as={Col} controlId="Contacto">
-                <Form.Label></Form.Label>
-                <Form.Control type="text" placeholder="Contacto" />
-              </Form.Group>
-
-              <p>
-                *El número de contacto lo solícitamos para poder comunicarnos
-                ante cualquier duda o inconveniente*
-              </p>
-            </Row>
-            <Row className="mb-3 m-2">
-              <Form.Group as={Col} controlId="formGridState">
-                <Form.Label></Form.Label>
-                <Form.Select defaultValue="Departamento">
-                  <option>Artigas</option>
-                  <option>Canelones</option>
-                  <option>Cerro Largo</option>
-                  <option>Colonia</option>
-                  <option>Durazno</option>
-                  <option>Flores</option>
-                  <option>Florida</option>
-                  <option>Lavalleja</option>
-                  <option>Maldonado</option>
-                  <option>Montevideo</option>
-                  <option>Rio Negro</option>
-                  <option>Rivera</option>
-                  <option>Rocha</option>
-                  <option>Paysandú</option>
-                  <option>Salto</option>
-                  <option>San José</option>
-                  <option>Soriano</option>
-                  <option>Treinta y Tres</option>
-                  <option>Tacuarembó</option>
-                </Form.Select>
-              </Form.Group>
-
-              <Form.Group as={Col} controlId="Numero de Puerta">
-                <Form.Label></Form.Label>
-                <Form.Control type="numbers" placeholder="Código Postal" />
-              </Form.Group>
-              <Form.Group as={Col} controlId="Apto">
-                <Form.Label></Form.Label>
-                <Form.Control type="text" placeholder="Apto 01 / Casa" />
-              </Form.Group>
-            </Row>
-
-            <Form.Group as={Col} controlId="Numero de Puerta">
-              <Form.Label></Form.Label>
-              <Form.Control type="numbers" placeholder="Dirección" />
-            </Form.Group>
-            <Form.Group
-              className="mb-3 m-2"
-              id="formGridCheckbox"
-              placeholder="¿Necesitas Factura con RUT?"
-            >
-              <Form.Check
-                type="checkbox"
-                label="Si, necesito facturar a nombre de una empresa."
-              />
-            </Form.Group>
-            <Form.Group as={Col} controlId="formGridZip">
-              <Form.Label>RUT</Form.Label>
-              <Form.Control />
-            </Form.Group>
-            <Form.Group className="mb-3 m-2" controlId="text">
-              <Form.Label>
-                {" "}
-                <p>
-                  {" "}
-                  Detalla información extra de útilidad para entregar tu
-                  paquete.
-                </p>
-              </Form.Label>
-              <Form.Control as="textarea" rows={3} />
-            </Form.Group>
+              <h6>Total de importe : $12.500</h6>
+            </Card.Body>
           </Card>
-
-          <Button className="button mt-3" variant="secondary" type="submit">
-            Siguiente
+          <Button
+            className="button mt-3 w-25 btn-sm"
+            variant="secondary"
+            type="submit"
+          >
+            Finalizar Compra
           </Button>
-          <Form.Group className="mb-3 m-2" id="formGridCheckbox">
+
+          <Form.Group className="mb-3 mt-2" controlId="termsAndConditions">
             <Form.Check
               type="checkbox"
               label="Estoy de acuerdo con los términos y condiciones."
             />
           </Form.Group>
-        </Form>
+        </Col>
       </Row>
-
-      <div className="Detalle.pedidos">
-        <Row className="mb-3 m-2 col-6">
-          <Form>
-            <Card>
-              <Card.Header className="datos-card" as="h4">
-                Detalle del pedido
-              </Card.Header>
-              <div className="m-2">
-                <Tarjeta>
-                  <Card.Body>
-                    <p>example.mail@gmail.com</p>
-                    <div
-                      className="justify-content-end
-                  "
-                    >
-                      <button
-                        className="button "
-                        variant="secondary"
-                        type="submit"
-                      >
-                        Cambiar de Cuenta
-                      </button>
-                    </div>
-
-                    <h6>Total de importe</h6>
-                  </Card.Body>
-                </Tarjeta>
-              </div>
-            </Card>
-          </Form>
-        </Row>
-      </div>
-    </div>
+    </Container>
   );
 }
 
-export default Formulario;
+export default Forms;
