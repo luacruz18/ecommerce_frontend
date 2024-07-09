@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import { Button, Col, Form, Row, Card, Container } from "react-bootstrap";
+import { useSelector, useDispatch } from "react-redux";
+import { removeItem, clearCart } from "../redux/cartSlice";
 
 function Forms() {
   const [billingToCompany, setBillingToCompany] = useState(false);
@@ -7,9 +9,35 @@ function Forms() {
     setBillingToCompany(e.target.checked);
   };
 
+  const cartItems = useSelector((state) => state.cart.items);
+  const dispatch = useDispatch();
+
+  const handleRemoveFromCart = (itemId) => {
+    dispatch(removeItem(itemId));
+  };
+
+  const handleClearCart = () => {
+    dispatch(clearCart());
+  };
+
+  let subtotal = 0;
+  let tax = 0;
+  let total = 0;
+
+  if (cartItems.length > 0) {
+    subtotal = cartItems.reduce((total, item) => {
+      const itemPrice = item.price || 0; //  item.price es undefined asigna 0
+      const itemQuantity = item.quantity || 1; // item.quantity undefine asigna 1
+
+      return total + itemPrice * itemQuantity;
+    }, 0);
+
+    tax = 1.22 * subtotal;
+    total = subtotal + tax;
+  }
   return (
     <Container>
-      <Row className="mt-3">
+      <Row className="mt-3 pt-4">
         <Col md={6}>
           <Form>
             <Card>
@@ -120,21 +148,6 @@ function Forms() {
                 </Form.Group>
               </Card.Body>
             </Card>
-
-            <Button
-              className="button mt-1 w-25 btn-sm"
-              variant="secondary"
-              type="submit"
-            >
-              Siguiente
-            </Button>
-
-            <Form.Group className="mb-3 mt-2" controlId="termsAndConditions">
-              <Form.Check
-                type="checkbox"
-                label="Estoy de acuerdo con los términos y condiciones."
-              />
-            </Form.Group>
           </Form>
         </Col>
 
@@ -145,17 +158,46 @@ function Forms() {
             </Card.Header>
             <Card.Body>
               <p>example.mail@gmail.com</p>
-              <div className="mt-3 btn-sm">
-                <Button
-                  className="button mt-1 w-25 btn-sm"
-                  variant="secondary btn-sm"
-                >
-                  Cuenta
-                </Button>
-              </div>
+              {cartItems.map((item) => (
+                <div key={item.id} className="card mb-3">
+                  <div className="row g-0">
+                    <div className="col-md-4">
+                      <img
+                        src={import.meta.env.VITE_IMG_URL + item.pic}
+                        className="img-fluid rounded-start"
+                        alt={item.name}
+                      />
+                    </div>
+                    <div className="col-md-8">
+                      <div className="card-body">
+                        <h5 className="card-title">{item.name}</h5>
+                        <p className="card-text">Precio: ${item.price}</p>
+                        {item.quantity > 1 && (
+                          <p className="card-text">Cantidad: {item.quantity}</p>
+                        )}
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              ))}
+
               <h6>Total de importe : $12.500</h6>
             </Card.Body>
           </Card>
+          <Button
+            className="button mt-3 w-25 btn-sm"
+            variant="secondary"
+            type="submit"
+          >
+            Finalizar Compra
+          </Button>
+
+          <Form.Group className="mb-3 mt-2" controlId="termsAndConditions">
+            <Form.Check
+              type="checkbox"
+              label="Estoy de acuerdo con los términos y condiciones."
+            />
+          </Form.Group>
         </Col>
       </Row>
     </Container>

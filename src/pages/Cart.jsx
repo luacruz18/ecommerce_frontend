@@ -2,8 +2,9 @@ import React from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { removeItem, clearCart } from "../redux/cartSlice";
 import Navbar from "../components/Navbar";
-
+import { useNavigate } from "react-router-dom";
 const Cart = () => {
+  const navigate = useNavigate();
   const cartItems = useSelector((state) => state.cart.items);
   const dispatch = useDispatch();
 
@@ -15,7 +16,6 @@ const Cart = () => {
     dispatch(clearCart());
   };
 
-
   let subtotal = 0;
   let tax = 0;
   let total = 0;
@@ -25,10 +25,10 @@ const Cart = () => {
       const itemPrice = item.price || 0; //  item.price es undefined asigna 0
       const itemQuantity = item.quantity || 1; // item.quantity undefine asigna 1
 
-      return total + (itemPrice * itemQuantity);
+      return total + itemPrice * itemQuantity;
     }, 0);
 
-    tax = 1.22 * subtotal; 
+    tax = 1.22 * subtotal;
     total = subtotal + tax;
   }
 
@@ -58,7 +58,9 @@ const Cart = () => {
                           <h5 className="card-title">{item.name}</h5>
                           <p className="card-text">Precio: ${item.price}</p>
                           {item.quantity > 1 && (
-                            <p className="card-text">Cantidad: {item.quantity}</p>
+                            <p className="card-text">
+                              Cantidad: {item.quantity}
+                            </p>
                           )}
                           <button
                             className="btn btn-danger"
@@ -71,10 +73,7 @@ const Cart = () => {
                     </div>
                   </div>
                 ))}
-                <button
-                  className="btn btn-warning"
-                  onClick={handleClearCart}
-                >
+                <button className="btn btn-warning" onClick={handleClearCart}>
                   Vaciar carrito
                 </button>
               </div>
@@ -87,7 +86,12 @@ const Cart = () => {
                 <p className="card-text">Subtotal: ${subtotal.toFixed(2)}</p>
                 <p className="card-text">Impuestos: ${tax.toFixed(2)}</p>
                 <h3 className="card-text">Total: ${total.toFixed(2)}</h3>
-                <button className="btn btn-success">
+                <button
+                  className="btn btn-success"
+                  onClick={() => {
+                    navigate("/shopping");
+                  }}
+                >
                   Finalizar Compra
                 </button>
               </div>
