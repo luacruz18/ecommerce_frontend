@@ -1,7 +1,7 @@
 import { Navigate } from "react-router-dom";
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
-import { addUser } from "../redux/userReducer"; 
+import { addUser } from "../redux/userReducer"; // Importa la acción addUser de userReducer
 import { useSelector } from "react-redux";
 const BASE_URL = "http://localhost:3000";
 
