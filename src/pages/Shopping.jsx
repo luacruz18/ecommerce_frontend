@@ -2,7 +2,7 @@ import React from "react";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import "../styles/App.css";
-import Forms from "../components/Forms";
+import Formulario from "../components/Formulario";
 
 const Shopping = () => {
   return (
@@ -15,7 +15,7 @@ const Shopping = () => {
           </video>
         </div>
       </div>
-      <Forms></Forms>
+      <Formulario></Formulario>
       <Footer />
     </div>
   );
