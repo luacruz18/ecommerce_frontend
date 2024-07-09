@@ -224,15 +224,129 @@ h3 {
   z-index: 1;
 }
 
+.collage {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.collage-item {
+  position: relative;
+  width: 100%;
+  height: 310px;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.background-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: opacity 0.3s ease;
+}
+
+.overlay {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.2);
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.collage-item:hover .overlay {
+  opacity: 1;
+}
+
+.overlay h2,
+.overlay p,
+.overlay button {
+  margin: 0;
+  padding: 0;
+}
+
+.overlay h2 {
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+}
+
+.overlay p {
+  font-size: 20px;
+  margin: 10px 0;
+}
+
+.overlay button {
+  margin-top: 10px;
+  padding: 10px 20px;
+  background: rgb(233, 61, 58);
+  background: radial-gradient(
+    circle,
+    rgba(233, 61, 58, 1) 0%,
+    rgba(60, 60, 60, 1) 100%
+  );
+  border: none;
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: 500;
+}
+
+@media (max-width: 1200px) {
+  .collage {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .overlay p {
+    font-size: 18px;
+  }
+
+  .overlay h2 {
+    font-size: 1.3rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .collage {
+    grid-template-columns: 1fr;
+  }
+
+  .collage-item {
+    height: 250px;
+  }
+
+  .overlay p {
+    font-size: 16px;
+  }
+
+  .overlay h2 {
+    font-size: 1.2rem;
+  }
+
+  .overlay button {
+    width: 100%;
+    padding: 12px 0;
+  }
+}
+
 .cards-img {
   width: 40%;
   padding: 30px;
 }
 
 .cardstestimonials.card {
-  background: rgb(185, 179, 179);
+  background: rgba(255, 255, 255, 0.28);
   border-radius: 16px;
- 
+  box-shadow: 0 4px 30px rgba(9, 9, 8, 0.1);
+  backdrop-filter: blur(7.4px);
+  -webkit-backdrop-filter: blur(7.4px);
+  border: 1px solid rgba(255, 255, 255, 0.368);
+  -webkit-box-shadow: 25px 11px 50px 0px rgba(0, 0, 0, 0.57);
+  -moz-box-shadow: 25px 11px 50px 0px rgba(0, 0, 0, 0.57);
+  box-shadow: 25px 11px 50px 0px rgba(0, 0, 0, 0.57);
 }
 
 .cardstestimonials {
@@ -242,7 +356,6 @@ h3 {
 .testimonials-container {
   position: relative;
   padding-bottom: 100px;
-  background-color: black;
   color: white;
 }
 .background-img {

@@ -4,7 +4,7 @@ import IndividualIntervalsExample from "../components/Carousel";
 import Footer from "../components/Footer";
 import ProductCarousel from "../components/ProductCarousel";
 import Testimonials from "../components/Testimonials";
-import CollageDos from "../components/CollageDos";
+import Collage from "../components/Collage";
 
 
 const Home = () => {
@@ -14,10 +14,9 @@ const Home = () => {
       <IndividualIntervalsExample />
       <h3 className="text-center mt-3">EXPLORA NUESTROS PRODUCTOS</h3>
       <ProductCarousel />
-      <CollageDos />
+      <Collage /> 
       <Testimonials />
       <Footer />
-     
       
 
     </div>

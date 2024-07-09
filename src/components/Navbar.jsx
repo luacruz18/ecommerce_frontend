@@ -26,7 +26,7 @@ const CustomNavbar = () => {
             Productos
           </Nav.Link>
           <Nav.Link as={Link} to="/sobrenosotros" className="about-us-nav">
-            Sobre nuestro proyecto
+            Sobre nosotros
           </Nav.Link>
           <Nav.Link as={Link} to="/carrito" className="cart-icon">
             <BsCart />
