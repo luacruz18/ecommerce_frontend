@@ -5,6 +5,7 @@ import Footer from "../components/Footer";
 import ProductCarousel from "../components/ProductCarousel";
 import Testimonials from "../components/Testimonials";
 import CollageDos from "../components/CollageDos";
+import AccordionHome from "../components/AccordionHome";
 
 
 const Home = () => {
@@ -15,7 +16,8 @@ const Home = () => {
       <h3 className="text-center mt-3">EXPLORA NUESTROS PRODUCTOS</h3>
       <ProductCarousel />
       <CollageDos />
-      <Testimonials />
+      <AccordionHome />
+      {/* <Testimonials /> */}
       <Footer />
      
       

@@ -1,0 +1,25 @@
+/* Estilos para el acordeón personalizado en AccordionHome */
+
+.accordion-custom {
+    background-color: #0a0a0a; 
+    color: #fff; 
+  }
+  
+  .accordion-header {
+    background-color: #0a0a0a !important;
+    color: #fff !important; 
+}
+  
+  .accordion-body {
+    background-color: #0a0a0a; 
+    color: #fff;
+  }
+  
+  .accordion{
+    background-color: #0a0a0a;
+  }
+
+    .preguntas{
+font-family: "Montserrat" sans-serif;
+font-weight: 800;
+  }
