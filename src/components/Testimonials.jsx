@@ -5,11 +5,6 @@ import "../styles/App.css";
 function Testimonials() {
   return (
     <div className="testimonials-container">
-      <img
-        className="background-img"
-        src={import.meta.env.VITE_IMG_URL + "fondotestimonios.jpg"}
-        alt="Testimonios"
-      />
       <h3 className="text-center mb-5 pt-5 black-text">TESTIMONIOS</h3>
       <div className="container">
         <CardGroup className="row">
