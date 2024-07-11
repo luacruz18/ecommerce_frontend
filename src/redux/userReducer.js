@@ -7,12 +7,12 @@ const userSlice = createSlice({
     addUser(state, action) {
       console.log("adduser", action.payload);
       state.token = action.payload.token;
-      // return state;
+      state.role = action.payload.role;
     },
     removeUser(state) {
       console.log("removeuser", action.payload);
       state.token = null;
-      return state;
+      state.role = null;
     },
   },
 });

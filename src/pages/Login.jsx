@@ -31,7 +31,6 @@ const Login = () => {
     }
 
     if (valid) {
-      // Simulate login logic
       navigate("/dashboard");
     }
   };
@@ -73,7 +72,7 @@ const Login = () => {
           <div className="passwordExtras">
             <div className="forgotPassword">
               <Link to="/forgot-password" className="forgotPasswordLink">
-                Forgot password?
+                ¿Olvidaste la contraseña?
               </Link>
             </div>
             <div className="rememberMe">
@@ -85,7 +84,7 @@ const Login = () => {
                   defaultChecked
                 />
                 <label className="form-check-label" htmlFor="rememberMe">
-                  Remember me
+                  Recuérdame
                 </label>
               </div>
             </div>
@@ -103,9 +102,9 @@ const Login = () => {
         </Button>
         <div className="text-center">
           <p className="notMember">
-            Not a member? <Link to="/register">Register</Link>
+            ¿No tienes usuario? <Link to="/register">Regístrate</Link>
           </p>
-          <p className="orSignUp">or sign up with:</p>
+          <p className="orSignUp">o ingresar con</p>
           <div className="socialIcons">
             <ul className="list-inline">
               <li className="list-inline-item">

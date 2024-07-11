@@ -12,6 +12,31 @@
   font-size: 20px;
 }
 .list-inline-item:hover {
-  color: red;
+  color: #e93d3a;
   transform: scale(1.2);
+}
+.background-container {
+  background-color: #0a0a0a;
+  color: #fff;
+  padding: 20px;
+}
+
+hr {
+  border: 0;
+  height: 1px;
+  background-color: #e93d3a;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+.iconos-container {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.iconos-container .icon {
+  font-size: 3rem;
+  margin: 10px;
+}
+.introduction-text {
+  font-size: 25px;
 }

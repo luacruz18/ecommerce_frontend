@@ -9,11 +9,9 @@ import About from "./pages/About";
 import Shopping from "./pages/Shopping";
 import ProductList from "./pages/ProductsList";
 import Dashboard from "./pages/Dashboard";
-import Category from "./pages/Category";
 import Cart from "./pages/Cart";
 import Login from "./pages/Login";
 import Adminlogin from "./pages/AdminLogin";
-import LoginForm from "./pages/LoginForm";
 
 
 function App() {
@@ -31,7 +29,7 @@ function App() {
           <Route path="/productos/:id" element={<Products />} />
           <Route path="/carrito" element={<Cart />} />
           <Route path="/login" element={<Login />} />
-          <Route path="/loginform" element={<LoginForm />} />
+          <Route path="/administrador" element={<Adminlogin />} />
         </Routes>
       </Router>
     </Provider>

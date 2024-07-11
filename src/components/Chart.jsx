@@ -1,24 +1,38 @@
+import React from "react";
+import { Bar } from "react-chartjs-2";
+import {
+  Chart as ChartJS,
+  CategoryScale,
+  LinearScale,
+  BarElement,
+  Title,
+  Tooltip,
+  Legend,
+} from "chart.js";
 
-import React from 'react';
-import { Bar } from 'react-chartjs-2';
-import { Chart as ChartJS, CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend } from 'chart.js';
-
-ChartJS.register(CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend);
+ChartJS.register(
+  CategoryScale,
+  LinearScale,
+  BarElement,
+  Title,
+  Tooltip,
+  Legend
+);
 
 const ChartComponent = () => {
   const data = {
-    labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
+    labels: ["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio"],
     datasets: [
       {
-        label: 'Sales',
-        backgroundColor: 'rgba(75,192,192,0.4)',
-        borderColor: 'rgba(75,192,192,1)',
+        label: "Ventas",
+        backgroundColor: "rgba(142, 0, 0, 1)",
+        borderColor: "rgba(243, 246, 244, 1)",
         borderWidth: 1,
-        hoverBackgroundColor: 'rgba(75,192,192,0.6)',
-        hoverBorderColor: 'rgba(75,192,192,1)',
-        data: [65, 59, 80, 81, 56, 55, 40]
-      }
-    ]
+        hoverBackgroundColor: "rgba(0, 0, 0, 1)",
+        hoverBorderColor: "rgba(243, 246, 244, 1)",
+        data: [65, 59, 80, 81, 56, 55, 40],
+      },
+    ],
   };
 
   return (

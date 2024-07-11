@@ -1,39 +1,60 @@
 import React from "react";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
-import { FaInstagram, FaTwitter, FaFacebook, FaLinkedin } from "react-icons/fa";
+import {
+  FaInstagram,
+  FaTwitter,
+  FaFacebook,
+  FaLinkedin,
+  FaNodeJs,
+  FaReact,
+  FaGithub,
+  FaCss3Alt,
+  FaHtml5,
+} from "react-icons/fa";
+import { IoLogoJavascript } from "react-icons/io";
 import "../styles/About.css";
 
 function About() {
   return (
-    <div>
+    <div className="background-container">
       <Navbar />
       <div className="container-lg mt-4">
-        <h1>Sobre nosotros</h1>
+        <h1>Sobre este proyecto</h1>
         <div className="row">
           <hr />
           <div className="col-lg-6">
-            <div className="card text-center rounded-0 p-1">
+            <div className="card text-center p-1">
               <img
-                src="\img\collage3 c6.jpg"
-                className="card-img rounded-0"
+                src="\img\TeamWork.jpg"
+                className="card-img"
                 width="300px"
                 alt="..."
               />
             </div>
           </div>
           <div className="col-lg-6 ps-4">
-            <h2>Zona Gamer</h2>
-            <p>
-              En Zona Gamer nos dedicamos apasionadamente a proporcionar a
-              nuestros clientes los mejores productos diseñados especialmente
-              para satisfacer las necesidades de los gamers más exigentes. Desde
-              equipos de última generación hasta accesorios que mejoran tu
-              experiencia de juego, nuestra misión es asegurarnos de que
-              encuentres exactamente lo que necesitas para llevar tu juego al
-              siguiente nivel.
+            <p className="introduction-text">
+              ¡Bienvenidos a ZonaGamer!, un innovador proyecto de ecommerce
+              gestado por estudiantes de Anima, donde la creatividad y la pasión
+              se unen para ofrecerte una experiencia de compra única. En nuestra
+              plataforma, buscamos no solo satisfacer tus necesidades, sino
+              también inspirarte con productos cuidadosamente seleccionados que
+              reflejan nuestra dedicación y conocimiento. Nuestro equipo está
+              comprometido con la excelencia y se esfuerza por superar tus
+              expectativas en cada pedido. Explora nuestro catálogo y únete a
+              nosotros en este emocionante viaje hacia el comercio digital del
+              futuro.
             </p>
           </div>
+        </div>
+
+        <div className="iconos-container">
+          <FaNodeJs className="icon" />
+          <FaReact className="icon" />
+          <FaGithub className="icon" />
+          <IoLogoJavascript className="icon" /> <FaCss3Alt className="icon" />
+          <FaHtml5 className="icon" />
         </div>
 
         <div className="row">
@@ -43,7 +64,7 @@ function About() {
             <div className="col">
               <div className="card h-100">
                 <img
-                  src="\img\AndreaRodriguez.jpg"
+                  src="\img\At work.jpg"
                   className="card-img-top"
                   alt="Micaela Reyes"
                 />
@@ -53,9 +74,9 @@ function About() {
                     Co-founder
                   </h6>
                   <p className="card-text">
-                    Take a look about our team’s commitment to provide everyone
-                    on our global platform with the technology that can help
-                    them move ahead.
+                    Observa nuestro compromiso como equipo de proporcionar a
+                    cada persona en nuestra plataforma global la tecnología que
+                    puede ayudarles a avanzar.
                   </p>
                 </div>
                 <div className="card-footer d-flex justify-content-center">
@@ -80,7 +101,7 @@ function About() {
             <div className="col">
               <div className="card h-100">
                 <img
-                  src="\img\AlejandroNavarro.jpg"
+                  src="\img\8804887.jpg"
                   className="card-img-top"
                   alt="Santiago Cozzi"
                 />
@@ -90,9 +111,9 @@ function About() {
                     Co-founder
                   </h6>
                   <p className="card-text">
-                    Take a look about our team’s commitment to provide everyone
-                    on our global platform with the technology that can help
-                    them move ahead.
+                    Nuestro equipo se dedica a asegurar que todos en nuestra
+                    plataforma global cuenten con la tecnología necesaria para
+                    progresar.
                   </p>
                 </div>
                 <div className="card-footer d-flex justify-content-center">
@@ -117,7 +138,7 @@ function About() {
             <div className="col">
               <div className="card h-100">
                 <img
-                  src="\img\AndreaRodriguez.jpg"
+                  src="\img\8634835.jpg"
                   className="card-img-top"
                   alt="Luana Cruz"
                 />
@@ -127,9 +148,9 @@ function About() {
                     Co-founder
                   </h6>
                   <p className="card-text">
-                    Take a look about our team’s commitment to provide everyone
-                    on our global platform with the technology that can help
-                    them move ahead.
+                    Nos comprometemos a ofrecer a todos los usuarios de nuestra
+                    plataforma global las herramientas tecnológicas que les
+                    impulsen hacia adelante.
                   </p>
                 </div>
                 <div className="card-footer d-flex justify-content-center">
@@ -154,7 +175,7 @@ function About() {
             <div className="col">
               <div className="card h-100">
                 <img
-                  src="\img\AndreaRodriguez.jpg"
+                  src="img\2894058.jpg"
                   className="card-img-top"
                   alt="Sofia Salaberry"
                 />
@@ -164,9 +185,9 @@ function About() {
                     Co-founder
                   </h6>
                   <p className="card-text">
-                    Take a look about our team’s commitment to provide everyone
-                    on our global platform with the technology that can help
-                    them move ahead.
+                    En nuestro equipo nos esforzamos por garantizar que todos en
+                    nuestra plataforma global tengan acceso a la tecnología que
+                    les permita avanzar.
                   </p>
                 </div>
                 <div className="card-footer d-flex justify-content-center">
