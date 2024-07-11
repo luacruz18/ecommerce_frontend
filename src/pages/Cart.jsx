@@ -73,7 +73,7 @@ const Cart = () => {
                     </div>
                   </div>
                 ))}
-                <button className="btn btn-warning" onClick={handleClearCart}>
+                <button className=" button btn btn" onClick={handleClearCart}>
                   Vaciar carrito
                 </button>
               </div>

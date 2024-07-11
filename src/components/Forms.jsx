@@ -1,7 +1,9 @@
 import React, { useState } from "react";
 import { Button, Col, Form, Row, Card, Container } from "react-bootstrap";
-import { useSelector, useDispatch } from "react-redux";
 import { removeItem, clearCart } from "../redux/cartSlice";
+import Swal from "sweetalert2";
+import { useSelector, useDispatch } from "react-redux";
+import axios from "axios";
 
 function Forms() {
   const [billingToCompany, setBillingToCompany] = useState(false);
@@ -10,6 +12,7 @@ function Forms() {
   };
 
   const cartItems = useSelector((state) => state.cart.items);
+  const token = useSelector((state) => state.user.token);
   const dispatch = useDispatch();
 
   const handleRemoveFromCart = (itemId) => {
@@ -35,6 +38,34 @@ function Forms() {
     tax = 1.22 * subtotal;
     total = subtotal + tax;
   }
+
+  const handleOrder = async () => {
+    console.log("handleOrder");
+    try {
+      await axios("http://localhost:3000/orders", {
+        method: "POST",
+        data: "hola",
+        headers: { Authorization: `Bearer ${token}` },
+      });
+
+      Swal.fire({
+        title: "Tu compra se ha realizado de manera exitosa.",
+        text: " ¡Te esperamos pronto!",
+        icon: "success",
+        confirmButtonColor: "#E93D3A",
+        color: "Black",
+      });
+    } catch (err) {
+      // Swal.fire({
+      // icon: "error",
+      // title: "Oops...",
+      // text: "Something went wrong!",
+      // footer: '<a href="#">Why do I have this issue?</a>'
+      //});
+      console.error(err);
+    }
+  };
+
   return (
     <Container>
       <Row className="mt-3 pt-4">
@@ -181,13 +212,21 @@ function Forms() {
                 </div>
               ))}
 
-              <h6>Total de importe : $12.500</h6>
+              <div className="col-md-6">
+                <div className="card-body">
+                  <h5 className="card-title">Resumen del Pedido</h5>
+                  <p className="card-text">Subtotal: ${subtotal.toFixed(2)}</p>
+                  <p className="card-text">Impuestos: ${tax.toFixed(2)}</p>
+                  <h3 className="card-text">Total: ${total.toFixed(2)}</h3>
+                </div>
+              </div>
             </Card.Body>
           </Card>
           <Button
-            className="button mt-3 w-25 btn-sm"
+            className=" col-6 button mt-3 w-25 btn-sm"
             variant="secondary"
             type="submit"
+            onClick={() => handleOrder()}
           >
             Finalizar Compra
           </Button>

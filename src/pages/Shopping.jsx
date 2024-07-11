@@ -2,7 +2,7 @@ import React from "react";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import "../styles/App.css";
-import Formulario from "../components/Formulario";
+import Forms from "../components/Forms";
 
 const Shopping = () => {
   return (
@@ -10,12 +10,12 @@ const Shopping = () => {
       <Navbar />
       <div className="">
         <div className="Banner">
-          <video loop autoPlay muted>
+          <video className="w-100" loop autoPlay muted>
             <source src="/img/Banner.experiencia.mp4" type="video/mp4" />
           </video>
         </div>
       </div>
-      <Formulario></Formulario>
+      <Forms></Forms>
       <Footer />
     </div>
   );

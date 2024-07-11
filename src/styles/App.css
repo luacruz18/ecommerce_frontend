@@ -389,7 +389,6 @@ h3 {
   padding-bottom: 10px;
   padding-top: 10px;
   font-family: "Montserrat";
-
 }
 .p {
   font-family: "Montserrat";
@@ -404,4 +403,7 @@ h3 {
   background-color: #e93d3a;
   font-family: "Montserrat";
   color: white;
+}
+.form-check-label {
+  color: #0a0a0a;
 }
