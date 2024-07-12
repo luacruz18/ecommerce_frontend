@@ -232,7 +232,6 @@ h3 {
 .cardstestimonials.card {
   background: rgb(185, 179, 179);
   border-radius: 16px;
- 
 }
 
 .cardstestimonials {
@@ -293,4 +292,7 @@ h3 {
 }
 .form-check-label {
   color: #0a0a0a;
+}
+.Forms.shopping {
+  background-color: #eaeaea;
 }

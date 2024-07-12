@@ -56,18 +56,18 @@ function Forms() {
         color: "Black",
       });
     } catch (err) {
-      // Swal.fire({
-      // icon: "error",
-      // title: "Oops...",
-      // text: "Something went wrong!",
-      // footer: '<a href="#">Why do I have this issue?</a>'
-      //});
+      Swal.fire({
+        icon: "error",
+        title: "Oops...",
+        text: "Lo sentimos, al parecer ocurrió un error!",
+        footer: '<a href="#">Why do I have this issue?</a>',
+      });
       console.error(err);
     }
   };
 
   return (
-    <Container>
+    <Container className="Forms.shopping">
       <Row className="mt-3 pt-4">
         <Col md={6}>
           <Form>
@@ -228,15 +228,8 @@ function Forms() {
             type="submit"
             onClick={() => handleOrder()}
           >
-            Finalizar Compra
+            FINALIZAR
           </Button>
-
-          <Form.Group className="mb-3 mt-2" controlId="termsAndConditions">
-            <Form.Check
-              type="checkbox"
-              label="Estoy de acuerdo con los términos y condiciones."
-            />
-          </Form.Group>
         </Col>
       </Row>
     </Container>

@@ -92,7 +92,7 @@ const Cart = () => {
                     navigate("/shopping");
                   }}
                 >
-                  Finalizar Compra
+                  SIGUIENTE
                 </button>
               </div>
             </div>
