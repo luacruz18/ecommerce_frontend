@@ -1,6 +1,7 @@
 import React from "react";
 import Navbar from "react-bootstrap/Navbar";
 import Nav from "react-bootstrap/Nav";
+import Dropdown from "react-bootstrap/Dropdown";
 import { BsPersonFill, BsCart } from "react-icons/bs";
 import { Link } from "react-router-dom";
 import "../styles/App.css";
@@ -31,9 +32,19 @@ const CustomNavbar = () => {
           <Nav.Link as={Link} to="/carrito" className="cart-icon">
             <BsCart />
           </Nav.Link>
-          <Nav.Link as={Link} to="/iniciarsesion" className="person-fill">
-            <BsPersonFill />
-          </Nav.Link>
+          <Dropdown align="end">
+            <Dropdown.Toggle as="a" className="person-fill" id="dropdown-basic">
+              <BsPersonFill />
+            </Dropdown.Toggle>
+            <Dropdown.Menu className="dropdown-menu-custom">
+              <Dropdown.Item as={Link} to="/login">
+                Iniciar sesión como usuario
+              </Dropdown.Item>
+              <Dropdown.Item as={Link} to="/administrador">
+                Iniciar sesión como administrador
+              </Dropdown.Item>
+            </Dropdown.Menu>
+          </Dropdown>
         </Nav>
       </Navbar.Collapse>
     </Navbar>

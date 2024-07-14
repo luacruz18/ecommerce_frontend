@@ -48,6 +48,40 @@ body {
   color: #e93d3a;
 }
 
+/* Forzar color en todos los estados para person-fill y cart-icon */
+.person-fill,
+.person-fill:hover,
+.person-fill:focus,
+.person-fill:active,
+.cart-icon,
+.cart-icon:hover,
+.cart-icon:focus,
+.cart-icon:active {
+  color: #e93d3a !important;
+}
+
+/* Quitar la flecha hacia abajo del Dropdown.Toggle */
+.person-fill::after {
+  display: none !important;
+}
+
+/* Estilo personalizado para el menú del dropdown */
+.dropdown-menu-custom {
+  background-color: #0a0a0a; /* Fondo negro */
+  color: #e93d3a; /* Letras rojas */
+  border: none;
+}
+
+/* Estilo para los elementos del dropdown */
+.dropdown-menu-custom .dropdown-item {
+  color: #e93d3a; /* Letras rojas */
+}
+
+.dropdown-menu-custom .dropdown-item:hover {
+  background-color: #e93d3a; /* Fondo rojo al pasar el ratón */
+  color: #0a0a0a; /* Letras negras al pasar el ratón */
+}
+
 @media (max-width: 992px) {
   .navbar {
     flex-wrap: wrap;
