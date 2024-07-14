@@ -5,7 +5,8 @@ import Footer from "../components/Footer";
 import ProductCarousel from "../components/ProductCarousel";
 import Testimonials from "../components/Testimonials";
 import CollageDos from "../components/CollageDos";
-
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const Home = () => {
   return (
@@ -17,9 +18,16 @@ const Home = () => {
       <CollageDos />
       <Testimonials />
       <Footer />
-     
-      
-
+      <ToastContainer
+        position="bottom-right"
+        autoClose={3000}
+        hideProgressBar={false}
+        newestOnTop={true}
+        closeOnClick={true}
+        pauseOnHover={true}
+        draggable={true}
+        progressStyle={{ transition: "none" }}
+      />
     </div>
   );
 };
