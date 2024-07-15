@@ -1,44 +1,44 @@
 import React, { useState } from "react";
-import { useNavigate, Link } from "react-router-dom";
+import { useNavigate, Link} from "react-router-dom";
 import { Button } from "react-bootstrap";
 import { FaInstagram, FaTwitter, FaFacebook, FaLinkedin } from "react-icons/fa";
-import { toast } from "react-toastify"; // Importar toast de react-toastify
+import { useDispatch } from "react-redux";
+import { addUser } from "../redux/userReducer";
+import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import "../styles/Login.css";
 
 const Login = () => {
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [emailError, setEmailError] = useState("");
   const [passwordError, setPasswordError] = useState("");
 
-  const navigate = useNavigate();
+  const onButtonClick = async () => {
+    try {
+      const response = await fetch("http://localhost:3000/tokens", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ email, password }),
+      });
 
-  const onButtonClick = () => {
-    let valid = true;
+      if (!response.ok) {
+        throw new Error("Error en inicio de sesión");
+      }
 
-    setPasswordError("");
-    setEmailError("");
-    if (!email.trim()) {
-      setEmailError("Email is required");
-      valid = false;
+      const { token } = await response.json();
+      dispatch(addUser({ token }));
+      navigate("/"); 
+    } catch (error) {
+      console.error("Error en inicio de sesión:", error);
+      toast.error("Error en inicio de sesión. Verifica tus credenciales.");
     }
-
-    if (!password.trim()) {
-      setPasswordError("Password is required");
-      valid = false;
-    }
-
-    if (valid) {
-      // Simular éxito en el inicio de sesión
-      navigate("/dashboard");
-    }
-  };
-
-  const handleLinkClick = (message) => {
-    toast.error(message);
   };
 
   return (
@@ -75,26 +75,6 @@ const Login = () => {
             aria-label="Contraseña"
             aria-required="true"
           />
-          <div className="passwordExtras">
-            <div className="forgotPassword">
-              <Link to="#" className="forgotPasswordLink" onClick={() => handleLinkClick('¡El sitio está en construcción!')}>
-                ¿Olvidaste la contraseña?
-              </Link>
-            </div>
-            <div className="rememberMe">
-              <div className="form-check">
-                <input
-                  className="form-check-input"
-                  type="checkbox"
-                  id="rememberMe"
-                  defaultChecked
-                />
-                <label className="form-check-label" htmlFor="rememberMe">
-                  Recuérdame
-                </label>
-              </div>
-            </div>
-          </div>
           <label className="errorLabel" htmlFor="password">
             {passwordError}
           </label>
@@ -109,7 +89,7 @@ const Login = () => {
         <div className="text-center">
           <p className="notMember">
             ¿No tienes usuario?{" "}
-            <Link to="#" className="footer-link" onClick={() => handleLinkClick('¡El sitio está en construcción!')}>
+            <Link to="#" className="footer-link">
               Regístrate
             </Link>
           </p>
@@ -117,16 +97,16 @@ const Login = () => {
           <div className="socialIcons">
             <ul className="list-inline">
               <li className="list-inline-item">
-                <FaInstagram onClick={() => handleLinkClick('¡Inicio de sesión con Instagram no disponible!')} />
+                <FaInstagram />
               </li>
               <li className="list-inline-item">
-                <FaTwitter onClick={() => handleLinkClick('¡Inicio de sesión con Twitter no disponible!')} />
+                <FaTwitter />
               </li>
               <li className="list-inline-item">
-                <FaFacebook onClick={() => handleLinkClick('¡Inicio de sesión con Facebook no disponible!')} />
+                <FaFacebook />
               </li>
               <li className="list-inline-item">
-                <FaLinkedin onClick={() => handleLinkClick('¡Inicio de sesión con LinkedIn no disponible!')} />
+                <FaLinkedin />
               </li>
             </ul>
           </div>
