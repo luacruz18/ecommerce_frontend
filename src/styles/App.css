@@ -132,7 +132,10 @@ body {
     margin-right: 5px;
   }
 }
-
+img {
+  -webkit-user-drag: none;
+  user-drag: none;
+}
 .img {
   width: 100%;
   height: auto;

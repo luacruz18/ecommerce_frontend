@@ -23,6 +23,14 @@ const ProductList = () => {
     getProducts();
   }, []);
 
+  const categories = [
+    { name: 'Hardware', active: true },
+    { name: 'Periféricos', active: false },
+    { name: 'Monitores', active: false },
+    { name: 'Equipos Armados', active: false },
+    { name: 'Laptops', active: false },
+  ];
+
   return (
     <div>
       <Navbar />
@@ -32,38 +40,20 @@ const ProductList = () => {
         alt=""
       />
       <Container className="product-list">
-        <Breadcrumb />
+        <Breadcrumb className="breadcrumb" />
         <Row>
-          <Col md={2} className="d-none d-md-block sidebar">
-            <div className="sidebar-sticky">
+          <Col md={2} className="d-none d-md-block sidebar-unique">
+            <div className="sidebar-sticky-unique">
               <h4>CATEGORÍAS</h4>
               <hr />
-              <ul className="nav flex-column">
-                <li className="nav-item product-li">
-                  <a className="nav-link active" href="#">
-                    Hardware
-                  </a>
-                </li>
-                <li className="nav-item product-li">
-                  <a className="nav-link" href="#">
-                    Periféricos
-                  </a>
-                </li>
-                <li className="nav-item product-li">
-                  <a className="nav-link" href="#">
-                    Monitores
-                  </a>
-                </li>
-                <li className="nav-item product-li">
-                  <a className="nav-link" href="#">
-                    Equipos Armados
-                  </a>
-                </li>
-                <li className="nav-item product-li">
-                  <a className="nav-link" href="#">
-                    Laptops
-                  </a>
-                </li>
+              <ul className="nav-unique flex-column">
+                {categories.map((category) => (
+                  <li className="nav-item product-li-unique" key={category.name}>
+                    <a className={`nav-link ${category.active ? 'active' : ''}`} href="#">
+                      {category.name}
+                    </a>
+                  </li>
+                ))}
               </ul>
             </div>
           </Col>
@@ -78,7 +68,7 @@ const ProductList = () => {
                   lg={3}
                   className="mb-4"
                 >
-                  <CardProductList product={product} />
+                  <CardProductList product={product} className="card-product-unique"/>
                 </Col>
               ))}
             </Row>

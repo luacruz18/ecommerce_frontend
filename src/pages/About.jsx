@@ -25,7 +25,7 @@ const TeamMemberCard = ({ name, title, description, imgSrc, linkedinUrl }) => {
         <img src={imgSrc} className="card-img-top" alt={name} />
         <div className="card-body text-center">
           <h5 className="card-title">{name}</h5>
-          <h6 className="card-subtitle text-secondary my-1s">{title}</h6>
+          <h6 className="card-subtitle text-secondary my-1">{title}</h6>
           <p className="card-text">{description}</p>
         </div>
         <div className="card-footer d-flex justify-content-center">
@@ -46,7 +46,7 @@ const TeamMemberCard = ({ name, title, description, imgSrc, linkedinUrl }) => {
 
 function About() {
   return (
-    <div className="background-container">
+    <>
       <Navbar />
       <div className="container-lg mt-4">
         <h1 className="text-center">Sobre este proyecto</h1>
@@ -54,16 +54,7 @@ function About() {
           <hr />
           <div className="col-lg-12">
             <p className="introduction-text text-center">
-              ¡Bienvenidos a ZonaGamer!, un innovador proyecto de ecommerce
-              gestado por estudiantes de Anima, donde la creatividad y la pasión
-              se unen para ofrecerte una experiencia de compra única. En nuestra
-              plataforma, buscamos no solo satisfacer tus necesidades, sino
-              también inspirarte con productos cuidadosamente seleccionados que
-              reflejan nuestra dedicación y conocimiento. Nuestro equipo está
-              comprometido con la excelencia y se esfuerza por superar tus
-              expectativas en cada pedido. Explora nuestro catálogo y únete a
-              nosotros en este emocionante viaje hacia el comercio digital del
-              futuro.
+              ¡Bienvenidos a ZonaGamer!, un innovador proyecto de ecommerce creado por estudiantes de Anima, donde la creatividad y la pasión por la programación se unen en cada línea de código. En ZonaGamer, entendemos que el gaming no es solo un pasatiempo, sino una pasión y un estilo de vida. Hemos utilizado tecnologías modernas como Node.js, React, GitHub, JavaScript, CSS3, HTML5, Redux y MySQL para crear una experiencia única. Nuestro equipo está comprometido con la excelencia y trabaja incansablemente para superar los desafíos técnicos y aprender nuevas habilidades. Nos enorgullece nuestro esmero en la atención al detalle y la calidad de nuestro código, asegurándonos de que cada función y característica funcione perfectamente. Explora nuestra plataforma y descubre el resultado de nuestra dedicación y trabajo en equipo. ZonaGamer es una representación de nuestra pasión por el desarrollo de software y el gaming. ¡Gracias por acompañarnos en este emocionante viaje hacia el futuro del comercio digital y el desarrollo tecnológico!
             </p>
           </div>
         </div>
@@ -115,7 +106,7 @@ function About() {
         </div>
       </div>
       <Footer />
-    </div>
+    </>
   );
 }
 
