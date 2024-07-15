@@ -1,28 +1,9 @@
 import React from "react";
 import Slider from "react-slick";
-import { FiChevronRight, FiChevronLeft } from "react-icons/fi";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import CardProduct from "../components/CardProduct";
 import "../styles/App.css";
-
-const NextArrow = (props) => {
-  const { className, onClick } = props;
-  return (
-    <div className={className} onClick={onClick}>
-      <FiChevronRight size={30} color="grey" />
-    </div>
-  );
-};
-
-const PrevArrow = (props) => {
-  const { className, onClick } = props;
-  return (
-    <div className={className} onClick={onClick}>
-      <FiChevronLeft size={30} color="grey" />
-    </div>
-  );
-};
 
 function ProductCarousel() {
   const [products, setProducts] = React.useState([]);
@@ -52,8 +33,8 @@ function ProductCarousel() {
     slidesToShow: 4,
     slidesToScroll: 4,
     initialSlide: 0,
-    nextArrow: <NextArrow />,
-    prevArrow: <PrevArrow />,
+    nextArrow: null,
+    prevArrow: null, 
     responsive: [
       {
         breakpoint: 1024,

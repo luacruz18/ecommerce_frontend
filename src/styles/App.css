@@ -61,25 +61,21 @@ body {
 }
 
 /* Quitar la flecha hacia abajo del Dropdown.Toggle */
-.person-fill::after {
-  display: none !important;
+.dropdown-item {
+  color: #e93d3a; /* Color azul usado comúnmente para enlaces en Bootstrap */
+  text-decoration: none; /* Quitar subrayado predeterminado */
 }
 
-/* Estilo personalizado para el menú del dropdown */
-.dropdown-menu-custom {
-  background-color: #0a0a0a; /* Fondo negro */
-  color: #e93d3a; /* Letras rojas */
-  border: none;
+.dropdown-item:hover {
+  color: #e93d3a; /* Cambiar color al pasar el ratón por encima */
 }
 
-/* Estilo para los elementos del dropdown */
-.dropdown-menu-custom .dropdown-item {
-  color: #e93d3a; /* Letras rojas */
+.dropdown-item:active {
+  color: #e93d3a; /* Cambiar color cuando está activo (pulsado) */
 }
 
-.dropdown-menu-custom .dropdown-item:hover {
-  background-color: #e93d3a; /* Fondo rojo al pasar el ratón */
-  color: #0a0a0a; /* Letras negras al pasar el ratón */
+.dropdown-item:focus {
+  color: #e93d3a; /* Cambiar color cuando está enfocado */
 }
 
 @media (max-width: 992px) {
