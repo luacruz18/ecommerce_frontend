@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import { Button, Col, Form, Row, Card, Container } from "react-bootstrap";
-import { removeItem, clearCart } from "../redux/cartSlice";
 import Swal from "sweetalert2";
 import { useSelector, useDispatch } from "react-redux";
 import axios from "axios";
+import { useNavigate } from "react-router-dom"; // Importa useNavigate en lugar de Redirect
 
 function Forms() {
   const [billingToCompany, setBillingToCompany] = useState(false);
@@ -14,6 +14,7 @@ function Forms() {
   const cartItems = useSelector((state) => state.cart.items);
   const token = useSelector((state) => state.user.token);
   const dispatch = useDispatch();
+  const navigate = useNavigate(); // Obtiene la función navigate para la redirección
 
   const handleRemoveFromCart = (itemId) => {
     dispatch(removeItem(itemId));
@@ -42,15 +43,15 @@ function Forms() {
   const handleOrder = async () => {
     console.log("handleOrder");
     try {
-      await axios("http://localhost:3000/orders", {
-        method: "POST",
+      await axios.post("http://localhost:3000/orders", {
         data: "hola",
+      }, {
         headers: { Authorization: `Bearer ${token}` },
       });
 
       Swal.fire({
         title: "Tu compra se ha realizado de manera exitosa.",
-        text: " ¡Te esperamos pronto!",
+        text: "¡Te esperamos pronto!",
         icon: "success",
         confirmButtonColor: "#E93D3A",
         color: "Black",
@@ -64,6 +65,17 @@ function Forms() {
       });
       console.error(err);
     }
+  };
+
+  const handleFinalizarClick = async () => {
+    if (!token) {
+      // Si no hay token, redirigir al usuario al formulario de inicio de sesión
+      navigate('/login');
+      return;
+    }
+
+    // Si hay token, continuar con la lógica para finalizar la orden
+    await handleOrder();
   };
 
   return (
@@ -223,10 +235,10 @@ function Forms() {
             </Card.Body>
           </Card>
           <Button
-            className=" col-6 button mt-3 w-25 btn-sm"
+            className="col-6 button mt-3 w-25 btn-sm"
             variant="secondary"
-            type="submit"
-            onClick={() => handleOrder()}
+            type="button" // Cambiado de "submit" a "button"
+            onClick={handleFinalizarClick} // Utiliza handleFinalizarClick para manejar el click
           >
             FINALIZAR
           </Button>
