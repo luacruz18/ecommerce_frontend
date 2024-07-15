@@ -3,7 +3,7 @@ import { Button, Col, Form, Row, Card, Container } from "react-bootstrap";
 import Swal from "sweetalert2";
 import { useSelector, useDispatch } from "react-redux";
 import axios from "axios";
-import { useNavigate } from "react-router-dom"; // Importa useNavigate en lugar de Redirect
+import { useNavigate } from "react-router-dom";
 
 function Forms() {
   const [billingToCompany, setBillingToCompany] = useState(false);
@@ -14,7 +14,7 @@ function Forms() {
   const cartItems = useSelector((state) => state.cart.items);
   const token = useSelector((state) => state.user.token);
   const dispatch = useDispatch();
-  const navigate = useNavigate(); // Obtiene la función navigate para la redirección
+  const navigate = useNavigate(); 
 
   const handleRemoveFromCart = (itemId) => {
     dispatch(removeItem(itemId));
@@ -30,8 +30,8 @@ function Forms() {
 
   if (cartItems.length > 0) {
     subtotal = cartItems.reduce((total, item) => {
-      const itemPrice = item.price || 0; //  item.price es undefined asigna 0
-      const itemQuantity = item.quantity || 1; // item.quantity undefine asigna 1
+      const itemPrice = item.price || 0; 
+      const itemQuantity = item.quantity || 1; 
 
       return total + itemPrice * itemQuantity;
     }, 0);
@@ -69,12 +69,12 @@ function Forms() {
 
   const handleFinalizarClick = async () => {
     if (!token) {
-      // Si no hay token, redirigir al usuario al formulario de inicio de sesión
+      
       navigate('/login');
       return;
     }
 
-    // Si hay token, continuar con la lógica para finalizar la orden
+    
     await handleOrder();
   };
 
@@ -237,8 +237,8 @@ function Forms() {
           <Button
             className="col-6 button mt-3 w-25 btn-sm"
             variant="secondary"
-            type="button" // Cambiado de "submit" a "button"
-            onClick={handleFinalizarClick} // Utiliza handleFinalizarClick para manejar el click
+            type="button" 
+            onClick={handleFinalizarClick} 
           >
             FINALIZAR
           </Button>

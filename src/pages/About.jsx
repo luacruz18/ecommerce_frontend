@@ -85,7 +85,7 @@ function About() {
               name="Santiago Cozzi"
               title="Co-founder"
               description="Nuestro equipo se dedica a asegurar que todos en nuestra plataforma global cuenten con la tecnología necesaria para progresar."
-              imgSrc="\img\8804887.jpg"
+              imgSrc="\img\FotoSantiago.png"
               linkedinUrl="https://www.linkedin.com/in/santiago-cozzi-silva/"
             />
             <TeamMemberCard
