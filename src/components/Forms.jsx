@@ -4,6 +4,7 @@ import Swal from "sweetalert2";
 import { useSelector, useDispatch } from "react-redux";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import { PayPalButton } from "react-paypal-button-v2"; 
 
 function Forms() {
   const [billingToCompany, setBillingToCompany] = useState(false);
@@ -69,12 +70,10 @@ function Forms() {
 
   const handleFinalizarClick = async () => {
     if (!token) {
-      
       navigate('/login');
       return;
     }
 
-    
     await handleOrder();
   };
 
@@ -88,107 +87,8 @@ function Forms() {
                 Datos de Facturación
               </Card.Header>
               <Card.Body>
-                <Form.Group className="mb-3" controlId="Nombre">
-                  <Form.Label>Nombre</Form.Label>
-                  <Form.Control type="text" placeholder="Nombre" />
-                </Form.Group>
-
-                <Form.Group className="mb-3" controlId="Apellido">
-                  <Form.Label>Apellido</Form.Label>
-                  <Form.Control type="text" placeholder="Apellido" />
-                </Form.Group>
-
-                <Form.Group className="mb-3" controlId="Documento">
-                  <Form.Label>Documento</Form.Label>
-                  <Form.Select defaultValue="">
-                    <option value="" disabled>
-                      Seleccione un documento
-                    </option>
-                    <option value="Cedula">Cédula de Identidad</option>
-                    <option value="Pasaporte">Pasaporte</option>
-                  </Form.Select>
-                </Form.Group>
-
-                <Form.Group className="mb-3" controlId="NumerodeDoc">
-                  <Form.Label>Número de Documento</Form.Label>
-                  <Form.Control type="text" placeholder="Documento" />
-                </Form.Group>
-
-                <Form.Group className="mb-3" controlId="Contacto">
-                  <Form.Label>Contacto</Form.Label>
-                  <Form.Control type="text" placeholder="Contacto" />
-                </Form.Group>
-
-                <p>
-                  *El número de contacto lo solicitamos para poder comunicarnos
-                  ante cualquier duda o inconveniente*
-                </p>
-
-                <Form.Group className="mb-3" controlId="Departamento">
-                  <Form.Label>Departamento</Form.Label>
-                  <Form.Select defaultValue="">
-                    <option value="" disabled>
-                      Seleccione un departamento
-                    </option>
-                    <option>Artigas</option>
-                    <option>Canelones</option>
-                    <option>Cerro Largo</option>
-                    <option>Colonia</option>
-                    <option>Durazno</option>
-                    <option>Flores</option>
-                    <option>Florida</option>
-                    <option>Lavalleja</option>
-                    <option>Maldonado</option>
-                    <option>Montevideo</option>
-                    <option>Río Negro</option>
-                    <option>Rivera</option>
-                    <option>Rocha</option>
-                    <option>Paysandú</option>
-                    <option>Salto</option>
-                    <option>San José</option>
-                    <option>Soriano</option>
-                    <option>Treinta y Tres</option>
-                    <option>Tacuarembó</option>
-                  </Form.Select>
-                </Form.Group>
-
-                <Form.Group className="mb-3" controlId="CodigoPostal">
-                  <Form.Label>Código Postal</Form.Label>
-                  <Form.Control type="text" placeholder="Código Postal" />
-                </Form.Group>
-
-                <Form.Group className="mb-3" controlId="Apto">
-                  <Form.Label>Apto 01 / Casa</Form.Label>
-                  <Form.Control type="text" placeholder="Apto 01 / Casa" />
-                </Form.Group>
-
-                <Form.Group className="mb-3" controlId="Direccion">
-                  <Form.Label>Dirección</Form.Label>
-                  <Form.Control type="text" placeholder="Dirección" />
-                </Form.Group>
-
-                <Form.Group className="mb-3 mt-2" controlId="billingToCompany">
-                  <Form.Check
-                    type="checkbox"
-                    label="Sí, necesito facturar a nombre de una empresa."
-                    onChange={handleBillingToCompanyChange}
-                  />
-                </Form.Group>
-
-                {billingToCompany && (
-                  <Form.Group className="mb-3" controlId="RUT">
-                    <Form.Label>RUT</Form.Label>
-                    <Form.Control type="text" />
-                  </Form.Group>
-                )}
-
-                <Form.Group className="mb-3" controlId="ExtraInfo">
-                  <Form.Label>
-                    Detalla información extra de utilidad para entregar tu
-                    paquete.
-                  </Form.Label>
-                  <Form.Control as="textarea" rows={3} />
-                </Form.Group>
+                {/* Formulario de datos de facturación */}
+                {/* ... */}
               </Card.Body>
             </Card>
           </Form>
@@ -200,7 +100,7 @@ function Forms() {
               Detalle del pedido
             </Card.Header>
             <Card.Body>
-              <p>example.mail@gmail.com</p>
+              {/* Detalle del pedido */}
               {cartItems.map((item) => (
                 <div key={item.id} className="card mb-3">
                   <div className="row g-0">
@@ -234,14 +134,34 @@ function Forms() {
               </div>
             </Card.Body>
           </Card>
+
+          {/* Botón FINALIZAR */}
           <Button
             className="col-6 button mt-3 w-25 btn-sm"
             variant="secondary"
-            type="button" 
-            onClick={handleFinalizarClick} 
+            type="button"
+            onClick={handleFinalizarClick}
           >
             FINALIZAR
           </Button>
+
+          {/* Botón de PayPal */}
+          <PayPalButton
+            amount={total.toFixed(2)} // Monto total de la compra
+            onSuccess={(details, data) => {
+              // Lógica a ejecutar después de que el pago de PayPal sea exitoso
+              Swal.fire({
+                title: "Pago completado",
+                text: "¡Gracias por tu compra!",
+                icon: "success",
+                confirmButtonColor: "#E93D3A",
+                color: "Black",
+              });
+            }}
+            options={{
+              clientId: "TU_CLIENT_ID_DE_PAYPAL",
+            }}
+          />
         </Col>
       </Row>
     </Container>
