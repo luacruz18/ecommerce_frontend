@@ -1,5 +1,3 @@
-// pages/Login.js
-
 import React, { useState } from "react";
 import { Button } from "react-bootstrap";
 import { FaInstagram, FaTwitter, FaFacebook, FaLinkedin } from "react-icons/fa";
