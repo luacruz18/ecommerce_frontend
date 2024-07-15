@@ -27,12 +27,13 @@ const UsersComponent = () => {
     const fetchData = async () => {
       try {
         const usersData = await fetchUsers();
+        console.log("Users data:", usersData); // Verifica los datos recibidos
         setDatabase(usersData);
       } catch (error) {
         console.error("Error fetching users:", error);
       }
     };
-
+  
     fetchData();
   }, []);
 

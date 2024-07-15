@@ -42,29 +42,33 @@ const CustomNavbar = () => {
           <Nav.Link as={Link} to="/carrito" className="cart-icon">
             <BsCart />
           </Nav.Link>
-          {token ? (
-            <Nav.Link as={Link} to="/login" onClick={handleLogout} className="person-fill">
-              Cerrar sesión
-            </Nav.Link>
-          ) : (
-            <Dropdown align="end">
-              <Dropdown.Toggle
-                as="a"
-                className="person-fill"
-                id="dropdown-basic"
-              >
-                <BsPersonFill />
-              </Dropdown.Toggle>
-              <Dropdown.Menu className="dropdown-menu-custom">
-                <Dropdown.Item as={Link} to="/login">
-                  Iniciar sesión como usuario
+          <Dropdown align="end">
+            <Dropdown.Toggle
+              as="a"
+              className="person-fill"
+              id="dropdown-basic"
+            >
+              <BsPersonFill />
+            </Dropdown.Toggle>
+            <Dropdown.Menu className="dropdown-menu-custom">
+              {token ? (
+                <Dropdown.Item onClick={handleLogout} className="dropdown-item">
+                  <Link to="/login" className="nav-link">
+                    Cerrar sesión
+                  </Link>
                 </Dropdown.Item>
-                <Dropdown.Item as={Link} to="/administrador">
-                  Iniciar sesión como administrador
-                </Dropdown.Item>
-              </Dropdown.Menu>
-            </Dropdown>
-          )}
+              ) : (
+                <>
+                  <Dropdown.Item as={Link} to="/login" className="dropdown-item">
+                    Iniciar sesión como usuario
+                  </Dropdown.Item>
+                  <Dropdown.Item as={Link} to="/administrador" className="dropdown-item">
+                    Iniciar sesión como administrador
+                  </Dropdown.Item>
+                </>
+              )}
+            </Dropdown.Menu>
+          </Dropdown>
         </Nav>
       </Navbar.Collapse>
     </Navbar>
