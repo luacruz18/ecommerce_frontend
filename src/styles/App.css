@@ -123,9 +123,7 @@ body {
 
 img {
   -webkit-user-drag: none;
-  user-drag: none;
 }
-
 .img {
   width: 100%;
   height: auto;
