@@ -187,3 +187,19 @@ body {
   margin-bottom: 10px;
   color: white;
 }
+/* Estilos existentes */
+
+.inputContainer {
+  width: 100%;
+  margin-bottom: 20px;
+  position: relative;
+}
+
+.errorLabel {
+  color: #e93d3a;
+  font-size: 14px;
+  margin-top: 5px;
+  text-align: center; /* Cambiado de left a center */
+  width: 100%;
+  display: block;
+}

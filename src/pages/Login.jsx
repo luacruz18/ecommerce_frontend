@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import { Button } from "react-bootstrap";
 import { FaInstagram, FaTwitter, FaFacebook, FaLinkedin } from "react-icons/fa";
+import { toast } from "react-toastify"; // Importar toast de react-toastify
+import "react-toastify/dist/ReactToastify.css";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import "../styles/Login.css";
@@ -17,9 +19,8 @@ const Login = () => {
   const onButtonClick = () => {
     let valid = true;
 
-    setEmailError("");
     setPasswordError("");
-
+    setEmailError("");
     if (!email.trim()) {
       setEmailError("Email is required");
       valid = false;
@@ -31,8 +32,13 @@ const Login = () => {
     }
 
     if (valid) {
+      // Simular éxito en el inicio de sesión
       navigate("/dashboard");
     }
+  };
+
+  const handleLinkClick = (message) => {
+    toast.error(message);
   };
 
   return (
@@ -71,7 +77,7 @@ const Login = () => {
           />
           <div className="passwordExtras">
             <div className="forgotPassword">
-              <Link to="/forgot-password" className="forgotPasswordLink">
+              <Link to="#" className="forgotPasswordLink" onClick={() => handleLinkClick('¡El sitio está en construcción!')}>
                 ¿Olvidaste la contraseña?
               </Link>
             </div>
@@ -102,22 +108,25 @@ const Login = () => {
         </Button>
         <div className="text-center">
           <p className="notMember">
-            ¿No tienes usuario? <Link to="/register">Regístrate</Link>
+            ¿No tienes usuario?{" "}
+            <Link to="#" className="footer-link" onClick={() => handleLinkClick('¡El sitio está en construcción!')}>
+              Regístrate
+            </Link>
           </p>
           <p className="orSignUp">o ingresar con</p>
           <div className="socialIcons">
             <ul className="list-inline">
               <li className="list-inline-item">
-                <FaInstagram />
+                <FaInstagram onClick={() => handleLinkClick('¡Inicio de sesión con Instagram no disponible!')} />
               </li>
               <li className="list-inline-item">
-                <FaTwitter />
+                <FaTwitter onClick={() => handleLinkClick('¡Inicio de sesión con Twitter no disponible!')} />
               </li>
               <li className="list-inline-item">
-                <FaFacebook />
+                <FaFacebook onClick={() => handleLinkClick('¡Inicio de sesión con Facebook no disponible!')} />
               </li>
               <li className="list-inline-item">
-                <FaLinkedin />
+                <FaLinkedin onClick={() => handleLinkClick('¡Inicio de sesión con LinkedIn no disponible!')} />
               </li>
             </ul>
           </div>

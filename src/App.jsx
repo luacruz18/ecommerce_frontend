@@ -1,6 +1,8 @@
 import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { Provider } from "react-redux";
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import store from "./redux/store";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Home from "./pages/Home";
@@ -13,11 +15,11 @@ import Cart from "./pages/Cart";
 import Login from "./pages/Login";
 import Adminlogin from "./pages/AdminLogin";
 
-
 function App() {
   return (
     <Provider store={store}>
       <Router>
+        <ToastContainer />
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/productos" element={<Products />} />
