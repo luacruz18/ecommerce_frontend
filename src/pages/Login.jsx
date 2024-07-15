@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useNavigate, Link} from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import { Button } from "react-bootstrap";
 import { FaInstagram, FaTwitter, FaFacebook, FaLinkedin } from "react-icons/fa";
 import { useDispatch } from "react-redux";
@@ -34,11 +34,15 @@ const Login = () => {
 
       const { token } = await response.json();
       dispatch(addUser({ token }));
-      navigate("/"); 
+      navigate("/");
     } catch (error) {
       console.error("Error en inicio de sesión:", error);
       toast.error("Error en inicio de sesión. Verifica tus credenciales.");
     }
+  };
+
+  const handleErrorClick = (message) => {
+    toast.error(message);
   };
 
   return (
@@ -89,7 +93,13 @@ const Login = () => {
         <div className="text-center">
           <p className="notMember">
             ¿No tienes usuario?{" "}
-            <Link to="#" className="footer-link">
+            <Link
+              to="#"
+              className="footer-link"
+              onClick={() =>
+                handleErrorClick("Error: ¡El sitio está en construcción!")
+              }
+            >
               Regístrate
             </Link>
           </p>
@@ -97,16 +107,32 @@ const Login = () => {
           <div className="socialIcons">
             <ul className="list-inline">
               <li className="list-inline-item">
-                <FaInstagram />
+                <FaInstagram
+                  onClick={() =>
+                    handleErrorClick("Error: ¡El sitio está en construcción!")
+                  }
+                />
               </li>
               <li className="list-inline-item">
-                <FaTwitter />
+                <FaTwitter
+                  onClick={() =>
+                    handleErrorClick("Error: ¡El sitio está en construcción!")
+                  }
+                />
               </li>
               <li className="list-inline-item">
-                <FaFacebook />
+                <FaFacebook
+                  onClick={() =>
+                    handleErrorClick("Error: ¡El sitio está en construcción!")
+                  }
+                />
               </li>
               <li className="list-inline-item">
-                <FaLinkedin />
+                <FaLinkedin
+                  onClick={() =>
+                    handleErrorClick("Error: ¡El sitio está en construcción!")
+                  }
+                />
               </li>
             </ul>
           </div>
