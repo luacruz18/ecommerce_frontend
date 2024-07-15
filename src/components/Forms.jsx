@@ -4,7 +4,7 @@ import Swal from "sweetalert2";
 import { useSelector, useDispatch } from "react-redux";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
-import { PayPalButton } from "react-paypal-button-v2"; 
+import { PayPalButton } from "react-paypal-button-v2";
 
 function Forms() {
   const [billingToCompany, setBillingToCompany] = useState(false);
@@ -15,7 +15,7 @@ function Forms() {
   const cartItems = useSelector((state) => state.cart.items);
   const token = useSelector((state) => state.user.token);
   const dispatch = useDispatch();
-  const navigate = useNavigate(); 
+  const navigate = useNavigate();
 
   const handleRemoveFromCart = (itemId) => {
     dispatch(removeItem(itemId));
@@ -31,8 +31,8 @@ function Forms() {
 
   if (cartItems.length > 0) {
     subtotal = cartItems.reduce((total, item) => {
-      const itemPrice = item.price || 0; 
-      const itemQuantity = item.quantity || 1; 
+      const itemPrice = item.price || 0;
+      const itemQuantity = item.quantity || 1;
 
       return total + itemPrice * itemQuantity;
     }, 0);
@@ -78,24 +78,55 @@ function Forms() {
   };
 
   return (
-    <Container className="Forms.shopping">
+    <Container className="Forms shopping">
       <Row className="mt-3 pt-4">
         <Col md={6}>
-          <Form>
-            <Card>
-              <Card.Header className="datos-card" as="h4">
-                Datos de Facturación
-              </Card.Header>
-              <Card.Body>
-                {/* Formulario de datos de facturación */}
-                {/* ... */}
-              </Card.Body>
-            </Card>
-          </Form>
+          <Card className="form-card">
+            <Card.Header className="datos-card" as="h4">
+              Datos de Facturación
+            </Card.Header>
+            <Card.Body>
+              <Form>
+                <Form.Group className="mb-3" controlId="nombre">
+                  <Form.Label>Nombre</Form.Label>
+                  <Form.Control type="text" placeholder="Ingrese su nombre" required />
+                </Form.Group>
+
+                <Form.Group className="mb-3" controlId="apellido">
+                  <Form.Label>Apellido</Form.Label>
+                  <Form.Control type="text" placeholder="Ingrese su apellido" required />
+                </Form.Group>
+
+                <Form.Group className="mb-3" controlId="telefono">
+                  <Form.Label>Teléfono</Form.Label>
+                  <Form.Control type="tel" placeholder="Ingrese su teléfono" required />
+                </Form.Group>
+
+                <Form.Group className="mb-3" controlId="direccion">
+                  <Form.Label>Dirección</Form.Label>
+                  <Form.Control type="text" placeholder="Ingrese su dirección" required />
+                </Form.Group>
+
+                <Form.Group className="mb-3" controlId="codigoPostal">
+                  <Form.Label>Código Postal</Form.Label>
+                  <Form.Control type="text" placeholder="Ingrese su código postal" required />
+                </Form.Group>
+
+                <Form.Group className="mb-3" controlId="indicaciones">
+                  <Form.Label>Indicaciones</Form.Label>
+                  <Form.Control as="textarea" rows={3} placeholder="Indique alguna instrucción adicional" />
+                </Form.Group>
+
+                <Button variant="primary" type="submit" className="button">
+                  Guardar
+                </Button>
+              </Form>
+            </Card.Body>
+          </Card>
         </Col>
 
         <Col md={6}>
-          <Card>
+          <Card className="form-card">
             <Card.Header className="datos-card" as="h4">
               Detalle del pedido
             </Card.Header>
@@ -147,9 +178,9 @@ function Forms() {
 
           {/* Botón de PayPal */}
           <PayPalButton
-            amount={total.toFixed(2)} // Monto total de la compra
+            amount={total.toFixed(2)} 
             onSuccess={(details, data) => {
-              // Lógica a ejecutar después de que el pago de PayPal sea exitoso
+             
               Swal.fire({
                 title: "Pago completado",
                 text: "¡Gracias por tu compra!",
