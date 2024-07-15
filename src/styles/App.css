@@ -318,19 +318,22 @@ h3 {
   font-family: "Montserrat";
 }
 
-.form-container {
-  background-color: white;
+.Forms.shopping .button {
+  background-color: #e93d3a; 
+  color: black; 
+  font-family: "Montserrat", sans-serif; 
+  border: 1px solid #e93d3a; 
+}
 
-  justify-content: flex-end;
+.Forms.shopping .button:hover {
+  background-color: #b02b27; 
 }
-.datos-card {
-  background-color: #e93d3a;
-  font-family: "Montserrat";
+
+.Forms.shopping .button:focus {
+  box-shadow: none; 
+}
+
+.form-card {
+  background-color:#1C1C1C;
   color: white;
-}
-.form-check-label {
-  color: #0a0a0a;
-}
-.Forms.shopping {
-  background-color: #eaeaea;
 }
