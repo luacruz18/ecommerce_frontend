@@ -3,6 +3,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { removeItem, clearCart } from "../redux/cartSlice";
 import Navbar from "../components/Navbar";
 import { useNavigate } from "react-router-dom";
+import "../styles/App.css"; // Importación del archivo CSS
 
 const Cart = () => {
   const navigate = useNavigate();
@@ -87,7 +88,7 @@ const Cart = () => {
                 <p className="card-text">Impuestos: ${tax.toFixed(2)}</p>
                 <h3 className="card-text">Total: ${total.toFixed(2)}</h3>
                 <button
-                  className="btn btn-success"
+                  className="btn btn-next"
                   onClick={() => {
                     navigate("/shopping");
                   }}

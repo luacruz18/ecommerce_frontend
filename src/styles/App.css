@@ -1,6 +1,6 @@
 body {
   margin: 0;
-  font-family: 'Montserrat', sans-serif;
+  font-family: "Montserrat", sans-serif;
 }
 
 .navbar {
@@ -48,7 +48,6 @@ body {
   color: #e93d3a;
 }
 
-/* Forzar color en todos los estados para person-fill y cart-icon */
 .person-fill,
 .person-fill:hover,
 .person-fill:focus,
@@ -60,22 +59,15 @@ body {
   color: #e93d3a !important;
 }
 
-/* Quitar la flecha hacia abajo del Dropdown.Toggle */
 .dropdown-item {
-  color: #e93d3a; /* Color azul usado comúnmente para enlaces en Bootstrap */
-  text-decoration: none; /* Quitar subrayado predeterminado */
+  color: #e93d3a;
+  text-decoration: none;
 }
 
-.dropdown-item:hover {
-  color: #e93d3a; /* Cambiar color al pasar el ratón por encima */
-}
-
-.dropdown-item:active {
-  color: #e93d3a; /* Cambiar color cuando está activo (pulsado) */
-}
-
+.dropdown-item:hover,
+.dropdown-item:active,
 .dropdown-item:focus {
-  color: #e93d3a; /* Cambiar color cuando está enfocado */
+  color: #e93d3a;
 }
 
 @media (max-width: 992px) {
@@ -128,10 +120,12 @@ body {
     margin-right: 5px;
   }
 }
+
 img {
   -webkit-user-drag: none;
   user-drag: none;
 }
+
 .img {
   width: 100%;
   height: auto;
@@ -239,6 +233,7 @@ h3 {
   font-family: "Montserrat", sans-serif;
   font-weight: 800;
 }
+
 .p {
   font-family: "Montserrat", sans-serif;
 }
@@ -278,6 +273,7 @@ h3 {
   background-color: black;
   color: white;
 }
+
 .background-img {
   width: 100%;
 }
@@ -294,6 +290,7 @@ h3 {
 .product-list {
   margin-top: 125px;
 }
+
 .banner-img {
   max-width: 100%;
 }
@@ -310,26 +307,42 @@ h3 {
   padding-top: 10px;
   font-family: "Montserrat";
 }
+
 .p {
   font-family: "Montserrat";
 }
 
 .Forms.shopping .button {
-  background-color: #e93d3a; 
-  color: black; 
-  font-family: "Montserrat", sans-serif; 
-  border: 1px solid #e93d3a; 
+  background-color: #e93d3a;
+  color: #252525;
+  font-family: "Montserrat", sans-serif;
+  border: 1px solid #e93d3a;
 }
 
 .Forms.shopping .button:hover {
-  background-color: #b02b27; 
+  background-color: #b02b27;
 }
 
 .Forms.shopping .button:focus {
-  box-shadow: none; 
+  box-shadow: none;
 }
 
 .form-card {
-  background-color:#1C1C1C;
+  background-color: #252525;
   color: white;
+}
+
+.card {
+  background-color: #252525;
+  color: #fff;
+}
+
+.btn.btn-danger {
+  background-color: #dc3545;
+  color: #fff;
+}
+
+.btn-next {
+  background-color: #dc3545;
+  color: #fff;
 }
