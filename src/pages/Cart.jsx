@@ -3,6 +3,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { removeItem, clearCart } from "../redux/cartSlice";
 import Navbar from "../components/Navbar";
 import { useNavigate } from "react-router-dom";
+
 const Cart = () => {
   const navigate = useNavigate();
   const cartItems = useSelector((state) => state.cart.items);
@@ -22,9 +23,8 @@ const Cart = () => {
 
   if (cartItems.length > 0) {
     subtotal = cartItems.reduce((total, item) => {
-      const itemPrice = item.price || 0; //  item.price es undefined asigna 0
-      const itemQuantity = item.quantity || 1; // item.quantity undefine asigna 1
-
+      const itemPrice = item.price || 0;
+      const itemQuantity = item.quantity || 1;
       return total + itemPrice * itemQuantity;
     }, 0);
 
@@ -73,7 +73,7 @@ const Cart = () => {
                     </div>
                   </div>
                 ))}
-                <button className=" button btn btn" onClick={handleClearCart}>
+                <button className="btn btn-danger" onClick={handleClearCart}>
                   Vaciar carrito
                 </button>
               </div>
